@@ -93,7 +93,7 @@ const Collab = () => {
             <div className="space-y-4">
               <Button 
                 className="bg-terracotta hover:bg-terracotta/90 text-paper px-8 py-4 text-lg rounded-none"
-                onClick={() => window.open('https://buymeacoffee.com/kham', '_blank')}
+                onClick={() => window.open('https://coff.ee/KhaMLabs', '_blank')}
               >
                 Support on Buy Me a Coffee
               </Button>
