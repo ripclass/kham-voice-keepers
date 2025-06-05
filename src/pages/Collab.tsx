@@ -10,16 +10,16 @@ const Collab = () => {
         <title>Support KhaM – Help Preserve Disappearing Languages in AI</title>
         <meta name="description" content="Join the mission to preserve South Asian dialects. Support KhaM with a story, tool, or collaboration." />
         <meta name="keywords" content="support cultural AI, contribute to open-source language preservation, support South Asian AI project, collaborate on memory preservation, fund voice-based AI projects" />
-        
-        {/* Open Graph tags */}
         <meta property="og:title" content="Support KhaM – Build Memory Infrastructure Together" />
         <meta property="og:description" content="Help register KhaM and preserve emotional nuance in disappearing languages." />
         <meta property="og:type" content="website" />
-        
-        {/* Twitter Card tags */}
+        <meta property="og:url" content="https://khamlabs.org/collab" />
+        <meta property="og:image" content="https://khamlabs.org/og/kham-main.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Support KhaM – Help Preserve Disappearing Languages in AI" />
         <meta name="twitter:description" content="Join the mission to preserve South Asian dialects. Support KhaM with a story, tool, or collaboration." />
+        <meta name="twitter:image" content="https://khamlabs.org/og/kham-main.jpg" />
+        <link rel="canonical" href="https://khamlabs.org/collab" />
       </Helmet>
 
       <div className="min-h-screen bg-paper text-ink">

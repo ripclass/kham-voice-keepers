@@ -11,7 +11,27 @@ const Contact = () => {
         <meta property="og:title" content="Contact – Reach Out to KhaM" />
         <meta property="og:description" content="Let's talk. We're open to collaboration, questions, and support." />
         <meta property="og:url" content="https://khamlabs.org/contact" />
+        <meta property="og:image" content="https://khamlabs.org/og/kham-main.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact – Reach Out to KhaM" />
+        <meta name="twitter:description" content="Let's talk. We're open to collaboration, questions, and support." />
+        <meta name="twitter:image" content="https://khamlabs.org/og/kham-main.jpg" />
+        <link rel="canonical" href="https://khamlabs.org/contact" />
+        
+        <script type="application/ld+json">
+          {`{
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact KhaM",
+            "url": "https://khamlabs.org/contact",
+            "description": "Contact page for KhaM - preserving disappearing voices in AI from South Asia",
+            "isPartOf": {
+              "@type": "Organization",
+              "name": "KhaM",
+              "url": "https://khamlabs.org"
+            }
+          }`}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-paper text-ink">

@@ -9,16 +9,16 @@ const Library = () => {
         <title>KhaM Library – Research, Resources, and Language Preservation Tools</title>
         <meta name="description" content="Explore research on emotional accuracy in AI, endangered language links, and community-contributed tools." />
         <meta name="keywords" content="research on South Asian languages, emotional accuracy in NLP, voice preservation in AI, cultural phonetics glossary, endangered language tools" />
-        
-        {/* Open Graph tags */}
         <meta property="og:title" content="KhaM Research Library – Cultural and AI Voice Tools" />
         <meta property="og:description" content="A living archive of references, glossaries, and open-source support for endangered dialects." />
         <meta property="og:type" content="website" />
-        
-        {/* Twitter Card tags */}
+        <meta property="og:url" content="https://khamlabs.org/library" />
+        <meta property="og:image" content="https://khamlabs.org/og/kham-main.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="KhaM Library – Research, Resources, and Language Preservation Tools" />
         <meta name="twitter:description" content="Explore research on emotional accuracy in AI, endangered language links, and community-contributed tools." />
+        <meta name="twitter:image" content="https://khamlabs.org/og/kham-main.jpg" />
+        <link rel="canonical" href="https://khamlabs.org/library" />
       </Helmet>
 
       <div className="min-h-screen bg-paper text-ink">

@@ -9,16 +9,16 @@ const Voices = () => {
         <title>Voices We're Saving – South Asian Dialects & Emotional Speech Archive</title>
         <meta name="description" content="A preview of the disappearing voices KhaM is preserving. Emotional nuance, consent, and context first." />
         <meta name="keywords" content="voice archive South Asia, Bangla dialect samples, ethical voice dataset, emotional speech in AI, AI for language preservation" />
-        
-        {/* Open Graph tags */}
         <meta property="og:title" content="Voices from South Asia – The Archive in Progress" />
         <meta property="og:description" content="Hear the emotional resonance of Bangla, Urdu, Hindi, and more." />
         <meta property="og:type" content="website" />
-        
-        {/* Twitter Card tags */}
+        <meta property="og:url" content="https://khamlabs.org/voices" />
+        <meta property="og:image" content="https://khamlabs.org/og/kham-main.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Voices We're Saving – South Asian Dialects & Emotional Speech Archive" />
         <meta name="twitter:description" content="A preview of the disappearing voices KhaM is preserving. Emotional nuance, consent, and context first." />
+        <meta name="twitter:image" content="https://khamlabs.org/og/kham-main.jpg" />
+        <link rel="canonical" href="https://khamlabs.org/voices" />
       </Helmet>
 
       <div className="min-h-screen bg-paper text-ink">
