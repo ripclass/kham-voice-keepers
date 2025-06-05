@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 
 const Team = () => {
@@ -27,27 +26,25 @@ const Team = () => {
                 
                 <div className="space-y-6 text-lg font-light leading-relaxed">
                   <p className="text-ink/90">
-                    I grew up hearing three languages at home: Bangla, Hindi, and English. 
-                    But it wasn't just three languages—it was three ways of feeling, 
-                    three different temperatures of love.
+                    I grew up in Chittagong. The language I spoke at home—Chatgayaan—wasn't considered real. 
+                    It had no script. No books. No prestige. So we were taught to hide it. To speak "proper" Bangla. 
+                    To translate ourselves to be accepted.
                   </p>
                   
                   <p className="text-ink/80">
-                    When my mother says "khub bhalo" (very good), there's a specific 
-                    warmth that no English translation captures. When my father calls 
-                    me "beta," it carries the weight of his entire migration story.
+                    But Chatgayaan was how my mother loved me. It was how neighbors joked, how elders prayed, 
+                    how loss and joy were carried in voice, not grammar.
                   </p>
 
                   <p className="text-ink/80">
-                    I'm a developer by trade, but I started KhaM when I realized that 
-                    all the AI I was building could translate words but not feelings. 
-                    It could convert languages but not love.
+                    Over time, I learned Bangla, Hindi, and English too. But none of them could replace that feeling—the 
+                    exact warmth of my mother saying (K)Haiiu na? ("Eaten yet?"), or the way someone older said my name.
                   </p>
 
                   <p className="text-ink/70">
-                    This project began the day I understood that when my parents 
-                    are gone, the exact way they pronounce my name will disappear 
-                    forever—unless we do something about it.
+                    I'm a filmmaker, a writer, and a builder. I've made a lot of things. But none of them felt like home.
+                    KhaM started when I realized: if we don't preserve this—not the dictionary, but the tone—we'll lose more than language.
+                    We'll lose the way we were loved.
                   </p>
                 </div>
               </div>
