@@ -1,8 +1,19 @@
 
 import Navigation from "@/components/Navigation";
+import { Helmet } from 'react-helmet';
+
 
 const Contact = () => {
   return (
+    <Helmet>
+  <title>Contact – Reach Out to KhaM</title>
+  <meta name="description" content="Want to collaborate, ask questions, or support the project? Reach out to the KhaM team directly." />
+  <meta property="og:title" content="Contact – Reach Out to KhaM" />
+  <meta property="og:description" content="Let’s talk. We’re open to collaboration, questions, and support." />
+  <meta property="og:url" content="https://khamlabs.org/contact" />
+  <meta name="twitter:card" content="summary_large_image" />
+</Helmet>
+
     <div className="min-h-screen bg-paper text-ink">
       <Navigation />
       
