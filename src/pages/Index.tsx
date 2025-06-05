@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 
@@ -84,16 +85,15 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-20 px-6 md:px-12 bg-muted/20">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <blockquote className="font-serif text-3xl md:text-4xl text-ink mb-12">
-            KhaM is not a product.<br />It's a promise.
+      <footer className="w-full bg-ink py-16 px-6 md:px-12">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <blockquote className="font-serif text-2xl md:text-3xl text-paper/90 mb-8">
+            "KhaM is not a product.<br />It's a promise."
           </blockquote>
           
-          <div className="space-y-4 text-lg font-light text-ink/70">
-            <p>Contact: <a href="mailto:ripclass@gmail.com" className="text-terracotta hover:text-terracotta/80 transition-colors">ripclass@gmail.com</a></p>
-            <p>Creator: Ripon</p>
-          </div>
+          <p className="text-paper/70 font-light">
+            © KhaM Labs · ripon@khamlabs.org
+          </p>
         </div>
       </footer>
     </div>
