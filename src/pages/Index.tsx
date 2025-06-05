@@ -56,7 +56,7 @@ const Index = () => {
           </h2>
           
           <div className="border-l-2 border-terracotta/30 pl-8 md:pl-12">
-            <p className="text-xl md:text-2xl font-light leading-relaxed text-ink/90">
+            <p className="text-lg md:text-xl font-light leading-relaxed text-ink/80">
               We're not just translating languages—we're encoding memory. KhaM is building cultural infrastructure that preserves not only words but the tones, pauses, and emotional rhythms that make a language alive. We're starting with Bangla, Hindi, Urdu, Tamil, Telugu, Punjabi, Gujarati, Marathi—and reaching into the dialects within, the ones spoken between generations but never written down. Our work is about restoring nuance, honoring emotion, and creating open voice layers that reflect real people—not just formal grammar. Every tool we build is slow-crafted, not rushed—because we believe that speed can erase what silence once protected.
             </p>
           </div>
