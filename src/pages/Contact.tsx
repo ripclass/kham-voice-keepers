@@ -24,9 +24,9 @@ const Contact = () => {
             <div className="bg-muted/20 p-12 space-y-6">
               <h2 className="font-serif text-2xl text-ink">Write to me</h2>
               <p className="text-2xl font-light text-terracotta">
-                <a href="mailto:ripclass@gmail.com" 
+                <a href="mailto:ripon@khamlabs.org" 
                    className="hover:text-terracotta/80 transition-colors">
-                  ripclass@gmail.com
+                  ripon@khamlabs.org
                 </a>
               </p>
               <p className="text-lg font-light text-ink/70">
