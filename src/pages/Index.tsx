@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 
@@ -76,20 +75,9 @@ const Index = () => {
             Who it's for
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="space-y-6 text-lg font-light text-ink/80">
-              <p>Creators who still care how things sound</p>
-              <p>Linguists and researchers preserving oral culture</p>
-            </div>
-            <div className="space-y-6 text-lg font-light text-ink/80">
-              <p>AI builders focused on inclusivity and accuracy</p>
-              <p>Cultural workers who want to archive the unarchived</p>
-            </div>
-          </div>
-          
-          <div className="text-center">
-            <p className="text-lg font-light text-ink/70 italic">
-              KhaM is for those who know a voice is more than words.
+          <div className="space-y-8">
+            <p className="text-lg md:text-xl font-light leading-relaxed text-ink/80">
+              KhaM is for those who still care how things sound—creators who listen for cadence, not just content. It's for linguists and researchers tracing the vanishing edges of oral cultures, where knowledge lives in breath, not books. It's for AI builders who believe accuracy includes emotion, and for cultural workers archiving what history forgot to write down. KhaM is for anyone who knows a voice is more than words—it's memory, identity, and the echo of those who came before.
             </p>
           </div>
         </div>
