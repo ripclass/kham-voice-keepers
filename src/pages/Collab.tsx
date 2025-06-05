@@ -80,11 +80,11 @@ const Collab = () => {
           <section className="space-y-8">
             <h3 className="font-serif text-2xl text-ink">Where your support goes:</h3>
             <div className="space-y-4 text-lg font-light text-ink/80">
-              <p>• Registration and legal foundation ($500)</p>
-              <p>• Voice recording equipment and storage ($1,200)</p>
-              <p>• Model training compute time ($2,000)</p>
-              <p>• Linguist collaboration fees ($1,500)</p>
-              <p>• My time to build this properly (priceless, but rent exists)</p>
+              <p>$500 → Registering KhaM as a U.S. company (via Stripe Atlas)</p>
+              <p>$1,200 → Audio gear + archival storage for preserving disappearing voices</p>
+              <p>$2,000 → Compute costs for training voice-aware language models</p>
+              <p>$1,500 → Paying linguists and native speakers who help refine tone, rhythm, and emotional fidelity</p>
+              <p>∞ → My time is unpaid—but not free. Every bit of support helps this move forward.</p>
             </div>
           </section>
 
