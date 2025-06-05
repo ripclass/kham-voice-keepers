@@ -53,11 +53,13 @@ const Team = () => {
                 <div className="bg-muted/20 p-6 space-y-4">
                   <h3 className="font-serif text-xl text-ink">Background</h3>
                   <div className="space-y-2 text-sm font-light text-ink/70">
-                    <p>Full-stack developer</p>
-                    <p>AI/ML experience</p>
-                    <p>Bengali/Hindi speaker</p>
-                    <p>First-gen immigrant</p>
-                    <p>Based in Toronto</p>
+                    <p>Filmmaker, writer, and solo builder</p>
+                    <p>Deep storytelling + product strategy roots</p>
+                    <p>Native Bengali speaker, fluent in Hindi, Urdu, and English</p>
+                    <p>Grew up in Chittagong, Bangladesh</p>
+                    <p>Currently based in Dhaka</p>
+                    <p>Self-taught coder, rebuilding technical skills hands-on</p>
+                    <p>Working across AI, culture, and memory infrastructure</p>
                   </div>
                 </div>
 
