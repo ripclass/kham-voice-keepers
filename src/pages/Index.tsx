@@ -1,5 +1,5 @@
-
 import { Button } from "@/components/ui/button";
+import Navigation from "@/components/Navigation";
 
 const Index = () => {
   const scrollToSection = (id: string) => {
@@ -8,8 +8,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-paper text-ink">
+      <Navigation />
+      
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-6 md:px-12">
+      <section className="min-h-screen flex items-center justify-center px-6 md:px-12 pt-20">
         <div className="max-w-4xl text-center space-y-8">
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-ink leading-tight">
             A container for<br />disappearing voices.
