@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 
@@ -47,38 +48,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* What We're Building */}
+      {/* Memory Infrastructure */}
       <section className="py-20 px-6 md:px-12 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="font-serif text-4xl md:text-5xl text-ink mb-16 text-center">
             We're building memory infrastructure.
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <h3 className="text-xl font-medium mb-8 text-ink">Languages we're preserving:</h3>
-              <div className="space-y-3 text-lg font-light text-ink/80">
-                <p>Bangla</p>
-                <p>Hindi</p>
-                <p>Urdu</p>
-                <p>Tamil</p>
-                <p>Telugu</p>
-                <p>Punjabi</p>
-                <p>Gujarati</p>
-                <p>Marathi</p>
-                <p className="text-ink/60 italic">...and the dialects within</p>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-medium mb-8 text-ink">What we're working toward:</h3>
-              <div className="space-y-4 text-lg font-light text-ink/80">
-                <p>• Dialect-level nuance and tone preservation</p>
-                <p>• Emotional accuracy, not just translation</p>
-                <p>• Open datasets and local voice layers</p>
-                <p>• Tools built with care, not speed</p>
-              </div>
-            </div>
+          <div className="border-l-2 border-terracotta/30 pl-8 md:pl-12">
+            <p className="text-lg md:text-xl lg:text-2xl font-light leading-relaxed text-ink/85">
+              We're not just translating languages—we're encoding memory. KhaM is building cultural infrastructure that preserves not only words but the tones, pauses, and emotional rhythms that make a language alive. We're starting with Bangla, Hindi, Urdu, Tamil, Telugu, Punjabi, Gujarati, Marathi—and reaching into the dialects within, the ones spoken between generations but never written down. Our work is about restoring nuance, honoring emotion, and creating open voice layers that reflect real people—not just formal grammar. Every tool we build is slow-crafted, not rushed—because we believe that speed can erase what silence once protected.
+            </p>
           </div>
           
           <div className="mt-16 text-center">
