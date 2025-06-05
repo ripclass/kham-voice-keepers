@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 
 const Team = () => {
@@ -67,9 +68,9 @@ const Team = () => {
                   <h3 className="font-serif text-xl text-ink">Contact</h3>
                   <div className="space-y-2 text-sm font-light text-ink/70">
                     <p>
-                      <a href="mailto:ripclass@gmail.com" 
+                      <a href="mailto:ripon@khamlabs.org" 
                          className="text-terracotta hover:text-terracotta/80 transition-colors">
-                        ripclass@gmail.com
+                        ripon@khamlabs.org
                       </a>
                     </p>
                     <p>Always open to conversation</p>
