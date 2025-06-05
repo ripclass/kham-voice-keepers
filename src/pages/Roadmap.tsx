@@ -71,9 +71,9 @@ const Roadmap = () => {
               <div className="flex items-start space-x-4">
                 <div className="text-terracotta text-2xl mt-1">🔜</div>
                 <div>
-                  <h3 className="text-xl font-medium text-ink">Fine-tune Coqui voice model for Bangla</h3>
+                  <h3 className="text-xl font-medium text-ink">Fine-tune an open-source voice model for Bangla</h3>
                   <p className="font-light text-ink/70">
-                    Starting with my mother tongue to prove the concept works.
+                    Starting with my mother tongue to prove the idea works—preserving not just the words, but the warmth, rhythm, and emotional weight of how we actually speak.
                   </p>
                   <p className="text-sm text-terracotta italic mt-1">Q1 2025</p>
                 </div>
