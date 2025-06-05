@@ -1,3 +1,4 @@
+
 import { Link, useLocation } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { useState } from "react";
@@ -29,12 +30,8 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 bg-paper/95 backdrop-blur-sm border-b border-ink/10 z-50">
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <img 
-              src="/lovable-uploads/29c99879-8cb0-4c38-ad8a-dc7d5a461cc6.png" 
-              alt="KhaM Logo" 
-              className="h-8 w-auto"
-            />
+          <Link to="/" className="font-serif text-2xl text-ink hover:text-terracotta transition-colors">
+            KhaM
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -53,6 +50,7 @@ const Navigation = () => {
             ))}
           </div>
           
+          {/* Mobile menu */}
           <div className="md:hidden">
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
