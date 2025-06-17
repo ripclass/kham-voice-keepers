@@ -23,8 +23,8 @@ const FeaturedPapers = () => {
     {
       title: "Building Dialect-Aware Voice Agents",
       type: "Technical Note",
-      status: "🔄 In Progress",
-      statusType: "progress",
+      status: "",
+      statusType: "",
       description: "Working draft available",
       abstract: "Technical approaches to training voice models that understand and respond to dialectal variations in South Asian languages.",
       fullAbstract: "Technical approaches to training voice models that understand and respond to dialectal variations in South Asian languages.",
@@ -76,9 +76,11 @@ const FeaturedPapers = () => {
                     <Badge variant="outline" className="text-xs">
                       {paper.type}
                     </Badge>
-                    <Badge className={`text-xs ${getStatusColor(paper.statusType)}`}>
-                      {paper.status}
-                    </Badge>
+                    {paper.status && (
+                      <Badge className={`text-xs ${getStatusColor(paper.statusType)}`}>
+                        {paper.status}
+                      </Badge>
+                    )}
                   </div>
                 </div>
               </div>
