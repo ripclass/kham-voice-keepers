@@ -261,21 +261,6 @@ const Support = () => {
               </div>
             </section>
 
-            {/* Call to Action */}
-            <section className="text-center space-y-8">
-              <div className="space-y-4">
-                <Button 
-                  className="bg-terracotta hover:bg-terracotta/90 text-paper px-8 py-4 text-lg rounded-none"
-                  aria-label="Adopt a dialect now"
-                >
-                  Adopt a Dialect Now
-                </Button>
-                <p className="text-sm font-light text-ink/60">
-                  Join the mission to preserve disappearing voices.
-                </p>
-              </div>
-            </section>
-
             {/* Thank you closing */}
             <section className="text-center space-y-6 pt-8 border-t border-ink/20">
               <blockquote className="font-serif text-2xl md:text-3xl text-ink italic">
