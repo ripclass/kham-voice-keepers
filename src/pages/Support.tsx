@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
@@ -60,14 +59,14 @@ const Support = () => {
               <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   onClick={() => scrollToSection('individuals')}
-                  className="bg-terracotta text-paper hover:bg-terracotta/90 px-8 py-6 text-lg font-light"
+                  className="bg-terracotta text-paper hover:bg-terracotta/90 px-8 py-6 text-lg font-light rounded-none border-0"
                 >
                   I'm an Individual
                 </Button>
                 <Button 
                   onClick={() => scrollToSection('brands')}
                   variant="outline"
-                  className="border-ink/20 text-ink hover:bg-ink/5 px-8 py-6 text-lg font-light"
+                  className="border-ink/20 text-ink hover:bg-ink/5 px-8 py-6 text-lg font-light rounded-none border-0"
                 >
                   I'm a Brand or Partner
                 </Button>
@@ -99,7 +98,7 @@ const Support = () => {
                     <li>• Digital badge of support</li>
                   </ul>
                   
-                  <Button className="bg-terracotta text-paper hover:bg-terracotta/90 w-full font-light">
+                  <Button className="bg-terracotta text-paper hover:bg-terracotta/90 w-full font-light rounded-none border-0">
                     Adopt Now
                   </Button>
                 </div>
@@ -120,7 +119,7 @@ const Support = () => {
                   
                   <Button 
                     variant="outline"
-                    className="border-ink/20 text-ink hover:bg-ink/5 w-full font-light"
+                    className="border-ink/20 text-ink hover:bg-ink/5 w-full font-light rounded-none border-0"
                   >
                     Join as a Volunteer
                   </Button>
@@ -135,7 +134,7 @@ const Support = () => {
                   </p>
                   
                   <div className="pt-8">
-                    <Button className="bg-dusty text-ink hover:bg-dusty/90 w-full font-light">
+                    <Button className="bg-dusty text-ink hover:bg-dusty/90 w-full font-light rounded-none border-0">
                       Donate
                     </Button>
                   </div>
@@ -169,12 +168,12 @@ const Support = () => {
                   </ul>
                   
                   <div className="flex flex-col gap-3 pt-4">
-                    <Button className="bg-dusty text-ink hover:bg-dusty/90 font-light">
+                    <Button className="bg-dusty text-ink hover:bg-dusty/90 font-light rounded-none border-0">
                       Download Sponsor Deck
                     </Button>
                     <Button 
                       variant="outline"
-                      className="border-ink/20 text-ink hover:bg-ink/5 font-light"
+                      className="border-ink/20 text-ink hover:bg-ink/5 font-light rounded-none border-0"
                     >
                       Contact Us
                     </Button>
@@ -200,7 +199,7 @@ const Support = () => {
                     Let's protect and project our region's voices — together.
                   </p>
                   
-                  <Button className="bg-terracotta text-paper hover:bg-terracotta/90 font-light">
+                  <Button className="bg-terracotta text-paper hover:bg-terracotta/90 font-light rounded-none border-0">
                     Become a Collaborator
                   </Button>
                 </div>
@@ -232,7 +231,7 @@ const Support = () => {
                 <p className="text-lg font-light text-ink/70 mb-6">(...more loading)</p>
                 <Button 
                   variant="outline"
-                  className="border-ink/20 text-ink hover:bg-ink/5 px-8 py-6 text-lg font-light"
+                  className="border-ink/20 text-ink hover:bg-ink/5 px-8 py-6 text-lg font-light rounded-none border-0"
                 >
                   See the Voices
                 </Button>
