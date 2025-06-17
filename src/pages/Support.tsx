@@ -1,22 +1,30 @@
+
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 
 const Support = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <Helmet>
-        <title>Support KhaM – Adopt a Dialect, Keep It Alive</title>
-        <meta name="description" content="Support KhaM's mission to preserve South Asian dialects and voices. Adopt a dialect, become a brand partner, or help preserve endangered languages." />
+        <title>Support KhaM: Voices Worth Keeping</title>
+        <meta name="description" content="Support KhaM's mission to preserve South Asian dialects and voices. Adopt a dialect, volunteer, or become a brand partner to keep endangered languages alive." />
         <meta name="keywords" content="support KhaM, adopt dialect, South Asian languages, voice preservation, cultural sponsorship, endangered dialects" />
-        <meta property="og:title" content="Support KhaM – Adopt a Dialect, Keep It Alive" />
-        <meta property="og:description" content="Every voice matters. Every dialect is a memory. Support KhaM's mission to preserve and amplify the emotional languages of South Asia." />
+        <meta property="og:title" content="Support KhaM: Voices Worth Keeping" />
+        <meta property="og:description" content="Whether you're an individual, brand, or institution — help keep South Asia's disappearing voices alive through KhaM." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://khamlabs.org/support" />
         <meta property="og:image" content="https://khamlabs.org/og/kham-main.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Support KhaM – Adopt a Dialect, Keep It Alive" />
-        <meta name="twitter:description" content="Support KhaM's mission to preserve South Asian dialects and voices through adoption, partnership, or donation." />
+        <meta name="twitter:title" content="Support KhaM: Voices Worth Keeping" />
+        <meta name="twitter:description" content="Support KhaM's mission to preserve South Asian dialects through adoption, partnership, or volunteering." />
         <meta name="twitter:image" content="https://khamlabs.org/og/kham-main.jpg" />
         <link rel="canonical" href="https://khamlabs.org/support" />
         
@@ -24,7 +32,7 @@ const Support = () => {
           {`{
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Support KhaM – Adopt a Dialect",
+            "name": "Support KhaM: Voices Worth Keeping",
             "url": "https://khamlabs.org/support",
             "description": "Support KhaM's mission to preserve endangered South Asian dialects and voices",
             "isPartOf": {
@@ -47,90 +55,126 @@ const Support = () => {
                 Adopt a Dialect.<br />Keep It Alive.
               </h1>
               <p className="text-lg md:text-xl lg:text-2xl font-light max-w-3xl mx-auto leading-relaxed text-ink/80">
-                Every voice matters. Every dialect is a memory.<br />
-                Support KhaM's mission to preserve and amplify the emotional languages of South Asia.
+                Whether you're an individual, a brand, or an institution — you can help keep South Asia's disappearing voices alive through KhaM.
               </p>
               <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
+                  onClick={() => scrollToSection('individuals')}
                   className="bg-terracotta hover:bg-terracotta/90 text-paper px-8 py-3 text-lg rounded-none border-0 font-light"
-                  aria-label="Adopt a dialect"
+                  aria-label="I'm an Individual"
                 >
-                  Adopt a Dialect
+                  I'm an Individual
                 </Button>
                 <Button 
+                  onClick={() => scrollToSection('brands')}
                   variant="outline"
                   className="border-ink/20 text-ink hover:bg-ink/5 px-8 py-3 text-lg rounded-none font-light"
-                  aria-label="Become a brand partner"
+                  aria-label="I'm a Brand or Partner"
                 >
-                  Become a Brand Partner
+                  I'm a Brand or Partner
                 </Button>
               </div>
             </div>
           </section>
 
-          {/* Why Support Matters */}
-          <section className="py-20 px-6 md:px-12 bg-muted/30">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="font-serif text-4xl md:text-5xl text-ink mb-16 text-center">
-                Why Support Matters
-              </h2>
-              
-              <div className="space-y-8">
-                <p className="text-xl md:text-2xl font-light leading-relaxed text-ink/90">
-                  Languages don't die all at once — they fade one voice at a time.
-                </p>
-                <p className="text-lg md:text-xl font-light leading-relaxed text-ink/80">
-                  South Asia has over 100 endangered dialects. Most have no digital presence.
-                </p>
-                <p className="text-lg md:text-xl font-light leading-relaxed text-ink/70">
-                  KhaM is building an open-source voice library to preserve, honor, and amplify these sounds — through storytelling, community memory, and AI-powered future access.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* How You Can Help */}
-          <section className="py-20 px-6 md:px-12">
+          {/* For Individuals Section */}
+          <section id="individuals" className="py-20 px-6 md:px-12 bg-muted/30">
             <div className="max-w-5xl mx-auto">
               <h2 className="font-serif text-4xl md:text-5xl text-ink mb-16 text-center">
-                How You Can Help
+                For Individuals
               </h2>
               
-              <div className="grid md:grid-cols-2 gap-12">
-                {/* For Individuals */}
+              <div className="grid md:grid-cols-3 gap-12">
+                {/* Adopt a Voice */}
                 <div className="space-y-6">
-                  <div className="text-4xl">👤</div>
-                  <h3 className="font-serif text-2xl md:text-3xl text-ink">For Individuals</h3>
-                  <h4 className="font-serif text-xl text-ink/80">Adopt a Voice — ₹299/month</h4>
+                  <div className="text-4xl">💠</div>
+                  <h3 className="font-serif text-2xl md:text-3xl text-ink">Adopt a Voice</h3>
+                  <h4 className="font-serif text-xl text-ink/80">₹299/month</h4>
+                  <p className="text-lg font-light text-ink/70 mb-4">
+                    Keep your dialect alive. Sponsor voice training and memory work.
+                  </p>
                   
                   <ul className="space-y-3 text-lg font-light text-ink/70">
                     <li>• Choose a dialect</li>
-                    <li>• Help train voices and collect stories</li>
-                    <li>• Early access to KhaM's audio archive</li>
-                    <li>• Supporter badge</li>
+                    <li>• Support recordings + story collection</li>
+                    <li>• Get early access to the archive</li>
+                    <li>• Digital badge of support</li>
                   </ul>
                   
                   <Button 
-                    className="bg-terracotta hover:bg-terracotta/90 text-paper px-6 py-2 rounded-none border-0 font-light"
+                    className="bg-terracotta hover:bg-terracotta/90 text-paper px-6 py-2 rounded-none border-0 font-light w-full"
                   >
                     Adopt Now
                   </Button>
                 </div>
 
-                {/* For Brands & Institutions */}
+                {/* Volunteer */}
                 <div className="space-y-6">
-                  <div className="text-4xl">🏢</div>
-                  <h3 className="font-serif text-2xl md:text-3xl text-ink">For Brands & Institutions</h3>
-                  <h4 className="font-serif text-xl text-ink/80">Sponsor a Dialect. Become a Guardian of Culture.</h4>
+                  <div className="text-4xl">💠</div>
+                  <h3 className="font-serif text-2xl md:text-3xl text-ink">Volunteer</h3>
+                  <p className="text-lg font-light text-ink/70 mb-4">
+                    Help preserve voices in your community.
+                  </p>
                   
                   <ul className="space-y-3 text-lg font-light text-ink/70">
-                    <li>• Starting at ৳2 lakh per dialect</li>
-                    <li>• Branded voice stories, reels, and cultural content</li>
-                    <li>• CSR + campaign visibility</li>
-                    <li>• Legacy placement in KhaM archive</li>
+                    <li>• Record voices in your community</li>
+                    <li>• Help us transcribe and translate dialect stories</li>
+                    <li>• Host a storytelling circle or listening party</li>
                   </ul>
                   
-                  <div className="flex flex-col sm:flex-row gap-3">
+                  <Button 
+                    variant="outline"
+                    className="border-ink/20 text-ink hover:bg-ink/5 px-6 py-2 rounded-none font-light w-full"
+                  >
+                    Join as a Volunteer
+                  </Button>
+                </div>
+
+                {/* Donate */}
+                <div className="space-y-6">
+                  <div className="text-4xl">💠</div>
+                  <h3 className="font-serif text-2xl md:text-3xl text-ink">Donate Any Amount</h3>
+                  <p className="text-lg font-light text-ink/70 mb-4">
+                    Every rupee keeps a voice alive — and brings it back for the future.
+                  </p>
+                  
+                  <div className="pt-8">
+                    <Button 
+                      className="bg-dusty hover:bg-dusty/90 text-ink px-6 py-2 rounded-none border-0 font-light w-full"
+                    >
+                      Donate
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* For Brands & Institutions Section */}
+          <section id="brands" className="py-20 px-6 md:px-12">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="font-serif text-4xl md:text-5xl text-ink mb-16 text-center">
+                For Brands & Institutions
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-12">
+                {/* Sponsor a Dialect */}
+                <div className="space-y-6">
+                  <div className="text-4xl">🔷</div>
+                  <h3 className="font-serif text-2xl md:text-3xl text-ink">Sponsor a Dialect</h3>
+                  <h4 className="font-serif text-xl text-ink/80">Starting at ৳2 lakh</h4>
+                  <p className="text-lg font-light text-ink/70 mb-4">
+                    Let your brand adopt a dialect and revive a language.
+                  </p>
+                  
+                  <ul className="space-y-3 text-lg font-light text-ink/70">
+                    <li>• Brand credit on stories, reels, and archive</li>
+                    <li>• Cultural impact + CSR visibility</li>
+                    <li>• Dialect-specific microsite section</li>
+                    <li>• Optional brand voice assistant / PR features</li>
+                  </ul>
+                  
+                  <div className="flex flex-col gap-3 pt-4">
                     <Button 
                       className="bg-dusty hover:bg-dusty/90 text-ink px-6 py-2 rounded-none border-0 font-light"
                     >
@@ -144,15 +188,41 @@ const Support = () => {
                     </Button>
                   </div>
                 </div>
+
+                {/* Collaborate with KhaM */}
+                <div className="space-y-6">
+                  <div className="text-4xl">🔷</div>
+                  <h3 className="font-serif text-2xl md:text-3xl text-ink">Collaborate with KhaM</h3>
+                  <p className="text-lg font-light text-ink/70 mb-4">
+                    We welcome partnerships with:
+                  </p>
+                  
+                  <ul className="space-y-3 text-lg font-light text-ink/70">
+                    <li>• <strong>Creative agencies</strong> → co-produce campaigns</li>
+                    <li>• <strong>Universities / AI Labs</strong> → contribute research + tools</li>
+                    <li>• <strong>Cultural orgs + NGOs</strong> → help expand our archive</li>
+                    <li>• <strong>Media platforms</strong> → co-release multilingual content</li>
+                  </ul>
+                  
+                  <p className="text-lg font-light text-ink/80 pt-4">
+                    Let's protect and project our region's voices — together.
+                  </p>
+                  
+                  <Button 
+                    className="bg-terracotta hover:bg-terracotta/90 text-paper px-6 py-2 rounded-none border-0 font-light"
+                  >
+                    Become a Collaborator
+                  </Button>
+                </div>
               </div>
             </div>
           </section>
 
-          {/* Dialects in Need of Adoption */}
+          {/* Current Dialects Seeking Adoption */}
           <section className="py-20 px-6 md:px-12 bg-muted/30">
             <div className="max-w-4xl mx-auto">
               <h2 className="font-serif text-4xl md:text-5xl text-ink mb-16 text-center">
-                Dialects in Need of Adoption
+                Current Dialects Seeking Adoption
               </h2>
               
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -160,15 +230,16 @@ const Support = () => {
                   <div key={dialect} className="bg-paper border border-ink/10 p-6 space-y-4">
                     <h3 className="font-serif text-xl text-ink">{dialect}</h3>
                     <ul className="space-y-2 text-sm font-light text-ink/70">
-                      <li>• Real voices from the community</li>
-                      <li>• AI-ready training</li>
-                      <li>• A living story library</li>
+                      <li>• Real voices from elders + youth</li>
+                      <li>• AI training corpus</li>
+                      <li>• Story collection + reels</li>
                     </ul>
                   </div>
                 ))}
               </div>
               
               <div className="text-center">
+                <p className="text-lg font-light text-ink/70 mb-6">(...more loading)</p>
                 <Button 
                   variant="outline"
                   className="border-ink/20 text-ink hover:bg-ink/5 px-8 py-3 text-lg rounded-none font-light"
@@ -179,43 +250,8 @@ const Support = () => {
             </div>
           </section>
 
-          {/* Other Ways to Support */}
-          <section className="py-20 px-6 md:px-12">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="font-serif text-4xl md:text-5xl text-ink mb-16 text-center">
-                Other Ways to Support
-              </h2>
-              
-              <div className="space-y-8 mb-12">
-                <p className="text-lg md:text-xl font-light leading-relaxed text-ink/80">
-                  • Volunteer with our voice recording team
-                </p>
-                <p className="text-lg md:text-xl font-light leading-relaxed text-ink/80">
-                  • Help us transcribe dialect stories
-                </p>
-                <p className="text-lg md:text-xl font-light leading-relaxed text-ink/80">
-                  • Donate — every rupee keeps a voice alive
-                </p>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  variant="outline"
-                  className="border-ink/20 text-ink hover:bg-ink/5 px-6 py-2 rounded-none font-light"
-                >
-                  Volunteer
-                </Button>
-                <Button 
-                  className="bg-terracotta hover:bg-terracotta/90 text-paper px-6 py-2 rounded-none border-0 font-light"
-                >
-                  Donate
-                </Button>
-              </div>
-            </div>
-          </section>
-
           {/* Who We Are */}
-          <section className="py-20 px-6 md:px-12 bg-muted/30">
+          <section className="py-20 px-6 md:px-12">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="font-serif text-4xl md:text-5xl text-ink mb-12">
                 Who We Are
@@ -223,10 +259,10 @@ const Support = () => {
               
               <div className="space-y-8">
                 <p className="text-lg md:text-xl font-light leading-relaxed text-ink/80">
-                  KhaM is a South Asian cultural AI lab preserving memory through voice.
+                  KhaM is a cultural AI lab based in South Asia.
                 </p>
                 <p className="text-lg md:text-xl font-light leading-relaxed text-ink/70">
-                  We collaborate with communities, researchers, and storytellers to keep our languages alive — not in books, but in sound.
+                  We work with rural communities, AI researchers, linguists, and storytellers to preserve memory through voice — not in books, but in sound.
                 </p>
                 <p className="text-xl md:text-2xl font-light leading-relaxed text-ink/90 pt-4">
                   A future that speaks like us… starts with you.
