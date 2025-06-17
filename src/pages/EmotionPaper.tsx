@@ -15,9 +15,9 @@ const EmotionPaper = () => {
         <meta property="og:title" content="Emotion in South Asian Languages: Beyond Translation – KhaM Labs" />
         <meta property="og:description" content="A comprehensive whitepaper on emotional patterns in South Asian dialects and their implications for AI development." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://khamlabs.org/research/emotion-paper" />
+        <meta property="og:url" content="https://khamlabs.org/research/emotion-in-south-asian-languages-beyond-translation" />
         
-        <link rel="canonical" href="https://khamlabs.org/research/emotion-paper" />
+        <link rel="canonical" href="https://khamlabs.org/research/emotion-in-south-asian-languages-beyond-translation" />
       </Helmet>
 
       <div className="min-h-screen bg-paper text-ink">

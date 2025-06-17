@@ -56,7 +56,7 @@ const PaperDetails = () => {
             </Collapsible>
             
             <Link 
-              to="/research/emotion-paper"
+              to="/research/emotion-in-south-asian-languages-beyond-translation"
               className="inline-flex items-center gap-2 text-ink hover:text-terracotta transition-colors font-medium underline decoration-ink/40 hover:decoration-terracotta"
             >
               <span>Read Full Paper</span>
