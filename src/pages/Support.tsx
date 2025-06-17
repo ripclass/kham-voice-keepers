@@ -2,6 +2,7 @@
 import Navigation from "@/components/Navigation";
 import { Helmet } from "react-helmet-async";
 import SupportHeader from "@/components/support/SupportHeader";
+import WhyItMatters from "@/components/support/WhyItMatters";
 import IndividualSupport from "@/components/support/IndividualSupport";
 import BrandSupport from "@/components/support/BrandSupport";
 import VoicesSection from "@/components/support/VoicesSection";
@@ -48,6 +49,7 @@ const Support = () => {
         <main className="pt-24 pb-20 px-6 md:px-12">
           <div className="max-w-4xl mx-auto space-y-16">
             <SupportHeader />
+            <WhyItMatters />
 
             <section className="space-y-12">
               <h2 className="font-serif text-3xl md:text-4xl text-ink">
