@@ -6,6 +6,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { ChevronDown, ArrowRight } from "lucide-react";
 const FeaturedPapers = () => {
   const [isAbstractOpen, setIsAbstractOpen] = useState(false);
+  
   const featuredPaper = {
     title: "Emotion in South Asian Languages: Beyond Translation",
     type: "Whitepaper",
@@ -16,25 +17,30 @@ const FeaturedPapers = () => {
     fullAbstract: "South Asian languages are not just multilingual — they are emotionally polyphonic. A single word can carry affection, frustration, reverence, or rebellion depending on dialect, tone, and social context.",
     link: "/research/emotion-paper"
   };
-  const otherPapers = [{
-    title: "Building Dialect-Aware Voice Agents",
-    type: "Technical Note",
-    status: "🔄 In Progress",
-    statusType: "progress",
-    description: "Working draft available",
-    abstract: "Technical approaches to training voice models that understand and respond to dialectal variations in South Asian languages.",
-    fullAbstract: "Technical approaches to training voice models that understand and respond to dialectal variations in South Asian languages.",
-    link: undefined
-  }, {
-    title: "Cultural Code-Switching in South Asian Youth Speech",
-    type: "Case Study",
-    status: "🧪 Beta Interviews Underway",
-    statusType: "research",
-    description: "Early findings available",
-    abstract: "Investigating how young South Asians switch between languages and dialects in digital communication.",
-    fullAbstract: "Investigating how young South Asians switch between languages and dialects in digital communication.",
-    link: undefined
-  }];
+
+  const otherPapers = [
+    {
+      title: "Building Dialect-Aware Voice Agents",
+      type: "Technical Note",
+      status: "🔄 In Progress",
+      statusType: "progress",
+      description: "Working draft available",
+      abstract: "Technical approaches to training voice models that understand and respond to dialectal variations in South Asian languages.",
+      fullAbstract: "Technical approaches to training voice models that understand and respond to dialectal variations in South Asian languages.",
+      link: "/research/dialect-agents"
+    },
+    {
+      title: "Cultural Code-Switching in South Asian Youth Speech",
+      type: "Case Study",
+      status: "🧪 Beta Interviews Underway",
+      statusType: "research",
+      description: "Early findings available",
+      abstract: "Investigating how young South Asians switch between languages and dialects in digital communication.",
+      fullAbstract: "Investigating how young South Asians switch between languages and dialects in digital communication.",
+      link: undefined
+    }
+  ];
+
   const getStatusColor = (statusType: string) => {
     switch (statusType) {
       case "upcoming":
@@ -47,6 +53,7 @@ const FeaturedPapers = () => {
         return "bg-ink/20 text-ink";
     }
   };
+
   const allPapers = [featuredPaper, ...otherPapers];
   return <section className="space-y-8">
       <h2 className="font-serif text-3xl md:text-4xl text-ink">

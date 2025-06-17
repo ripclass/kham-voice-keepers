@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import Support from "./pages/Support";
 import Research from "./pages/Research";
 import EmotionPaper from "./pages/EmotionPaper";
+import DialectAgents from "./pages/DialectAgents";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/support" element={<Support />} />
             <Route path="/research" element={<Research />} />
             <Route path="/research/emotion-paper" element={<EmotionPaper />} />
+            <Route path="/research/dialect-agents" element={<DialectAgents />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
