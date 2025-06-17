@@ -61,7 +61,7 @@ const DialectAgents = () => {
             </Link>
 
             <article className="prose prose-lg max-w-none">
-              <header className="mb-12 text-center">
+              <header className="mb-12 text-left">
                 <h1 className="font-serif text-4xl md:text-5xl text-ink mb-4 leading-tight">
                   Building Dialect-Aware Voice Agents
                 </h1>
