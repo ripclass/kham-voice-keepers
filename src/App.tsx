@@ -35,7 +35,7 @@ const App = () => (
             <Route path="/support" element={<Support />} />
             <Route path="/research" element={<Research />} />
             <Route path="/research/emotion-in-south-asian-languages-beyond-translation" element={<EmotionPaper />} />
-            <Route path="/research/dialect-agents" element={<DialectAgents />} />
+            <Route path="/research/building-dialect-aware-voice-agents" element={<DialectAgents />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

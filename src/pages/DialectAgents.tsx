@@ -33,13 +33,13 @@ const DialectAgents = () => {
         <meta property="og:title" content="Building Dialect-Aware Voice Agents – KhaM Labs" />
         <meta property="og:description" content="Technical note on KhaM's approach to building dialect-aware voice agents for South Asian languages and dialects." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://khamlabs.org/research/dialect-agents" />
+        <meta property="og:url" content="https://khamlabs.org/research/building-dialect-aware-voice-agents" />
         
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Building Dialect-Aware Voice Agents – KhaM Labs" />
         <meta name="twitter:description" content="Technical note on KhaM's approach to building dialect-aware voice agents for South Asian languages and dialects." />
         
-        <link rel="canonical" href="https://khamlabs.org/research/dialect-agents" />
+        <link rel="canonical" href="https://khamlabs.org/research/building-dialect-aware-voice-agents" />
         
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
@@ -181,7 +181,7 @@ const DialectAgents = () => {
                     Contact: <a href="mailto:ripon@khamlabs.org" className="text-terracotta hover:text-terracotta/80">ripon@khamlabs.org</a>
                   </p>
                   <p className="text-ink/70">
-                    URL: <a href="https://khamlabs.org/research/dialect-agents" className="text-terracotta hover:text-terracotta/80">khamlabs.org/research/dialect-agents</a>
+                    URL: <a href="https://khamlabs.org/research/building-dialect-aware-voice-agents" className="text-terracotta hover:text-terracotta/80">khamlabs.org/research/building-dialect-aware-voice-agents</a>
                   </p>
                 </footer>
               </div>

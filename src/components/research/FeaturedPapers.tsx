@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -29,7 +30,7 @@ const FeaturedPapers = () => {
       description: "Working draft available",
       abstract: "Technical approaches to training voice models that understand and respond to dialectal variations in South Asian languages.",
       fullAbstract: "In South Asia, the difference between being understood and being misunderstood isn't just language — it's dialect. While most AI voice systems focus on standard Bangla, Hindi, Tamil, or Urdu, real-world users interact through dozens of local variants. From Chittagonian to Sylheti, Barisali to Bhojpuri, dialects carry not only lexical shifts but emotional, rhythmic, and social nuance.\n\nThis technical note outlines KhaM's approach to building dialect-aware voice agents that don't just translate, but speak as we do.",
-      link: "/research/dialect-agents"
+      link: "/research/building-dialect-aware-voice-agents"
     },
     {
       title: "Cultural Code-Switching in South Asian Youth Speech",
