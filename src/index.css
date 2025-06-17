@@ -43,6 +43,12 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom KhaM colors */
+    --paper: 40 20% 97%;
+    --ink: 0 0% 10%;
+    --terracotta: 14 45% 55%;
+    --dusty: 25 30% 65%;
   }
 }
 
@@ -57,5 +63,39 @@
   
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-paper {
+    color: hsl(var(--paper));
+  }
+  
+  .bg-paper {
+    background-color: hsl(var(--paper));
+  }
+  
+  .text-ink {
+    color: hsl(var(--ink));
+  }
+  
+  .bg-ink {
+    background-color: hsl(var(--ink));
+  }
+  
+  .text-terracotta {
+    color: hsl(var(--terracotta));
+  }
+  
+  .bg-terracotta {
+    background-color: hsl(var(--terracotta));
+  }
+  
+  .text-dusty {
+    color: hsl(var(--dusty));
+  }
+  
+  .bg-dusty {
+    background-color: hsl(var(--dusty));
   }
 }
