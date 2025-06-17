@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
@@ -57,18 +58,19 @@ const Support = () => {
                 Whether you're an individual, a brand, or an institution — you can help keep South Asia's disappearing voices alive through KhaM.
               </p>
               <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                <button 
+                <Button 
                   onClick={() => scrollToSection('individuals')}
-                  className="bg-terracotta text-paper px-8 py-3 text-lg font-light hover:bg-terracotta/90 transition-colors"
+                  className="bg-terracotta text-paper hover:bg-terracotta/90 px-8 py-6 text-lg font-light"
                 >
                   I'm an Individual
-                </button>
-                <button 
+                </Button>
+                <Button 
                   onClick={() => scrollToSection('brands')}
-                  className="border border-ink/20 text-ink px-8 py-3 text-lg font-light hover:bg-ink/5 transition-colors"
+                  variant="outline"
+                  className="border-ink/20 text-ink hover:bg-ink/5 px-8 py-6 text-lg font-light"
                 >
                   I'm a Brand or Partner
-                </button>
+                </Button>
               </div>
             </div>
           </section>
@@ -97,9 +99,9 @@ const Support = () => {
                     <li>• Digital badge of support</li>
                   </ul>
                   
-                  <button className="bg-terracotta text-paper px-6 py-2 font-light hover:bg-terracotta/90 transition-colors w-full">
+                  <Button className="bg-terracotta text-paper hover:bg-terracotta/90 w-full font-light">
                     Adopt Now
-                  </button>
+                  </Button>
                 </div>
 
                 {/* Volunteer */}
@@ -116,9 +118,12 @@ const Support = () => {
                     <li>• Host a storytelling circle or listening party</li>
                   </ul>
                   
-                  <button className="border border-ink/20 text-ink px-6 py-2 font-light hover:bg-ink/5 transition-colors w-full">
+                  <Button 
+                    variant="outline"
+                    className="border-ink/20 text-ink hover:bg-ink/5 w-full font-light"
+                  >
                     Join as a Volunteer
-                  </button>
+                  </Button>
                 </div>
 
                 {/* Donate */}
@@ -130,9 +135,9 @@ const Support = () => {
                   </p>
                   
                   <div className="pt-8">
-                    <button className="bg-dusty text-ink px-6 py-2 font-light hover:bg-dusty/90 transition-colors w-full">
+                    <Button className="bg-dusty text-ink hover:bg-dusty/90 w-full font-light">
                       Donate
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -164,12 +169,15 @@ const Support = () => {
                   </ul>
                   
                   <div className="flex flex-col gap-3 pt-4">
-                    <button className="bg-dusty text-ink px-6 py-2 font-light hover:bg-dusty/90 transition-colors">
+                    <Button className="bg-dusty text-ink hover:bg-dusty/90 font-light">
                       Download Sponsor Deck
-                    </button>
-                    <button className="border border-ink/20 text-ink px-6 py-2 font-light hover:bg-ink/5 transition-colors">
+                    </Button>
+                    <Button 
+                      variant="outline"
+                      className="border-ink/20 text-ink hover:bg-ink/5 font-light"
+                    >
                       Contact Us
-                    </button>
+                    </Button>
                   </div>
                 </div>
 
@@ -192,9 +200,9 @@ const Support = () => {
                     Let's protect and project our region's voices — together.
                   </p>
                   
-                  <button className="bg-terracotta text-paper px-6 py-2 font-light hover:bg-terracotta/90 transition-colors">
+                  <Button className="bg-terracotta text-paper hover:bg-terracotta/90 font-light">
                     Become a Collaborator
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -222,9 +230,12 @@ const Support = () => {
               
               <div className="text-center">
                 <p className="text-lg font-light text-ink/70 mb-6">(...more loading)</p>
-                <button className="border border-ink/20 text-ink px-8 py-3 text-lg font-light hover:bg-ink/5 transition-colors">
+                <Button 
+                  variant="outline"
+                  className="border-ink/20 text-ink hover:bg-ink/5 px-8 py-6 text-lg font-light"
+                >
                   See the Voices
-                </button>
+                </Button>
               </div>
             </div>
           </section>
