@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
@@ -63,7 +62,6 @@ const Support = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 {/* For Individuals */}
                 <div className="border border-ink/20 p-8 space-y-4">
-                  <div className="text-4xl">👤</div>
                   <h3 className="font-serif text-xl text-ink">For Individuals</h3>
                   <p className="text-3xl font-light text-terracotta">$3/month</p>
                   <div className="space-y-3 text-sm font-light text-ink/70">
@@ -76,7 +74,6 @@ const Support = () => {
 
                 {/* For Brands & Institutions */}
                 <div className="border border-ink/20 p-8 space-y-4 bg-muted/20">
-                  <div className="text-4xl">🏢</div>
                   <h3 className="font-serif text-xl text-ink">For Brands & Institutions</h3>
                   <p className="text-3xl font-light text-terracotta">$2,000+</p>
                   <div className="space-y-3 text-sm font-light text-ink/70">
