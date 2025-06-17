@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,8 +13,8 @@ const FeaturedPapers = () => {
   const featuredPaper = {
     title: "Emotion in South Asian Languages: Beyond Translation",
     type: "Whitepaper",
-    status: "🔜 Q2 2025",
-    statusType: "upcoming",
+    status: "",
+    statusType: "",
     description: "Abstract available",
     abstract: "South Asian languages are not just multilingual — they are emotionally polyphonic. A single word can carry affection, frustration, reverence, or rebellion depending on dialect, tone, and social context. This research explores the nuanced ways emotional expression manifests across different South Asian languages, moving beyond simple translation to understand cultural and linguistic factors that influence emotional communication in AI systems.",
     fullAbstract: "South Asian languages are not just multilingual — they are emotionally polyphonic. A single word can carry affection, frustration, reverence, or rebellion depending on dialect, tone, and social context.",
