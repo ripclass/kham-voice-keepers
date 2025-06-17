@@ -2,6 +2,7 @@
 import Navigation from "@/components/Navigation";
 import { Helmet } from "react-helmet-async";
 import ResearchHero from "@/components/research/ResearchHero";
+import PaperDetails from "@/components/research/PaperDetails";
 import FeaturedPapers from "@/components/research/FeaturedPapers";
 import DialectMap from "@/components/research/DialectMap";
 import ContributeResearch from "@/components/research/ContributeResearch";
@@ -80,6 +81,7 @@ const Research = () => {
         <main className="pt-24 pb-20 px-6 md:px-12">
           <div className="max-w-4xl mx-auto space-y-16">
             <ResearchHero />
+            <PaperDetails />
             <FeaturedPapers />
             <DialectMap />
             <ContributeResearch />
