@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
@@ -58,21 +57,18 @@ const Support = () => {
                 Whether you're an individual, a brand, or an institution — you can help keep South Asia's disappearing voices alive through KhaM.
               </p>
               <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
+                <button 
                   onClick={() => scrollToSection('individuals')}
-                  className="bg-terracotta hover:bg-terracotta/90 text-paper px-8 py-3 text-lg rounded-none border-0 font-light"
-                  aria-label="I'm an Individual"
+                  className="bg-terracotta text-paper px-8 py-3 text-lg font-light hover:bg-terracotta/90 transition-colors"
                 >
                   I'm an Individual
-                </Button>
-                <Button 
+                </button>
+                <button 
                   onClick={() => scrollToSection('brands')}
-                  variant="outline"
-                  className="border-ink/20 text-ink hover:bg-ink/5 px-8 py-3 text-lg rounded-none font-light"
-                  aria-label="I'm a Brand or Partner"
+                  className="border border-ink/20 text-ink px-8 py-3 text-lg font-light hover:bg-ink/5 transition-colors"
                 >
                   I'm a Brand or Partner
-                </Button>
+                </button>
               </div>
             </div>
           </section>
@@ -101,11 +97,9 @@ const Support = () => {
                     <li>• Digital badge of support</li>
                   </ul>
                   
-                  <Button 
-                    className="bg-terracotta hover:bg-terracotta/90 text-paper px-6 py-2 rounded-none border-0 font-light w-full"
-                  >
+                  <button className="bg-terracotta text-paper px-6 py-2 font-light hover:bg-terracotta/90 transition-colors w-full">
                     Adopt Now
-                  </Button>
+                  </button>
                 </div>
 
                 {/* Volunteer */}
@@ -122,12 +116,9 @@ const Support = () => {
                     <li>• Host a storytelling circle or listening party</li>
                   </ul>
                   
-                  <Button 
-                    variant="outline"
-                    className="border-ink/20 text-ink hover:bg-ink/5 px-6 py-2 rounded-none font-light w-full"
-                  >
+                  <button className="border border-ink/20 text-ink px-6 py-2 font-light hover:bg-ink/5 transition-colors w-full">
                     Join as a Volunteer
-                  </Button>
+                  </button>
                 </div>
 
                 {/* Donate */}
@@ -139,11 +130,9 @@ const Support = () => {
                   </p>
                   
                   <div className="pt-8">
-                    <Button 
-                      className="bg-dusty hover:bg-dusty/90 text-ink px-6 py-2 rounded-none border-0 font-light w-full"
-                    >
+                    <button className="bg-dusty text-ink px-6 py-2 font-light hover:bg-dusty/90 transition-colors w-full">
                       Donate
-                    </Button>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -175,17 +164,12 @@ const Support = () => {
                   </ul>
                   
                   <div className="flex flex-col gap-3 pt-4">
-                    <Button 
-                      className="bg-dusty hover:bg-dusty/90 text-ink px-6 py-2 rounded-none border-0 font-light"
-                    >
+                    <button className="bg-dusty text-ink px-6 py-2 font-light hover:bg-dusty/90 transition-colors">
                       Download Sponsor Deck
-                    </Button>
-                    <Button 
-                      variant="outline"
-                      className="border-ink/20 text-ink hover:bg-ink/5 px-6 py-2 rounded-none font-light"
-                    >
+                    </button>
+                    <button className="border border-ink/20 text-ink px-6 py-2 font-light hover:bg-ink/5 transition-colors">
                       Contact Us
-                    </Button>
+                    </button>
                   </div>
                 </div>
 
@@ -208,11 +192,9 @@ const Support = () => {
                     Let's protect and project our region's voices — together.
                   </p>
                   
-                  <Button 
-                    className="bg-terracotta hover:bg-terracotta/90 text-paper px-6 py-2 rounded-none border-0 font-light"
-                  >
+                  <button className="bg-terracotta text-paper px-6 py-2 font-light hover:bg-terracotta/90 transition-colors">
                     Become a Collaborator
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>
@@ -240,12 +222,9 @@ const Support = () => {
               
               <div className="text-center">
                 <p className="text-lg font-light text-ink/70 mb-6">(...more loading)</p>
-                <Button 
-                  variant="outline"
-                  className="border-ink/20 text-ink hover:bg-ink/5 px-8 py-3 text-lg rounded-none font-light"
-                >
+                <button className="border border-ink/20 text-ink px-8 py-3 text-lg font-light hover:bg-ink/5 transition-colors">
                   See the Voices
-                </Button>
+                </button>
               </div>
             </div>
           </section>
