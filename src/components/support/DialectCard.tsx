@@ -19,7 +19,7 @@ const DialectCard = ({ name, contexts }: DialectCardProps) => {
       </div>
       <a 
         href={mailtoLink}
-        className="block text-center text-terracotta font-medium hover:text-terracotta/80 hover:underline transition-all duration-200 mt-4 py-2"
+        className="block text-left text-terracotta font-medium hover:text-terracotta/80 hover:underline transition-all duration-200 mt-4 py-2"
         aria-label={`Adopt ${name} dialect`}
       >
         Adopt {name}
