@@ -53,22 +53,6 @@ const Support = () => {
               </p>
             </header>
 
-            {/* Why Support Matters */}
-            <section className="space-y-8">
-              <h2 className="font-serif text-3xl md:text-4xl text-ink">Why Support Matters</h2>
-              <div className="space-y-6 text-lg font-light leading-relaxed">
-                <p className="text-ink/90">
-                  Languages don't die all at once — they fade one voice at a time.
-                </p>
-                <p className="text-ink/80">
-                  South Asia has over 100 endangered dialects. Most have no digital presence.
-                </p>
-                <p className="text-ink/70">
-                  KhaM is building an open-source voice library to preserve, honor, and amplify these sounds — through storytelling, community memory, and AI-powered future access.
-                </p>
-              </div>
-            </section>
-
             {/* Ways to Help */}
             <section className="space-y-12">
               <h2 className="font-serif text-3xl md:text-4xl text-ink">
