@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -8,7 +9,7 @@ const DialectMap = () => {
     { name: "Noakhali", region: "Bangladesh", status: "recording", color: "bg-terracotta/20 text-terracotta" },
     { name: "Mymensingh", region: "Bangladesh", status: "recording", color: "bg-terracotta/20 text-terracotta" },
     { name: "Rangpuri", region: "Bangladesh/India", status: "recording", color: "bg-terracotta/20 text-terracotta" },
-    { name: "Bhojpuri", region: "India", status: "training", color: "bg-dusty/20 text-dusty" }
+    { name: "Barishal", region: "Bangladesh", status: "recording", color: "bg-terracotta/20 text-terracotta" }
   ];
 
   return (
