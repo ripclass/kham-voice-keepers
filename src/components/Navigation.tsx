@@ -1,3 +1,4 @@
+
 import { Link, useLocation } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { useState } from "react";
@@ -18,6 +19,7 @@ const Navigation = () => {
     { path: "/roadmap", label: "Roadmap" },
     { path: "/team", label: "Origin" },
     { path: "/support", label: "Support" },
+    { path: "/research", label: "Research" },
     { path: "/contact", label: "Contact" },
   ];
 
