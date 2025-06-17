@@ -27,7 +27,9 @@ const FeaturedPapers = () => {
       status: "🔄 In Progress",
       statusType: "progress",
       description: "Working draft available",
-      abstract: "Technical approaches to training voice models that understand and respond to dialectal variations in South Asian languages."
+      abstract: "Technical approaches to training voice models that understand and respond to dialectal variations in South Asian languages.",
+      fullAbstract: "Technical approaches to training voice models that understand and respond to dialectal variations in South Asian languages.",
+      link: undefined
     },
     {
       title: "Cultural Code-Switching in South Asian Youth Speech",
@@ -35,7 +37,9 @@ const FeaturedPapers = () => {
       status: "🧪 Beta Interviews Underway",
       statusType: "research",
       description: "Early findings available",
-      abstract: "Investigating how young South Asians switch between languages and dialects in digital communication."
+      abstract: "Investigating how young South Asians switch between languages and dialects in digital communication.",
+      fullAbstract: "Investigating how young South Asians switch between languages and dialects in digital communication.",
+      link: undefined
     }
   ];
 
