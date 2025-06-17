@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,6 +8,7 @@ import { ChevronDown, ArrowRight } from "lucide-react";
 
 const FeaturedPapers = () => {
   const [isAbstractOpen, setIsAbstractOpen] = useState(false);
+  const [isDraftOpen, setIsDraftOpen] = useState(false);
   
   const featuredPaper = {
     title: "Emotion in South Asian Languages: Beyond Translation",
@@ -123,6 +125,25 @@ const FeaturedPapers = () => {
 
               {paper.link && index === 1 && (
                 <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                  <Collapsible open={isDraftOpen} onOpenChange={setIsDraftOpen}>
+                    <CollapsibleTrigger className="group flex items-center gap-2 text-terracotta hover:text-terracotta/80 transition-colors font-medium">
+                      <span className="underline decoration-terracotta/40 hover:decoration-terracotta transition-all">
+                        Working draft available
+                      </span>
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isDraftOpen ? 'rotate-180' : ''}`} />
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="mt-4">
+                      <div className="bg-paper border border-ink/10 rounded-lg p-6 space-y-4">
+                        <h4 className="font-serif text-lg text-ink mb-3">Overview</h4>
+                        <div className="prose prose-ink max-w-none">
+                          <p className="text-ink/70 leading-relaxed">
+                            {paper.fullAbstract}
+                          </p>
+                        </div>
+                      </div>
+                    </CollapsibleContent>
+                  </Collapsible>
+                  
                   <Link to={paper.link} className="inline-flex items-center gap-2 text-ink hover:text-terracotta transition-colors font-medium underline decoration-ink/40 hover:decoration-terracotta">
                     <span>Read Full Paper</span>
                     <ArrowRight className="w-4 h-4" />
