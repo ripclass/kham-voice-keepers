@@ -141,10 +141,17 @@ const Support = () => {
                   </div>
                   
                   <Button 
+                    asChild
                     className="bg-terracotta hover:bg-terracotta/90 text-paper rounded-none"
                     aria-label="Adopt a voice"
                   >
-                    Adopt a Voice →
+                    <a 
+                      href="mailto:ripon@khamlabs.org?subject=Adopt%20a%20Voice%20–%20Individual%20Support"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Adopt a Voice →
+                    </a>
                   </Button>
                 </div>
 
@@ -207,10 +214,17 @@ const Support = () => {
                   </div>
                   
                   <Button 
+                    asChild
                     className="bg-terracotta hover:bg-terracotta/90 text-paper rounded-none"
                     aria-label="Talk to us about partnership"
                   >
-                    Talk to Us →
+                    <a 
+                      href="mailto:ripon@khamlabs.org?subject=Dialect%20Sponsorship%20Inquiry"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Talk to Us →
+                    </a>
                   </Button>
                 </div>
               </div>
@@ -259,10 +273,17 @@ const Support = () => {
                 <p>• Donate — every dollar keeps a voice alive</p>
               </div>
               <Button 
+                asChild
                 className="bg-terracotta hover:bg-terracotta/90 text-paper rounded-none"
                 aria-label="Write to us"
               >
-                Write to Us →
+                <a 
+                  href="mailto:ripon@khamlabs.org?subject=General%20Support%20Inquiry"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Write to Us →
+                </a>
               </Button>
             </section>
 
