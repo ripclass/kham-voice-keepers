@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -71,17 +70,7 @@ const FeaturedPapers = () => {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div className="space-y-2">
                   <CardTitle className="text-xl font-serif text-ink">
-                    {paper.link && index === 1 ? (
-                      <Link 
-                        to={paper.link}
-                        className="hover:text-terracotta transition-colors inline-flex items-center gap-2"
-                      >
-                        {paper.title}
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    ) : (
-                      paper.title
-                    )}
+                    {paper.title}
                   </CardTitle>
                   <div className="flex gap-2">
                     <Badge variant="outline" className="text-xs">
@@ -123,6 +112,15 @@ const FeaturedPapers = () => {
                     </CollapsibleContent>
                   </Collapsible>
                   
+                  <Link to={paper.link} className="inline-flex items-center gap-2 text-ink hover:text-terracotta transition-colors font-medium underline decoration-ink/40 hover:decoration-terracotta">
+                    <span>Read Full Paper</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              )}
+
+              {paper.link && index === 1 && (
+                <div className="flex flex-col sm:flex-row gap-4 pt-2">
                   <Link to={paper.link} className="inline-flex items-center gap-2 text-ink hover:text-terracotta transition-colors font-medium underline decoration-ink/40 hover:decoration-terracotta">
                     <span>Read Full Paper</span>
                     <ArrowRight className="w-4 h-4" />
