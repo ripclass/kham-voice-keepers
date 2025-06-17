@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,6 +13,7 @@ import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import Support from "./pages/Support";
 import Research from "./pages/Research";
+import EmotionPaper from "./pages/EmotionPaper";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
