@@ -1,4 +1,3 @@
-
 import { Link, useLocation } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { useState } from "react";
@@ -15,7 +14,6 @@ const Navigation = () => {
   const navItems = [
     { path: "/", label: "Home" },
     { path: "/voices", label: "Voices" },
-    { path: "/collab", label: "Collab" },
     { path: "/library", label: "Library" },
     { path: "/roadmap", label: "Roadmap" },
     { path: "/team", label: "Origin" },

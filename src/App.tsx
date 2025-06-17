@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
-import Collab from "./pages/Collab";
 import Voices from "./pages/Voices";
 import Library from "./pages/Library";
 import Roadmap from "./pages/Roadmap";
@@ -26,7 +25,6 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/collab" element={<Collab />} />
             <Route path="/voices" element={<Voices />} />
             <Route path="/library" element={<Library />} />
             <Route path="/roadmap" element={<Roadmap />} />
