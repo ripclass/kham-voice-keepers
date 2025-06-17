@@ -3,6 +3,65 @@ import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 
 const Support = () => {
+  const dialects = [
+    {
+      name: "Chittagonian",
+      contexts: [
+        "Real voices from the coastal south",
+        "AI-ready audio model in progress", 
+        "Stories of sea, spice, and survival"
+      ]
+    },
+    {
+      name: "Sylheti",
+      contexts: [
+        "Deeply expressive, diaspora-spread",
+        "Voice-rich storytelling, folk magic",
+        "Great for romantic, emotional, or nostalgic tones"
+      ]
+    },
+    {
+      name: "Noakhali",
+      contexts: [
+        "Fast, funny, and full of charm",
+        "Digitally underrepresented but culturally iconic",
+        "Ideal for comic timing and punchline reels"
+      ]
+    },
+    {
+      name: "Rangpuri",
+      contexts: [
+        "Rooted in folk riddles, haat bazaar life",
+        "Smooth tone, warm rhythm",
+        "Strong emotional bonding potential"
+      ]
+    },
+    {
+      name: "Khulnai Dialect",
+      contexts: [
+        "Delta-born, rustic and powerful",
+        "Unique blend of Bangla + Urdu loanwords",
+        "Great for natural world narratives and regional myths"
+      ]
+    },
+    {
+      name: "Barisali",
+      contexts: [
+        "Lyrical, animated, and full of character",
+        "Strong vowel shifts, unique cadence",
+        "Often parodied — rarely preserved"
+      ]
+    },
+    {
+      name: "Comilla Dialect",
+      contexts: [
+        "Mixed tone with Tripura influences",
+        "Soft-spoken, elder-generation storytelling",
+        "Great for cross-border cultural memory mapping"
+      ]
+    }
+  ];
+
   return (
     <>
       <Helmet>
@@ -42,7 +101,6 @@ const Support = () => {
         <main className="pt-24 pb-20 px-6 md:px-12">
           <div className="max-w-4xl mx-auto space-y-16">
             
-            {/* Header */}
             <header className="text-center space-y-6">
               <h1 className="font-serif text-4xl md:text-6xl text-ink">
                 Adopt a Dialect.<br />Keep It Alive.
@@ -53,7 +111,6 @@ const Support = () => {
               </p>
             </header>
 
-            {/* Ways to Help */}
             <section className="space-y-12">
               <h2 className="font-serif text-3xl md:text-4xl text-ink">
                 Ways to Help
@@ -86,24 +143,41 @@ const Support = () => {
               </div>
             </section>
 
-            {/* Dialects in Need */}
+            {/* Voices in Need of Adoption */}
             <section className="space-y-8">
-              <h2 className="font-serif text-3xl md:text-4xl text-ink">Dialects in Need of Adoption</h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                {['Sylheti', 'Chakma', 'Bodo', 'Bhojpuri', 'Marwari', 'Chittagonian'].map((dialect) => (
-                  <div key={dialect} className="bg-paper border border-ink/10 p-4 space-y-2">
-                    <h3 className="font-serif text-lg text-ink">{dialect}</h3>
-                    <div className="space-y-1 text-xs font-light text-ink/70">
-                      <p>• Real voices from the community</p>
-                      <p>• AI-ready training</p>
-                      <p>• A living story library</p>
+              <div className="text-center space-y-4">
+                <h2 className="font-serif text-3xl md:text-4xl text-ink">Voices in Need of Adoption</h2>
+                <p className="text-lg font-light text-ink/70 max-w-3xl mx-auto">
+                  These are not just dialects. They are living memories, musical patterns, and emotional blueprints of our people.
+                  Help us preserve them — one voice at a time.
+                </p>
+              </div>
+              
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {dialects.map((dialect) => (
+                  <div 
+                    key={dialect.name} 
+                    className="bg-paper border border-ink/10 p-6 space-y-4 hover:shadow-lg hover:border-ink/20 transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <h3 className="font-serif text-lg text-ink">{dialect.name}</h3>
+                    <div className="space-y-2">
+                      {dialect.contexts.map((context, index) => (
+                        <p key={index} className="text-sm font-light text-ink/70">
+                          • {context}
+                        </p>
+                      ))}
                     </div>
+                    <Button 
+                      className="w-full bg-terracotta hover:bg-terracotta/90 text-paper text-sm rounded-none mt-4"
+                      aria-label={`Adopt ${dialect.name} dialect`}
+                    >
+                      Adopt {dialect.name}
+                    </Button>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* Other Ways to Support */}
             <section className="space-y-8">
               <h2 className="font-serif text-3xl md:text-4xl text-ink">Other Ways to Support</h2>
               <div className="space-y-4 text-lg font-light text-ink/80">
@@ -141,7 +215,6 @@ const Support = () => {
           </div>
         </main>
 
-        {/* Footer */}
         <footer className="w-full bg-ink py-16 px-6 md:px-12">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <blockquote className="font-serif text-2xl md:text-3xl text-paper/90 mb-8">
