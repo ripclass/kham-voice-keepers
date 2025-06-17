@@ -9,16 +9,16 @@ const SupportHero = ({ onScrollToSection }: SupportHeroProps) => {
   return (
     <section className="min-h-screen flex items-center justify-center px-6 md:px-12 pt-20">
       <div className="max-w-4xl text-center space-y-8">
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-ink leading-tight">
-          Adopt a Dialect.<br />Keep It Alive.
+        <h1 className="font-serif text-4xl md:text-6xl text-ink">
+          How to Back This Work
         </h1>
-        <p className="text-lg md:text-xl lg:text-2xl font-light max-w-3xl mx-auto leading-relaxed text-ink/80">
-          Whether you're an individual, a brand, or an institution — you can help keep South Asia's disappearing voices alive through KhaM.
+        <p className="text-lg md:text-xl font-light text-ink/80 max-w-2xl mx-auto">
+          This isn't crowdfunding. It's an invitation to be part of something that matters.
         </p>
         <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <Button 
             onClick={() => onScrollToSection('individuals')}
-            className="bg-terracotta text-paper hover:bg-terracotta/90 px-8 py-6 text-lg font-light rounded-none border-0"
+            className="bg-terracotta hover:bg-terracotta/90 text-paper px-8 py-6 text-lg font-light rounded-none"
           >
             I'm an Individual
           </Button>
