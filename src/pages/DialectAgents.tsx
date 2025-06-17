@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -179,7 +178,7 @@ const DialectAgents = () => {
 
                 <footer className="mt-12 pt-8 border-t border-ink/10 text-center">
                   <p className="text-ink/70">
-                    Contact: <a href="mailto:hello@khamlabs.org" className="text-terracotta hover:text-terracotta/80">hello@khamlabs.org</a>
+                    Contact: <a href="mailto:ripon@khamlabs.org" className="text-terracotta hover:text-terracotta/80">ripon@khamlabs.org</a>
                   </p>
                   <p className="text-ink/70">
                     URL: <a href="https://khamlabs.org/research/dialect-agents" className="text-terracotta hover:text-terracotta/80">khamlabs.org/research/dialect-agents</a>
