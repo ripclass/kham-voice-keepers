@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
@@ -259,6 +258,12 @@ const Support = () => {
                 <p>• Help us transcribe dialect stories</p>
                 <p>• Donate — every dollar keeps a voice alive</p>
               </div>
+              <Button 
+                className="bg-terracotta hover:bg-terracotta/90 text-paper rounded-none"
+                aria-label="Write to us"
+              >
+                Write to Us →
+              </Button>
             </section>
 
             {/* Thank you closing */}
