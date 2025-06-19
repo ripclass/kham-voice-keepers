@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
-import { Hero } from "@/components/ui/animated-hero";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => {
@@ -46,9 +45,27 @@ const Index = () => {
       <div className="min-h-screen bg-paper text-ink">
         <Navigation />
         
-        {/* Hero Section - Using Animated Hero Component */}
+        {/* Hero Section */}
         <main>
-          <Hero />
+          <section className="min-h-screen flex items-center justify-center px-6 md:px-12 pt-20">
+            <div className="max-w-4xl text-center space-y-8">
+              <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-ink leading-tight">
+                A Container for Disappearing Voices
+              </h1>
+              <p className="text-lg md:text-xl lg:text-2xl font-light max-w-3xl mx-auto leading-relaxed text-ink/80">
+                KhaM is an open-source initiative preserving forgotten dialects, lost tone, and emotional language in AI—beginning with South Asia.
+              </p>
+              <div className="pt-8">
+                <Button 
+                  onClick={() => scrollToSection('what-is-kham')}
+                  className="bg-terracotta hover:bg-terracotta/90 text-paper px-8 py-3 text-lg rounded-none border-0 font-light"
+                  aria-label="Learn more about KhaM's mission"
+                >
+                  Learn More →
+                </Button>
+              </div>
+            </div>
+          </section>
 
           {/* What is KhaM */}
           <section id="what-is-kham" className="py-20 px-6 md:px-12">
