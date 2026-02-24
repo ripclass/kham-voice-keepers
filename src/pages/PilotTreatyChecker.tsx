@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { treaties, nationalInstruments } from "@/lib/pilotSeed";
 
 type TreatyResult = {
   treaty_article: string;
@@ -12,30 +12,52 @@ type TreatyResult = {
   status: string;
   severity: string;
   recommendation: string;
+  confidence: number;
 };
 
 type TreatyResponse = {
   treaty: string;
   law: string;
-  summary: string;
+  generated_at: string;
+  reference_no: string;
+  classification: string;
+  executive_summary: string;
+  top_urgent_gaps: string[];
+  action_list_30_60_90: string[];
+  human_review_disclaimer: string;
   results: TreatyResult[];
 };
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://kham-pilot-api.onrender.com";
 
+const steps = [
+  "Parsing treaty obligations",
+  "Parsing domestic provisions",
+  "Mapping obligations to national instrument",
+  "Scoring gaps and generating recommendations",
+];
+
 export default function PilotTreatyChecker() {
-  const [treatyName, setTreatyName] = useState("Paris Agreement");
-  const [lawName, setLawName] = useState("Bangladesh Climate Policy");
-  const [treatyText, setTreatyText] = useState("");
-  const [lawText, setLawText] = useState("");
+  const [treatyName, setTreatyName] = useState(treaties[0]);
+  const [lawName, setLawName] = useState(nationalInstruments[0]);
+  const [treatyText, setTreatyText] = useState("Paste treaty text or keep sample excerpt for pilot demo.");
+  const [lawText, setLawText] = useState("Paste national law/policy text or keep sample excerpt for pilot demo.");
   const [loading, setLoading] = useState(false);
+  const [stepIndex, setStepIndex] = useState<number>(-1);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<TreatyResponse | null>(null);
+
+  const progressLabel = useMemo(() => (stepIndex >= 0 ? steps[Math.min(stepIndex, 3)] : ""), [stepIndex]);
 
   const analyze = async () => {
     setLoading(true);
     setError(null);
     setData(null);
+    setStepIndex(0);
+
+    const timer = setInterval(() => {
+      setStepIndex((prev) => (prev < 3 ? prev + 1 : prev));
+    }, 650);
 
     try {
       const res = await fetch(`${API_BASE}/api/treaty/analyze`, {
@@ -59,6 +81,8 @@ export default function PilotTreatyChecker() {
     } catch (e) {
       setError(e instanceof Error ? e.message : "Unknown error");
     } finally {
+      clearInterval(timer);
+      setStepIndex(3);
       setLoading(false);
     }
   };
@@ -66,55 +90,120 @@ export default function PilotTreatyChecker() {
   return (
     <div className="min-h-screen bg-paper text-ink">
       <Navigation />
-      <main className="max-w-5xl mx-auto px-6 pt-28 pb-16">
-        <h1 className="font-serif text-4xl mb-2">Pilot: Treaty Compliance Checker</h1>
-        <p className="text-ink/70 mb-8">Private pilot route for internal demos.</p>
+      <main className="max-w-6xl mx-auto px-6 pt-28 pb-16">
+        <header className="mb-8 border border-ink/15 rounded-lg p-4 bg-white/80">
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            <div>
+              <p className="text-xs tracking-wide text-ink/60">KhaM Labs • KhaM for GOV</p>
+              <h1 className="font-serif text-3xl">International Treaty Compliance Checker</h1>
+            </div>
+            <div className="text-right text-xs text-ink/70">
+              <p>Classification: INTERNAL PILOT USE ONLY</p>
+              <p>Ref: Auto-generated per run</p>
+            </div>
+          </div>
+        </header>
 
-        <Card className="mb-6">
-          <CardHeader>
-            <CardTitle>Inputs</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <Input value={treatyName} onChange={(e) => setTreatyName(e.target.value)} placeholder="Treaty name" />
-            <Input value={lawName} onChange={(e) => setLawName(e.target.value)} placeholder="National law name" />
-            <Textarea
-              value={treatyText}
-              onChange={(e) => setTreatyText(e.target.value)}
-              placeholder="Paste treaty text"
-              className="min-h-40"
-            />
-            <Textarea
-              value={lawText}
-              onChange={(e) => setLawText(e.target.value)}
-              placeholder="Paste national law/policy text"
-              className="min-h-40"
-            />
-            <Button onClick={analyze} disabled={loading}>
-              {loading ? "Analyzing..." : "Analyze Compliance"}
-            </Button>
-            {error && <p className="text-red-600 text-sm">{error}</p>}
-          </CardContent>
-        </Card>
+        <div className="grid lg:grid-cols-3 gap-6">
+          <Card className="lg:col-span-1">
+            <CardHeader><CardTitle>Input Panel</CardTitle></CardHeader>
+            <CardContent className="space-y-3">
+              <label className="text-sm">Treaty</label>
+              <select className="w-full border rounded-md p-2 bg-white" value={treatyName} onChange={(e) => setTreatyName(e.target.value)}>
+                {treaties.map((t) => <option key={t}>{t}</option>)}
+              </select>
 
-        {data && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Result: {data.treaty} vs {data.law}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p><strong>Summary:</strong> {data.summary}</p>
-              {data.results.map((r, i) => (
-                <div key={i} className="border border-ink/10 rounded-md p-3">
-                  <p><strong>Article:</strong> {r.treaty_article}</p>
-                  <p><strong>Obligation:</strong> {r.obligation}</p>
-                  <p><strong>Mapping:</strong> {r.national_mapping}</p>
-                  <p><strong>Status:</strong> {r.status} | <strong>Severity:</strong> {r.severity}</p>
-                  <p><strong>Recommendation:</strong> {r.recommendation}</p>
-                </div>
-              ))}
+              <label className="text-sm">National Instrument</label>
+              <select className="w-full border rounded-md p-2 bg-white" value={lawName} onChange={(e) => setLawName(e.target.value)}>
+                {nationalInstruments.map((n) => <option key={n}>{n}</option>)}
+              </select>
+
+              <label className="text-sm">Treaty Text (or excerpt)</label>
+              <Textarea value={treatyText} onChange={(e) => setTreatyText(e.target.value)} className="min-h-24" />
+
+              <label className="text-sm">National Law Text (or excerpt)</label>
+              <Textarea value={lawText} onChange={(e) => setLawText(e.target.value)} className="min-h-24" />
+
+              <Button onClick={analyze} disabled={loading} className="w-full">{loading ? "Analyzing..." : "Analyze Compliance"}</Button>
+              {error && <p className="text-red-600 text-sm">{error}</p>}
             </CardContent>
           </Card>
-        )}
+
+          <div className="lg:col-span-2 space-y-6">
+            <Card>
+              <CardHeader><CardTitle>Processing Timeline</CardTitle></CardHeader>
+              <CardContent>
+                <ol className="space-y-2 text-sm">
+                  {steps.map((s, i) => (
+                    <li key={s} className={`p-2 rounded ${stepIndex >= i ? "bg-ink/10" : "bg-ink/5"}`}>
+                      {stepIndex > i ? "✓" : stepIndex === i && loading ? "…" : "○"} {s}
+                    </li>
+                  ))}
+                </ol>
+                {progressLabel && <p className="mt-3 text-xs text-ink/60">Current: {progressLabel}</p>}
+              </CardContent>
+            </Card>
+
+            {data && (
+              <Card>
+                <CardHeader>
+                  <CardTitle>Policy Memo Output</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="text-sm text-ink/70">
+                    <p><strong>Reference:</strong> {data.reference_no}</p>
+                    <p><strong>Date:</strong> {new Date(data.generated_at).toLocaleString()}</p>
+                    <p><strong>Classification:</strong> {data.classification}</p>
+                  </div>
+
+                  <p><strong>Executive Summary:</strong> {data.executive_summary}</p>
+
+                  <div>
+                    <h3 className="font-semibold mb-2">Obligation Matrix</h3>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm border border-ink/20">
+                        <thead className="bg-ink/10">
+                          <tr>
+                            <th className="p-2 border">Article</th>
+                            <th className="p-2 border">Status</th>
+                            <th className="p-2 border">Severity</th>
+                            <th className="p-2 border">Confidence</th>
+                            <th className="p-2 border">Recommendation</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {data.results.map((r, i) => (
+                            <tr key={i}>
+                              <td className="p-2 border">{r.treaty_article}</td>
+                              <td className="p-2 border">{r.status}</td>
+                              <td className="p-2 border">{r.severity}</td>
+                              <td className="p-2 border">{Math.round(r.confidence * 100)}%</td>
+                              <td className="p-2 border">{r.recommendation}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold">Top 5 Urgent Gaps</h3>
+                    <ul className="list-disc pl-5 text-sm">{data.top_urgent_gaps.map((g, i) => <li key={i}>{g}</li>)}</ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold">Action List (30/60/90)</h3>
+                    <ul className="list-disc pl-5 text-sm">{data.action_list_30_60_90.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                  </div>
+
+                  <p className="text-xs text-ink/60 border-t pt-3">{data.human_review_disclaimer}</p>
+                </CardContent>
+              </Card>
+            )}
+          </div>
+        </div>
+
+        <p className="mt-8 text-center text-xs text-ink/50">FOR INTERNAL PILOT USE ONLY • Confidential working demo</p>
       </main>
     </div>
   );

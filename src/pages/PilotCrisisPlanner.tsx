@@ -4,29 +4,47 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { crisisConstraints, crisisTypes, missions } from "@/lib/pilotSeed";
+
+type RoleTask = { role: string; task: string };
+type TimelinePhase = { phase: string; actions: string[] };
 
 type CrisisResponse = {
-  scenario: {
-    country: string;
-    crisis_type: string;
-    nationals_affected: number;
-  };
+  reference_no: string;
+  generated_at: string;
+  classification: string;
+  mission_location: string;
+  crisis_type: string;
+  nationals_affected: number;
   condition_yellow: string[];
   condition_orange: string[];
   condition_red: string[];
+  role_assigned_tasks: RoleTask[];
+  timeline: TimelinePhase[];
+  communication_templates: string[];
+  sitrep_template: string;
+  assumptions_and_unknowns: string[];
+  human_review_disclaimer: string;
 };
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://kham-pilot-api.onrender.com";
 
 export default function PilotCrisisPlanner() {
-  const [country, setCountry] = useState("Jordan");
-  const [crisisType, setCrisisType] = useState("civil_unrest");
+  const [missionLocation, setMissionLocation] = useState(missions[2]);
+  const [crisisType, setCrisisType] = useState(crisisTypes[0]);
   const [nationalsAffected, setNationalsAffected] = useState(50000);
-  const [resources, setResources] = useState("2 vehicles, 12 staff, hotline");
+  const [resources, setResources] = useState("2 mission vehicles, 12 staff, hotline, temporary shelter partner");
   const [localConditions, setLocalConditions] = useState("Intermittent telecom and roadblocks in two districts.");
+  const [selectedConstraints, setSelectedConstraints] = useState<string[]>(["Telecom outage", "Roadblocks"]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<CrisisResponse | null>(null);
+
+  const toggleConstraint = (value: string) => {
+    setSelectedConstraints((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
+    );
+  };
 
   const generatePlan = async () => {
     setLoading(true);
@@ -34,19 +52,17 @@ export default function PilotCrisisPlanner() {
     setData(null);
 
     try {
-      const embassyResources = resources
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean);
+      const embassyResources = resources.split(",").map((s) => s.trim()).filter(Boolean);
 
       const res = await fetch(`${API_BASE}/api/crisis/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          country,
+          mission_location: missionLocation,
           crisis_type: crisisType,
           nationals_affected: nationalsAffected,
           embassy_resources: embassyResources,
+          constraints: selectedConstraints,
           local_conditions: localConditions,
         }),
       });
@@ -68,68 +84,124 @@ export default function PilotCrisisPlanner() {
   return (
     <div className="min-h-screen bg-paper text-ink">
       <Navigation />
-      <main className="max-w-5xl mx-auto px-6 pt-28 pb-16">
-        <h1 className="font-serif text-4xl mb-2">Pilot: Consular Crisis Response Planner</h1>
-        <p className="text-ink/70 mb-8">Private pilot route for internal demos.</p>
+      <main className="max-w-6xl mx-auto px-6 pt-28 pb-16">
+        <header className="mb-8 border border-ink/15 rounded-lg p-4 bg-white/80">
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            <div>
+              <p className="text-xs tracking-wide text-ink/60">KhaM Labs • KhaM for GOV</p>
+              <h1 className="font-serif text-3xl">Consular Crisis Response Planner</h1>
+            </div>
+            <div className="text-right text-xs text-ink/70">
+              <p>Classification: INTERNAL PILOT USE ONLY</p>
+              <p>Ops Order Preview</p>
+            </div>
+          </div>
+        </header>
 
-        <Card className="mb-6">
-          <CardHeader>
-            <CardTitle>Scenario Inputs</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <Input value={country} onChange={(e) => setCountry(e.target.value)} placeholder="Country" />
-            <Input value={crisisType} onChange={(e) => setCrisisType(e.target.value)} placeholder="Crisis type" />
-            <Input
-              type="number"
-              value={nationalsAffected}
-              onChange={(e) => setNationalsAffected(Number(e.target.value))}
-              placeholder="Nationals affected"
-            />
-            <Input
-              value={resources}
-              onChange={(e) => setResources(e.target.value)}
-              placeholder="Resources (comma separated)"
-            />
-            <Textarea
-              value={localConditions}
-              onChange={(e) => setLocalConditions(e.target.value)}
-              placeholder="Local conditions"
-              className="min-h-28"
-            />
-            <Button onClick={generatePlan} disabled={loading}>
-              {loading ? "Generating..." : "Generate Response Plan"}
-            </Button>
-            {error && <p className="text-red-600 text-sm">{error}</p>}
-          </CardContent>
-        </Card>
+        <div className="grid lg:grid-cols-3 gap-6">
+          <Card className="lg:col-span-1">
+            <CardHeader><CardTitle>Mission Briefing Input</CardTitle></CardHeader>
+            <CardContent className="space-y-3">
+              <label className="text-sm">Mission Location</label>
+              <select className="w-full border rounded-md p-2 bg-white" value={missionLocation} onChange={(e) => setMissionLocation(e.target.value)}>
+                {missions.map((m) => <option key={m}>{m}</option>)}
+              </select>
 
-        {data && (
-          <Card>
-            <CardHeader>
-              <CardTitle>
-                Plan: {data.scenario.country} / {data.scenario.crisis_type}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p><strong>Nationals affected:</strong> {data.scenario.nationals_affected}</p>
+              <label className="text-sm">Crisis Type</label>
+              <select className="w-full border rounded-md p-2 bg-white" value={crisisType} onChange={(e) => setCrisisType(e.target.value)}>
+                {crisisTypes.map((c) => <option key={c}>{c}</option>)}
+              </select>
 
-              <div>
-                <h3 className="font-semibold mb-2">Condition Yellow</h3>
-                <ul className="list-disc pl-5 space-y-1">{data.condition_yellow.map((i, idx) => <li key={idx}>{i}</li>)}</ul>
+              <label className="text-sm">Nationals Affected</label>
+              <Input type="number" value={nationalsAffected} onChange={(e) => setNationalsAffected(Number(e.target.value))} />
+
+              <label className="text-sm">Resource Inventory</label>
+              <Input value={resources} onChange={(e) => setResources(e.target.value)} placeholder="comma separated" />
+
+              <label className="text-sm">Constraints</label>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                {crisisConstraints.map((c) => (
+                  <label key={c} className="flex items-center gap-2">
+                    <input type="checkbox" checked={selectedConstraints.includes(c)} onChange={() => toggleConstraint(c)} /> {c}
+                  </label>
+                ))}
               </div>
 
-              <div>
-                <h3 className="font-semibold mb-2">Condition Orange</h3>
-                <ul className="list-disc pl-5 space-y-1">{data.condition_orange.map((i, idx) => <li key={idx}>{i}</li>)}</ul>
-              </div>
+              <label className="text-sm">Local Conditions</label>
+              <Textarea value={localConditions} onChange={(e) => setLocalConditions(e.target.value)} className="min-h-24" />
 
-              <div>
-                <h3 className="font-semibold mb-2">Condition Red</h3>
-                <ul className="list-disc pl-5 space-y-1">{data.condition_red.map((i, idx) => <li key={idx}>{i}</li>)}</ul>
-              </div>
+              <Button onClick={generatePlan} disabled={loading} className="w-full">{loading ? "Generating..." : "Generate Response Plan"}</Button>
+              {error && <p className="text-red-600 text-sm">{error}</p>}
             </CardContent>
           </Card>
-        )}
+
+          <div className="lg:col-span-2">
+            {data ? (
+              <Card>
+                <CardHeader><CardTitle>Operational Order Output</CardTitle></CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="text-sm text-ink/70">
+                    <p><strong>Reference:</strong> {data.reference_no}</p>
+                    <p><strong>Date:</strong> {new Date(data.generated_at).toLocaleString()}</p>
+                    <p><strong>Mission:</strong> {data.mission_location} | <strong>Crisis:</strong> {data.crisis_type}</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold">Condition Yellow</h3>
+                    <ul className="list-disc pl-5">{data.condition_yellow.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Condition Orange</h3>
+                    <ul className="list-disc pl-5">{data.condition_orange.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Condition Red</h3>
+                    <ul className="list-disc pl-5">{data.condition_red.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold">Role-Assigned Tasks</h3>
+                    <ul className="list-disc pl-5">{data.role_assigned_tasks.map((t, i) => <li key={i}><strong>{t.role}:</strong> {t.task}</li>)}</ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold">Timeline</h3>
+                    {data.timeline.map((p) => (
+                      <div key={p.phase} className="border border-ink/10 rounded p-2 mt-2">
+                        <p className="font-medium">{p.phase}</p>
+                        <ul className="list-disc pl-5">{p.actions.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold">Communication Templates</h3>
+                    <ul className="list-disc pl-5">{data.communication_templates.map((t, i) => <li key={i}>{t}</li>)}</ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold">SITREP Format</h3>
+                    <pre className="whitespace-pre-wrap text-sm bg-ink/5 rounded p-3">{data.sitrep_template}</pre>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold">Assumptions & Unknowns</h3>
+                    <ul className="list-disc pl-5">{data.assumptions_and_unknowns.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                  </div>
+
+                  <p className="text-xs text-ink/60 border-t pt-3">{data.human_review_disclaimer}</p>
+                </CardContent>
+              </Card>
+            ) : (
+              <Card>
+                <CardHeader><CardTitle>Awaiting scenario generation</CardTitle></CardHeader>
+                <CardContent className="text-ink/60 text-sm">Generate a plan to render the full operational order document preview.</CardContent>
+              </Card>
+            )}
+          </div>
+        </div>
+
+        <p className="mt-8 text-center text-xs text-ink/50">FOR INTERNAL PILOT USE ONLY • Confidential working demo</p>
       </main>
     </div>
   );
