@@ -1,11 +1,24 @@
 from datetime import datetime, timezone
 from enum import Enum
+import os
 from typing import List
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, field_validator
 
 app = FastAPI(title="KhaM Pilot API")
+
+allowed_origins_env = os.getenv("ALLOWED_ORIGINS", "https://khamlabs.org,https://www.khamlabs.org")
+allowed_origins = [o.strip() for o in allowed_origins_env.split(",") if o.strip()]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/api/health")
