@@ -232,11 +232,14 @@ class TreatyAnalyzeRequest(StrictSchema):
 class TreatyAnalysisResult(StrictSchema):
     treaty_article: str
     obligation: str
+    treaty_clause_text: str
     national_mapping: str
+    domestic_clause_text: str
     status: ComplianceStatus
     severity: SeverityLevel
     recommendation: str
     confidence: float = Field(..., ge=0.0, le=1.0)
+    confidence_rationale: str
 
 
 class TreatyAnalyzeResponse(StrictSchema):
@@ -263,29 +266,38 @@ def _pick_treaty_rows(treaty_name: str, law_name: str) -> List[TreatyAnalysisRes
             TreatyAnalysisResult(
                 treaty_article="Article 4",
                 obligation="Prepare, communicate, and maintain mitigation contributions and measures.",
+                treaty_clause_text="Each Party shall prepare, communicate and maintain successive nationally determined contributions.",
                 national_mapping=f"{law_name}: climate policy commitments and implementation mechanisms are documented.",
+                domestic_clause_text=f"{law_name}: policy commitments to mitigation and reporting are present in broad terms.",
                 status=ComplianceStatus.partial,
                 severity=SeverityLevel.medium,
                 recommendation="Publish legally binding implementation timelines and annual progress publication duty.",
                 confidence=0.78,
+                confidence_rationale="Reasonable correspondence exists, but domestic language is policy-level and not fully binding to treaty cadence.",
             ),
             TreatyAnalysisResult(
                 treaty_article="Article 7",
                 obligation="Strengthen adaptation planning and implementation with vulnerable population focus.",
+                treaty_clause_text="Parties should strengthen their cooperation on enhancing action on adaptation.",
                 national_mapping="Adaptation is addressed in policy documents, but legally enforceable local reporting obligations are limited.",
+                domestic_clause_text="Adaptation is present in strategy statements; binding local reporting clauses are not explicit.",
                 status=ComplianceStatus.partial,
                 severity=SeverityLevel.high,
                 recommendation="Create mandatory district-level adaptation reporting and auditing provisions.",
                 confidence=0.74,
+                confidence_rationale="Mapping is inferential from policy intent and lacks direct enforceable clause linkage.",
             ),
             TreatyAnalysisResult(
                 treaty_article="Article 13",
                 obligation="Provide transparent reporting of actions, support, and outcomes under an enhanced transparency framework.",
+                treaty_clause_text="Each Party shall provide information necessary to track progress made in implementing and achieving its NDC.",
                 national_mapping="Reporting obligations exist institutionally but are not consistently codified in enforceable domestic instruments.",
+                domestic_clause_text="Reporting practice exists administratively; enforceable statutory transparency obligations are limited.",
                 status=ComplianceStatus.gap,
                 severity=SeverityLevel.high,
                 recommendation="Codify annual national transparency report requirements and responsible authority designation.",
                 confidence=0.71,
+                confidence_rationale="High-level transparency intent is visible but direct legal transposition is incomplete.",
             ),
         ]
     elif "vienna convention on consular" in tn:
@@ -293,20 +305,26 @@ def _pick_treaty_rows(treaty_name: str, law_name: str) -> List[TreatyAnalysisRes
             TreatyAnalysisResult(
                 treaty_article="Article 5",
                 obligation="Perform consular functions including protection of nationals and assistance in distress.",
+                treaty_clause_text="Consular functions consist in protecting in the receiving State the interests of the sending State and of its nationals.",
                 national_mapping=f"{law_name}: diplomatic framework exists; mission-level operational SOPs vary in maturity.",
+                domestic_clause_text=f"{law_name}: framework-level consular authority exists; mission SOP specificity varies.",
                 status=ComplianceStatus.partial,
                 severity=SeverityLevel.medium,
                 recommendation="Issue standardized mission SOP templates with mandatory annual readiness review.",
                 confidence=0.76,
+                confidence_rationale="Legal basis is present, but operational mapping is not uniformly codified across mission SOPs.",
             ),
             TreatyAnalysisResult(
                 treaty_article="Article 36",
                 obligation="Ensure communication and access in detention-related circumstances involving nationals.",
+                treaty_clause_text="Consular officers shall be free to communicate with nationals of the sending State and to have access to them.",
                 national_mapping="Legal posture recognized, but response-time standards and escalation matrix are not uniformly documented.",
+                domestic_clause_text="Consular access principles are recognized; standard response-time obligations are not uniformly specified.",
                 status=ComplianceStatus.partial,
                 severity=SeverityLevel.high,
                 recommendation="Adopt a 24-hour notification/escalation standard with auditable logs.",
                 confidence=0.72,
+                confidence_rationale="Mapping relies on practice-level interpretation rather than explicit national clause language.",
             ),
         ]
     else:
@@ -314,11 +332,14 @@ def _pick_treaty_rows(treaty_name: str, law_name: str) -> List[TreatyAnalysisRes
             TreatyAnalysisResult(
                 treaty_article="Article 1",
                 obligation="General obligation to implement treaty commitments in good faith.",
+                treaty_clause_text="Each State Party shall take necessary measures to implement treaty obligations in good faith.",
                 national_mapping=f"{law_name}: broad policy alignment appears present.",
+                domestic_clause_text=f"{law_name}: broad policy and administrative alignment appears present in available excerpts.",
                 status=ComplianceStatus.partial,
                 severity=SeverityLevel.medium,
                 recommendation="Map each substantive treaty article to a domestic legal clause and assign implementing authority.",
                 confidence=0.69,
+                confidence_rationale="Assessment is generalized due to limited domain-specific clause evidence in provided excerpts.",
             )
         ]
 
@@ -336,8 +357,11 @@ def _coerce_treaty_results(raw_results: Any) -> List[TreatyAnalysisResult]:
 
         treaty_article = str(raw.get("treaty_article", "")).strip()
         obligation = str(raw.get("obligation", "")).strip()
+        treaty_clause_text = str(raw.get("treaty_clause_text", raw.get("obligation", ""))).strip()
         national_mapping = str(raw.get("national_mapping", "")).strip()
+        domestic_clause_text = str(raw.get("domestic_clause_text", raw.get("national_mapping", ""))).strip()
         recommendation = str(raw.get("recommendation", "")).strip()
+        confidence_rationale = str(raw.get("confidence_rationale", "Mapping confidence estimated from direct textual overlap and clause specificity.")).strip()
         if not treaty_article or not obligation or not national_mapping or not recommendation:
             continue
 
@@ -356,11 +380,14 @@ def _coerce_treaty_results(raw_results: Any) -> List[TreatyAnalysisResult]:
             TreatyAnalysisResult(
                 treaty_article=treaty_article,
                 obligation=obligation,
+                treaty_clause_text=treaty_clause_text,
                 national_mapping=national_mapping,
+                domestic_clause_text=domestic_clause_text,
                 status=status,
                 severity=severity,
                 recommendation=recommendation,
                 confidence=confidence,
+                confidence_rationale=confidence_rationale,
             )
         )
 
@@ -403,8 +430,17 @@ def _build_treaty_ai_response(
 ) -> Optional[TreatyAnalyzeResponse]:
     ai_json = _openrouter_json_completion(
         system_prompt=(
-            "You are a government legal analyst. Return only valid JSON. "
-            "Do not add markdown or any text outside the JSON object."
+            "You are a senior legal compliance analyst embedded in the Ministry of Foreign Affairs of Bangladesh. "
+            "You specialize in mapping international treaty obligations to domestic legislative and regulatory frameworks. "
+            "Return only valid JSON. No markdown, no code fences, no text outside JSON. "
+            "Every result row must include exact treaty article and exact domestic clause mapping. "
+            "If no domestic clause is found, set status='gap' and state that clearly. "
+            "Confidence rules: >0.85 explicit direct textual correspondence; 0.65-0.85 reasonable mapping needing interpretation; <0.65 inferred mapping requiring strong human legal review. "
+            "Always provide confidence_rationale per row. "
+            "Severity rules: high=direct treaty exposure/violation risk, medium=implementation weakness, low=procedural/admin gap. "
+            "Action list must be specific and assignable to responsible authority. "
+            "Order top_urgent_gaps by highest severity then lowest confidence. "
+            "You must complete full JSON object; do not truncate or summarize. Incomplete JSON causes system error."
         ),
         user_prompt=(
             "Build a treaty compliance analysis JSON using this schema:\n"
@@ -417,11 +453,14 @@ def _build_treaty_ai_response(
             "    {\n"
             '      "treaty_article": string,\n'
             '      "obligation": string,\n'
+            '      "treaty_clause_text": string,\n'
             '      "national_mapping": string,\n'
+            '      "domestic_clause_text": string,\n'
             '      "status": "compliant" | "partial" | "gap",\n'
             '      "severity": "low" | "medium" | "high",\n'
             '      "recommendation": string,\n'
-            '      "confidence": number\n'
+            '      "confidence": number,\n'
+            '      "confidence_rationale": string\n'
             "    }\n"
             "  ]\n"
             "}\n\n"
@@ -654,8 +693,15 @@ def _build_crisis_ai_response(
 ) -> Optional[CrisisGenerateResponse]:
     ai_json = _openrouter_json_completion(
         system_prompt=(
-            "You are a consular crisis planning assistant for government users. "
-            "Return only valid JSON and avoid markdown."
+            "You are a senior consular emergency management advisor producing an operational order for Bangladesh missions. "
+            "Return only valid JSON. No markdown, no code fences, no text outside JSON. "
+            "All recommendations must be scenario-specific and constraint-aware (telecom outage, airport closure, etc.). "
+            "Condition tiers must be distinct: Yellow=monitor/prepare, Orange=active controlled response, Red=full emergency execution. "
+            "Use exact roles: Head of Mission, Deputy Head of Mission, Consular Officer, Political Officer, Security Officer, Admin and Logistics Officer, Communications Officer. "
+            "Timeline phases must be exactly: 0-2 hours, 2-6 hours, 6-24 hours, 24-72 hours. "
+            "Assumptions and unknowns must include at least three each, specific to this scenario and not generic. "
+            "SITREP template must be fillable with <placeholders> and completable in under five minutes. "
+            "You must complete full JSON object; do not truncate or summarize. Incomplete JSON causes system error."
         ),
         user_prompt=(
             "Build an operational response plan JSON using this schema:\n"

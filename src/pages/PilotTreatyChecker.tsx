@@ -11,11 +11,14 @@ type ModeUsed = "ai" | "fallback";
 type TreatyResult = {
   treaty_article: string;
   obligation: string;
+  treaty_clause_text?: string;
   national_mapping: string;
+  domestic_clause_text?: string;
   status: string;
   severity: string;
   recommendation: string;
   confidence: number;
+  confidence_rationale?: string;
 };
 
 type TreatyResponse = {
@@ -198,13 +201,26 @@ export default function PilotTreatyChecker() {
               <p><strong>Executive Summary:</strong> {data.executive_summary}</p>
               <div className="overflow-x-auto">
                 <table className="w-full border text-xs">
-                  <thead className="bg-ink/10"><tr><th className="p-2 border">Article</th><th className="p-2 border">Status</th><th className="p-2 border">Severity</th><th className="p-2 border">Confidence</th></tr></thead>
+                  <thead className="bg-ink/10"><tr><th className="p-2 border">Article</th><th className="p-2 border">Status</th><th className="p-2 border">Severity</th><th className="p-2 border">Confidence</th><th className="p-2 border">Confidence Rationale</th></tr></thead>
                   <tbody>
                     {data.results.map((r, i) => (
-                      <tr key={i}><td className="p-2 border">{r.treaty_article}</td><td className="p-2 border">{r.status}</td><td className="p-2 border">{r.severity}</td><td className="p-2 border">{Math.round(r.confidence * 100)}%</td></tr>
+                      <tr key={i}><td className="p-2 border">{r.treaty_article}</td><td className="p-2 border">{r.status}</td><td className="p-2 border">{r.severity}</td><td className="p-2 border">{Math.round(r.confidence * 100)}%</td><td className="p-2 border">{r.confidence_rationale || "-"}</td></tr>
                     ))}
                   </tbody>
                 </table>
+              </div>
+
+              <div>
+                <h3 className="font-semibold">Side-by-Side Citations</h3>
+                <div className="space-y-2">
+                  {data.results.map((r, i) => (
+                    <div key={i} className="border rounded p-2 text-xs">
+                      <p><strong>{r.treaty_article}</strong></p>
+                      <p><strong>Treaty clause:</strong> {r.treaty_clause_text || r.obligation}</p>
+                      <p><strong>Domestic clause:</strong> {r.domestic_clause_text || r.national_mapping}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div>
