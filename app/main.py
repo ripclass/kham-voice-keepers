@@ -43,8 +43,8 @@ class SeverityLevel(str, Enum):
 
 
 class TreatyAnalyzeRequest(StrictSchema):
-    treaty_text: str = Field(..., min_length=1, max_length=120000)
-    national_law_text: str = Field(..., min_length=1, max_length=120000)
+    treaty_text: str = Field(..., min_length=50, max_length=120000)
+    national_law_text: str = Field(..., min_length=50, max_length=120000)
     treaty_name: str = Field(default="Unknown Treaty", min_length=1, max_length=255)
     law_name: str = Field(default="Unknown Law", min_length=1, max_length=255)
 
@@ -168,7 +168,8 @@ def treaty_analyze(payload: TreatyAnalyzeRequest) -> TreatyAnalyzeResponse:
         reference_no=ref,
         executive_summary=(
             "Preliminary AI-assisted gap analysis indicates partial alignment between treaty obligations and the selected "
-            "domestic instrument, with high-priority areas requiring codified reporting timelines and clearer implementing authority."
+            "domestic instrument, with high-priority areas requiring codified reporting timelines and clearer implementing authority. "
+            f"Input coverage: treaty excerpt {len(payload.treaty_text)} chars; national instrument excerpt {len(payload.national_law_text)} chars."
         ),
         top_urgent_gaps=top_gaps,
         action_list_30_60_90=[

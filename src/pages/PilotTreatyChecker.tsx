@@ -39,8 +39,8 @@ const steps = [
 export default function PilotTreatyChecker() {
   const [treatyName, setTreatyName] = useState(treaties[0]);
   const [lawName, setLawName] = useState(nationalInstruments[0]);
-  const [treatyText, setTreatyText] = useState("Paste treaty text or keep sample excerpt for pilot demo.");
-  const [lawText, setLawText] = useState("Paste national law/policy text or keep sample excerpt for pilot demo.");
+  const [treatyText, setTreatyText] = useState("");
+  const [lawText, setLawText] = useState("");
   const [loading, setLoading] = useState(false);
   const [stepIndex, setStepIndex] = useState<number>(-1);
   const [error, setError] = useState<string | null>(null);
@@ -122,7 +122,8 @@ export default function PilotTreatyChecker() {
               <label className="text-sm">National Law Text (or excerpt)</label>
               <Textarea value={lawText} onChange={(e) => setLawText(e.target.value)} className="min-h-24" />
 
-              <Button onClick={analyze} disabled={loading} className="w-full">{loading ? "Analyzing..." : "Analyze Compliance"}</Button>
+              <Button onClick={analyze} disabled={loading || treatyText.trim().length < 50 || lawText.trim().length < 50} className="w-full">{loading ? "Analyzing..." : "Analyze Compliance"}</Button>
+              <p className="text-xs text-ink/60">Provide at least 50 characters in both text fields.</p>
               {error && <p className="text-red-600 text-sm">{error}</p>}
             </CardContent>
           </Card>
