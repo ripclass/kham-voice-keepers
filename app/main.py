@@ -3,11 +3,13 @@ from enum import Enum
 import json
 import os
 import re
+from io import BytesIO
 from typing import Any, Dict, List, Optional
 
 import httpx
-from fastapi import FastAPI
+from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from pypdf import PdfReader
 from pydantic import BaseModel, Field, field_validator, model_validator
 
 app = FastAPI(title="KhaM Pilot API")
@@ -31,6 +33,51 @@ app.add_middleware(
 @app.get("/api/health")
 def health():
     return {"ok": True}
+
+
+class ExtractTextResponse(BaseModel):
+    filename: str
+    content_type: str
+    extracted_text: str
+    extracted_chars: int
+
+
+@app.post("/api/utils/extract-text", response_model=ExtractTextResponse)
+async def extract_text(file: UploadFile = File(...)):
+    filename = file.filename or "uploaded-file"
+    content_type = file.content_type or "application/octet-stream"
+    lower = filename.lower()
+
+    data = await file.read()
+    if not data:
+        raise HTTPException(status_code=400, detail="Uploaded file is empty")
+
+    if lower.endswith(".txt") or content_type.startswith("text/"):
+        try:
+            text = data.decode("utf-8")
+        except UnicodeDecodeError:
+            text = data.decode("utf-8", errors="ignore")
+    elif lower.endswith(".pdf") or content_type == "application/pdf":
+        try:
+            reader = PdfReader(BytesIO(data))
+            pages: List[str] = []
+            for page in reader.pages:
+                pages.append(page.extract_text() or "")
+            text = "\n\n".join(pages).strip()
+        except Exception as e:
+            raise HTTPException(status_code=400, detail=f"Failed to parse PDF: {e}")
+    else:
+        raise HTTPException(status_code=400, detail="Only .txt and .pdf files are supported")
+
+    if len(text.strip()) == 0:
+        raise HTTPException(status_code=400, detail="No extractable text found in file")
+
+    return ExtractTextResponse(
+        filename=filename,
+        content_type=content_type,
+        extracted_text=text,
+        extracted_chars=len(text),
+    )
 
 
 class StrictSchema(BaseModel):

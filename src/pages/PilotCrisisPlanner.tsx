@@ -33,15 +33,25 @@ const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://kham-pilot-api.on
 
 const readGroundingDoc = async (file: File): Promise<string> => {
   const filename = file.name.toLowerCase();
-  if (filename.endsWith(".txt")) {
-    return (await file.text()).trim();
+  if (!filename.endsWith(".txt") && !filename.endsWith(".pdf")) {
+    throw new Error("Only .txt and .pdf files are supported.");
   }
 
-  if (filename.endsWith(".pdf")) {
-    return `[PDF FILE: ${file.name}] PDF extraction not implemented on client; upload a .txt export for full text grounding.`;
+  const form = new FormData();
+  form.append("file", file);
+
+  const res = await fetch(`${API_BASE}/api/utils/extract-text`, {
+    method: "POST",
+    body: form,
+  });
+
+  if (!res.ok) {
+    const txt = await res.text();
+    throw new Error(`Extraction failed (${res.status}): ${txt}`);
   }
 
-  throw new Error("Only .txt and .pdf files are supported.");
+  const json = (await res.json()) as { extracted_text: string };
+  return json.extracted_text?.trim() || "";
 };
 
 export default function PilotCrisisPlanner() {
