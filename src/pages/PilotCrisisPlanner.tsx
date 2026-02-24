@@ -128,7 +128,19 @@ export default function PilotCrisisPlanner() {
               <label className="text-sm">Local Conditions</label>
               <Textarea value={localConditions} onChange={(e) => setLocalConditions(e.target.value)} className="min-h-24" />
 
-              <Button onClick={generatePlan} disabled={loading} className="w-full">{loading ? "Generating..." : "Generate Response Plan"}</Button>
+              <Button
+                onClick={generatePlan}
+                disabled={
+                  loading ||
+                  resources.trim().length < 15 ||
+                  localConditions.trim().length < 30 ||
+                  selectedConstraints.length < 1
+                }
+                className="w-full"
+              >
+                {loading ? "Generating..." : "Generate Response Plan"}
+              </Button>
+              <p className="text-xs text-ink/60">Provide resource details, select at least one constraint, and write 30+ chars for local conditions.</p>
               {error && <p className="text-red-600 text-sm">{error}</p>}
             </CardContent>
           </Card>

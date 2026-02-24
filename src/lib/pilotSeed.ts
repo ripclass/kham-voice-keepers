@@ -40,6 +40,10 @@ export const missions = [
   "Washington DC",
   "Rome",
   "Athens",
+  "Beirut",
+  "Baghdad",
+  "Khartoum",
+  "Kyiv",
 ];
 
 export const crisisTypes = [

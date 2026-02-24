@@ -190,7 +190,7 @@ class CrisisGenerateRequest(StrictSchema):
     nationals_affected: int = Field(..., ge=0, le=50000000)
     embassy_resources: List[str] = Field(default_factory=list, max_length=100)
     constraints: List[str] = Field(default_factory=list, max_length=50)
-    local_conditions: str = Field(default="", max_length=5000)
+    local_conditions: str = Field(..., min_length=30, max_length=5000)
 
     @field_validator("mission_location", "crisis_type")
     @classmethod
@@ -204,6 +204,20 @@ class CrisisGenerateRequest(StrictSchema):
     @classmethod
     def normalize_list(cls, value: List[str]) -> List[str]:
         return [item.strip() for item in value if item.strip()]
+
+    @field_validator("embassy_resources")
+    @classmethod
+    def require_resources(cls, value: List[str]) -> List[str]:
+        if len(value) == 0:
+            raise ValueError("at least one resource is required")
+        return value
+
+    @field_validator("constraints")
+    @classmethod
+    def require_constraints(cls, value: List[str]) -> List[str]:
+        if len(value) == 0:
+            raise ValueError("at least one constraint is required")
+        return value
 
 
 class RoleTask(StrictSchema):
