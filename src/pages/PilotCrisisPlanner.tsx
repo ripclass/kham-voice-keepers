@@ -193,6 +193,38 @@ export default function PilotCrisisPlanner() {
                 <div><h3 className="font-semibold">Condition Orange</h3><ul className="list-disc pl-5">{data.condition_orange.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
                 <div><h3 className="font-semibold">Condition Red</h3><ul className="list-disc pl-5">{data.condition_red.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
               </div>
+
+              <div>
+                <h3 className="font-semibold">Role Assigned Tasks</h3>
+                <ul className="list-disc pl-5">{data.role_assigned_tasks.map((r, i) => <li key={i}><strong>{r.role}:</strong> {r.task}</li>)}</ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold">Timeline</h3>
+                {data.timeline.map((t, i) => (
+                  <div key={i} className="mt-2 border rounded p-2">
+                    <p className="font-medium">{t.phase}</p>
+                    <ul className="list-disc pl-5">{t.actions.map((a, j) => <li key={j}>{a}</li>)}</ul>
+                  </div>
+                ))}
+              </div>
+
+              <div>
+                <h3 className="font-semibold">Communication Templates</h3>
+                <ul className="list-disc pl-5">{data.communication_templates.map((c, i) => <li key={i}>{c}</li>)}</ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold">SITREP</h3>
+                <pre className="whitespace-pre-wrap text-xs border rounded p-2 bg-background">{data.sitrep_template}</pre>
+              </div>
+
+              <div>
+                <h3 className="font-semibold">Assumptions & Unknowns</h3>
+                <ul className="list-disc pl-5">{data.assumptions_and_unknowns.map((a, i) => <li key={i}>{a}</li>)}</ul>
+              </div>
+
+              <p className="text-xs text-ink/60">{data.human_review_disclaimer}</p>
             </CardContent>
           </Card>
         )}

@@ -206,6 +206,18 @@ export default function PilotTreatyChecker() {
                   </tbody>
                 </table>
               </div>
+
+              <div>
+                <h3 className="font-semibold">Top Urgent Gaps</h3>
+                <ul className="list-disc pl-5">{data.top_urgent_gaps.map((g, i) => <li key={i}>{g}</li>)}</ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold">Action Plan (30/60/90)</h3>
+                <ul className="list-disc pl-5">{data.action_list_30_60_90.map((a, i) => <li key={i}>{a}</li>)}</ul>
+              </div>
+
+              <p className="text-xs text-ink/60">{data.human_review_disclaimer}</p>
             </CardContent>
           </Card>
         )}
