@@ -4,7 +4,7 @@ import json
 import os
 import re
 from io import BytesIO
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import httpx
 from fastapi import FastAPI, File, HTTPException, UploadFile
@@ -153,6 +153,24 @@ def _coerce_string_list(value: Any, max_items: int = 10) -> List[str]:
     return out
 
 
+def _relevance_check(text: str, keywords: List[str]) -> Tuple[str, float]:
+    base = (text or "").lower()
+    if not base.strip():
+        return ("low", 0.0)
+
+    hits = 0
+    for kw in keywords:
+        if kw and kw.lower() in base:
+            hits += 1
+
+    score = min(1.0, hits / max(1, len(keywords)))
+    if score >= 0.5:
+        return ("high", score)
+    if score >= 0.2:
+        return ("medium", score)
+    return ("low", score)
+
+
 def _openrouter_json_completion(system_prompt: str, user_prompt: str) -> Optional[Dict[str, Any]]:
     if not OPENROUTER_API_KEY:
         return None
@@ -249,6 +267,9 @@ class TreatyAnalyzeResponse(StrictSchema):
     reference_no: str
     mode_used: ModeUsed
     fallback_reason: Optional[str] = None
+    relevance_status: str = "medium"
+    relevance_score: float = 0.0
+    relevance_warning: Optional[str] = None
     classification: str = "INTERNAL PILOT USE ONLY"
     executive_summary: str
     top_urgent_gaps: List[str]
@@ -513,10 +534,22 @@ def treaty_analyze(payload: TreatyAnalyzeRequest) -> TreatyAnalyzeResponse:
     now = datetime.now(timezone.utc)
     ref = f"KHM-GOV-{now.strftime('%Y%m%d')}-TC-{now.strftime('%H%M%S')}"
 
+    treaty_input = f"{payload.treaty_name}\n{payload.treaty_text}\n{payload.treaty_doc_text or ''}".lower()
+    law_input = f"{payload.law_name}\n{payload.national_law_text}\n{payload.law_doc_text or ''}".lower()
+    treaty_status, treaty_score = _relevance_check(treaty_input, ["article", "party", "agreement", "convention", "treaty", "protocol"])
+    law_status, law_score = _relevance_check(law_input, ["act", "section", "rule", "policy", "order", "law"])
+    relevance_score = round((treaty_score + law_score) / 2, 3)
+    relevance_status = "low" if (treaty_status == "low" or law_status == "low") else ("high" if treaty_status == "high" and law_status == "high" else "medium")
+    relevance_warning = None
+    if relevance_status == "low":
+        relevance_warning = "Uploaded or pasted text appears weakly related to treaty/law analysis. Results may be unreliable."
+
     ai_response = _build_treaty_ai_response(payload, now, ref) if OPENROUTER_API_KEY else None
-    if ai_response is not None:
-        return ai_response
-    return _build_treaty_fallback(payload, now, ref)
+    response = ai_response if ai_response is not None else _build_treaty_fallback(payload, now, ref)
+    response.relevance_status = relevance_status
+    response.relevance_score = relevance_score
+    response.relevance_warning = relevance_warning
+    return response
 
 
 class CrisisGenerateRequest(StrictSchema):
@@ -579,6 +612,9 @@ class CrisisGenerateResponse(StrictSchema):
     generated_at: str
     mode_used: ModeUsed
     fallback_reason: Optional[str] = None
+    relevance_status: str = "medium"
+    relevance_score: float = 0.0
+    relevance_warning: Optional[str] = None
     classification: str = "INTERNAL PILOT USE ONLY"
     mission_location: str
     crisis_type: str
@@ -768,7 +804,21 @@ def crisis_generate(payload: CrisisGenerateRequest) -> CrisisGenerateResponse:
     now = datetime.now(timezone.utc)
     ref = f"KHM-GOV-{now.strftime('%Y%m%d')}-CR-{now.strftime('%H%M%S')}"
 
+    crisis_input = (
+        f"{payload.mission_location}\n{payload.crisis_type}\n{payload.local_conditions}\n"
+        f"{' '.join(payload.constraints)}\n{' '.join(payload.embassy_resources)}\n{payload.scenario_doc_text or ''}"
+    ).lower()
+    relevance_status, relevance_score = _relevance_check(
+        crisis_input,
+        ["mission", "crisis", "evac", "consular", "security", "nationals", "hotline", "shelter", "roadblock", "telecom"],
+    )
+    relevance_warning = None
+    if relevance_status == "low":
+        relevance_warning = "Scenario inputs appear weakly related to consular crisis planning. Output may be unreliable."
+
     ai_response = _build_crisis_ai_response(payload, now, ref) if OPENROUTER_API_KEY else None
-    if ai_response is not None:
-        return ai_response
-    return _build_crisis_fallback(payload, now, ref)
+    response = ai_response if ai_response is not None else _build_crisis_fallback(payload, now, ref)
+    response.relevance_status = relevance_status
+    response.relevance_score = round(relevance_score, 3)
+    response.relevance_warning = relevance_warning
+    return response

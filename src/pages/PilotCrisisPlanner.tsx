@@ -15,6 +15,9 @@ type CrisisResponse = {
   generated_at: string;
   mode_used: ModeUsed;
   fallback_reason?: string;
+  relevance_status?: string;
+  relevance_score?: number;
+  relevance_warning?: string;
   mission_location: string;
   crisis_type: string;
   nationals_affected: number;
@@ -186,7 +189,11 @@ export default function PilotCrisisPlanner() {
                 {data.mode_used === "fallback" && data.fallback_reason && (
                   <span className="text-amber-600">reason: {data.fallback_reason}</span>
                 )}
+                {typeof data.relevance_score === "number" && (
+                  <span>relevance: {Math.round(data.relevance_score * 100)}% ({data.relevance_status})</span>
+                )}
               </div>
+              {data.relevance_warning && <p className="text-xs text-amber-600">{data.relevance_warning}</p>}
 
               <div className="grid md:grid-cols-3 gap-3">
                 <div><h3 className="font-semibold">Condition Yellow</h3><ul className="list-disc pl-5">{data.condition_yellow.map((a, i) => <li key={i}>{a}</li>)}</ul></div>

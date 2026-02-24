@@ -28,6 +28,9 @@ type TreatyResponse = {
   reference_no: string;
   mode_used: ModeUsed;
   fallback_reason?: string;
+  relevance_status?: string;
+  relevance_score?: number;
+  relevance_warning?: string;
   classification: string;
   executive_summary: string;
   top_urgent_gaps: string[];
@@ -197,7 +200,11 @@ export default function PilotTreatyChecker() {
                 {data.mode_used === "fallback" && data.fallback_reason && (
                   <span className="text-amber-600">reason: {data.fallback_reason}</span>
                 )}
+                {typeof data.relevance_score === "number" && (
+                  <span>relevance: {Math.round(data.relevance_score * 100)}% ({data.relevance_status})</span>
+                )}
               </div>
+              {data.relevance_warning && <p className="text-xs text-amber-600">{data.relevance_warning}</p>}
               <p><strong>Executive Summary:</strong> {data.executive_summary}</p>
               <div className="overflow-x-auto">
                 <table className="w-full border text-xs">
