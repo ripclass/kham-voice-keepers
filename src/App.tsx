@@ -16,6 +16,8 @@ import Research from "./pages/Research";
 import EmotionPaper from "./pages/EmotionPaper";
 import DialectAgents from "./pages/DialectAgents";
 import NotFound from "./pages/NotFound";
+import PilotTreatyChecker from "./pages/PilotTreatyChecker";
+import PilotCrisisPlanner from "./pages/PilotCrisisPlanner";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +39,8 @@ const App = () => (
             <Route path="/research/emotion-in-south-asian-languages-beyond-translation" element={<EmotionPaper />} />
             <Route path="/research/building-dialect-aware-voice-agents" element={<DialectAgents />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/pilot/treaty-checker" element={<PilotTreatyChecker />} />
+            <Route path="/pilot/crisis-planner" element={<PilotCrisisPlanner />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
