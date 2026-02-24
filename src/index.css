@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -50,6 +52,36 @@
     --terracotta: 14 45% 55%;
     --dusty: 25 30% 65%;
   }
+
+  .dark {
+    --background: 220 14% 10%;
+    --foreground: 40 15% 92%;
+
+    --card: 220 14% 12%;
+    --card-foreground: 40 15% 92%;
+
+    --popover: 220 14% 12%;
+    --popover-foreground: 40 15% 92%;
+
+    --primary: 40 15% 92%;
+    --primary-foreground: 220 14% 12%;
+
+    --secondary: 220 10% 22%;
+    --secondary-foreground: 40 15% 92%;
+
+    --muted: 220 10% 18%;
+    --muted-foreground: 40 10% 70%;
+
+    --accent: 220 10% 22%;
+    --accent-foreground: 40 15% 92%;
+
+    --border: 220 10% 24%;
+    --input: 220 10% 24%;
+    --ring: 40 15% 92%;
+
+    --paper: 220 14% 10%;
+    --ink: 40 15% 92%;
+  }
 }
 
 @layer base {
@@ -67,6 +99,10 @@
 }
 
 @layer utilities {
+  .font-news {
+    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  }
+
   .text-paper {
     color: hsl(var(--paper));
   }
