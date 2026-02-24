@@ -24,6 +24,7 @@ type TreatyResponse = {
   generated_at: string;
   reference_no: string;
   mode_used: ModeUsed;
+  fallback_reason?: string;
   classification: string;
   executive_summary: string;
   top_urgent_gaps: string[];
@@ -190,6 +191,9 @@ export default function PilotTreatyChecker() {
                 <span>Ref: {data.reference_no}</span>
                 <span>{new Date(data.generated_at).toLocaleString()}</span>
                 <Badge variant={data.mode_used === "ai" ? "default" : "secondary"}>{data.mode_used.toUpperCase()}</Badge>
+                {data.mode_used === "fallback" && data.fallback_reason && (
+                  <span className="text-amber-600">reason: {data.fallback_reason}</span>
+                )}
               </div>
               <p><strong>Executive Summary:</strong> {data.executive_summary}</p>
               <div className="overflow-x-auto">

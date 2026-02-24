@@ -14,6 +14,7 @@ type CrisisResponse = {
   reference_no: string;
   generated_at: string;
   mode_used: ModeUsed;
+  fallback_reason?: string;
   mission_location: string;
   crisis_type: string;
   nationals_affected: number;
@@ -182,6 +183,9 @@ export default function PilotCrisisPlanner() {
                 <span>Ref: {data.reference_no}</span>
                 <span>{new Date(data.generated_at).toLocaleString()}</span>
                 <Badge variant={data.mode_used === "ai" ? "default" : "secondary"}>{data.mode_used.toUpperCase()}</Badge>
+                {data.mode_used === "fallback" && data.fallback_reason && (
+                  <span className="text-amber-600">reason: {data.fallback_reason}</span>
+                )}
               </div>
 
               <div className="grid md:grid-cols-3 gap-3">

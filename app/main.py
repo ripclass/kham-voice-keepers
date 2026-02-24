@@ -245,6 +245,7 @@ class TreatyAnalyzeResponse(StrictSchema):
     generated_at: str
     reference_no: str
     mode_used: ModeUsed
+    fallback_reason: Optional[str] = None
     classification: str = "INTERNAL PILOT USE ONLY"
     executive_summary: str
     top_urgent_gaps: List[str]
@@ -378,20 +379,20 @@ def _build_treaty_fallback(payload: TreatyAnalyzeRequest, now: datetime, ref: st
         generated_at=now.isoformat(),
         reference_no=ref,
         mode_used=ModeUsed.fallback,
+        fallback_reason="openrouter_unavailable_or_invalid_response",
         executive_summary=(
-            "Preliminary AI-assisted gap analysis indicates partial alignment between treaty obligations and the selected "
-            "domestic instrument, with high-priority areas requiring codified reporting timelines and clearer implementing authority. "
+            "Detailed fallback analysis indicates partial treaty alignment with concrete policy exposure areas. "
             f"Input coverage: treaty excerpt {len(payload.treaty_text)} chars; treaty doc {len(payload.treaty_doc_text or '')} chars; "
             f"national instrument excerpt {len(payload.national_law_text)} chars; law doc {len(payload.law_doc_text or '')} chars."
         ),
         top_urgent_gaps=top_gaps,
         action_list_30_60_90=[
-            "30 days: constitute inter-ministerial legal mapping team and validate article-by-article matrix.",
-            "60 days: draft amendment/circular package for high-severity gaps and assign responsible authorities.",
-            "90 days: publish implementation roadmap and establish recurring compliance reporting cycle.",
+            "30 days: convene legal and policy focal points; validate each cited article-to-clause mapping with source text annex.",
+            "60 days: issue ministerial circular/package draft for high-severity gaps with implementing authority and timeline.",
+            "90 days: publish compliance roadmap, create review dashboard, and pre-brief upcoming international review positions.",
         ],
         human_review_disclaimer=(
-            "This report is decision-support only. Final legal interpretation and policy action must be validated by designated government legal officers."
+            "Fallback mode generated this report without successful live LLM completion. Treat as structured draft and validate by legal officers before policy action."
         ),
         results=results,
     )
@@ -538,6 +539,7 @@ class CrisisGenerateResponse(StrictSchema):
     reference_no: str
     generated_at: str
     mode_used: ModeUsed
+    fallback_reason: Optional[str] = None
     classification: str = "INTERNAL PILOT USE ONLY"
     mission_location: str
     crisis_type: str
@@ -560,53 +562,61 @@ def _build_crisis_fallback(payload: CrisisGenerateRequest, now: datetime, ref: s
         reference_no=ref,
         generated_at=now.isoformat(),
         mode_used=ModeUsed.fallback,
+        fallback_reason="openrouter_unavailable_or_invalid_response",
         mission_location=payload.mission_location,
         crisis_type=payload.crisis_type,
         nationals_affected=payload.nationals_affected,
         condition_yellow=[
-            "Activate mission crisis cell and verify warden/contact tree.",
-            "Issue advisory notice to registered nationals and diaspora channels.",
-            f"Log constraints: {constraints_text}.",
+            "Activate mission crisis cell, nominate shift lead, and open incident log within 15 minutes.",
+            "Issue first advisory notice to registered nationals, employers, and diaspora channels with hotline protocol.",
+            "Verify contact tree coverage by district and mark unreachable groups for escalation.",
+            f"Record immediate constraints and operational limits: {constraints_text}.",
         ],
         condition_orange=[
-            "Pre-position transport, medical support, and mission emergency kits.",
-            "Coordinate safe assembly points with host-country counterparts.",
-            "Start 6-hourly HQ coordination updates and mission readiness checks.",
+            "Pre-position transport, medical support, emergency food/water, and temporary shelter coordination assets.",
+            "Confirm safe assembly points and fallback locations with host-country counterparts.",
+            "Start 4-6 hourly HQ updates, including risk map and vulnerable group status.",
+            "Prepare evacuation manifest template by priority group (medical, women/children, elderly, undocumented).",
         ],
         condition_red=[
-            "Execute phased evacuation by vulnerability priority groups.",
-            "Run hourly SITREP cycle to HQ and inter-mission coordination node.",
-            "Maintain accountability roster and family communication desk.",
+            "Execute phased evacuation/relocation by priority groups and corridor availability windows.",
+            "Run hourly SITREP cycle to HQ and neighboring missions with casualty/accountability updates.",
+            "Maintain live accountability roster and dedicated family communication cell.",
+            "Trigger contingency route protocol if primary corridor fails or telecom collapses.",
         ],
         role_assigned_tasks=[
-            RoleTask(role="Head of Mission", task="Authorize response level and approve evacuation trigger points."),
-            RoleTask(role="Consular Officer", task="Maintain national registry, detention/hospital desk, and citizen verification."),
-            RoleTask(role="Security Officer", task="Secure routes, assembly points, and movement windows with host security liaison."),
-            RoleTask(role="Admin/Logistics Officer", task="Manage vehicles, fuel, shelter, supplies, and shift rosters."),
+            RoleTask(role="Head of Mission", task="Authorize condition changes, approve movement windows, and sign mission-level directives."),
+            RoleTask(role="Deputy Head of Mission", task="Run command cell continuity, escalation tracking, and inter-agency coordination."),
+            RoleTask(role="Consular Officer", task="Manage registry verification, detention/hospital desk, and hotline outcomes."),
+            RoleTask(role="Security Officer", task="Validate routes, assembly point security, and convoy discipline with host liaison."),
+            RoleTask(role="Admin/Logistics Officer", task="Track vehicles, fuel, shelter, medical kits, and staff duty rotation."),
         ],
         timeline=[
-            TimelinePhase(phase="0-2 hours", actions=["Activate crisis cell", "Issue first advisory", "Validate staff and hotline readiness"]),
-            TimelinePhase(phase="2-6 hours", actions=["Confirm assembly points", "Begin vulnerable-person movement prep", "Initiate HQ cadence"]),
-            TimelinePhase(phase="6-24 hours", actions=["Run controlled movement operations", "Publish public update", "Refresh risk map"]),
-            TimelinePhase(phase="24-72 hours", actions=["Sustain evacuation/relief operations", "Reconcile headcount", "Transition to stabilization mode"]),
+            TimelinePhase(phase="0-2 hours", actions=["Stand up crisis cell", "Publish first advisory", "Verify staff/hotline readiness", "Start district accountability board"]),
+            TimelinePhase(phase="2-6 hours", actions=["Confirm assembly points", "Prioritize vulnerable cohorts", "Issue movement SOP to field teams"]),
+            TimelinePhase(phase="6-24 hours", actions=["Run controlled movement operations", "Update employers/families", "Refresh risk grid each cycle"]),
+            TimelinePhase(phase="24-72 hours", actions=["Sustain evacuation/relief", "Reconcile headcount and missing-person cases", "Prepare stabilization transition brief"]),
         ],
         communication_templates=[
-            "Public advisory: The mission is monitoring the situation and requests all Bangladeshi nationals to report current location via hotline.",
-            "Family update: Your registered family member is accounted for and currently within mission response tracking.",
-            "HQ SITREP lead line: As of HHMM local, mission remains in Condition ORANGE with controlled movement and no confirmed mass casualty among registered nationals.",
+            "Public advisory: The Bangladesh Mission requests all nationals in affected zones to report location via hotline/WhatsApp and avoid unauthorized movement until corridor windows are confirmed.",
+            "Employer coordination note: Provide worker roster by district, immediate shelter status, and transport availability within 2 hours.",
+            "Family message: Your family member's status is currently under mission tracking; next official update window is HH:MM local.",
+            "HQ SITREP lead line: As of HHMM local, mission posture is <Y/O/R>; affected nationals <count>; movement status <active/paused>; critical needs <list>.",
         ],
         sitrep_template=(
-            "SITREP\nRef: <ref>\nTime: <local>\nCondition Level: <Y/O/R>\nNationals Affected: <count>\n"
-            "Actions Completed: <list>\nImmediate Risks: <list>\nResource Status: <list>\nRequests to HQ: <list>"
+            "SITREP\nRef: <ref>\nTime: <local>\nCondition Level: <Y/O/R>\nAffected Nationals: <count>\n"
+            "Accounted For / Unaccounted: <x>/<y>\nActions Completed: <list>\nImmediate Risks: <list>\n"
+            "Resource Status (vehicles/fuel/staff/shelter): <list>\nPriority Requests to HQ: <list>\nNext Update ETA: <time>"
         ),
         assumptions_and_unknowns=[
-            "Assumption: host-country security liaison remains reachable.",
-            "Assumption: at least one transport corridor remains intermittently open.",
+            "Assumption: host-country security liaison remains reachable during initial response window.",
+            "Assumption: at least one transport corridor remains intermittently open every 6-12 hours.",
             "Unknown: exact number of unregistered nationals in high-risk zones.",
-            "Unknown: reliability window of telecom services over the next 12 hours.",
+            "Unknown: telecom reliability window and mass-notification delivery success rate.",
+            "Unknown: airport/land-border reopening timeline for cross-border evacuation options.",
         ],
         human_review_disclaimer=(
-            "This plan is AI-assisted decision support. Final operational orders must be issued by authorized mission leadership and competent government authorities."
+            "Fallback mode generated this operational order without successful live LLM completion. Mission leadership must validate and issue final orders before execution."
         ),
     )
 
