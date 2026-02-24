@@ -1,13 +1,20 @@
 from datetime import datetime, timezone
 from enum import Enum
+import json
 import os
-from typing import List
+import re
+from typing import Any, Dict, List, Optional
 
+import httpx
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 app = FastAPI(title="KhaM Pilot API")
+
+OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/openai/gpt-4.1-mini")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 allowed_origins_env = os.getenv("ALLOWED_ORIGINS", "https://khamlabs.org,https://www.khamlabs.org")
 allowed_origins = [o.strip() for o in allowed_origins_env.split(",") if o.strip()]
@@ -42,19 +49,137 @@ class SeverityLevel(str, Enum):
     high = "high"
 
 
+class ModeUsed(str, Enum):
+    ai = "ai"
+    fallback = "fallback"
+
+
+def _safe_parse_json(raw_text: str) -> Optional[Dict[str, Any]]:
+    if not raw_text:
+        return None
+
+    raw = raw_text.strip()
+    if not raw:
+        return None
+
+    candidates: List[str] = [raw]
+    fenced = re.search(r"```(?:json)?\s*(\{.*\})\s*```", raw, flags=re.DOTALL | re.IGNORECASE)
+    if fenced:
+        candidates.append(fenced.group(1).strip())
+
+    start = raw.find("{")
+    end = raw.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        candidates.append(raw[start : end + 1])
+
+    for candidate in candidates:
+        try:
+            parsed = json.loads(candidate)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(parsed, dict):
+            return parsed
+    return None
+
+
+def _truncate_for_prompt(text: Optional[str], limit: int = 12000) -> str:
+    if not text:
+        return "(none)"
+    trimmed = text.strip()
+    if len(trimmed) <= limit:
+        return trimmed
+    return f"{trimmed[:limit]}\n...[truncated {len(trimmed) - limit} chars]"
+
+
+def _coerce_string_list(value: Any, max_items: int = 10) -> List[str]:
+    if not isinstance(value, list):
+        return []
+    out: List[str] = []
+    for item in value:
+        if not isinstance(item, str):
+            continue
+        cleaned = item.strip()
+        if cleaned:
+            out.append(cleaned)
+        if len(out) >= max_items:
+            break
+    return out
+
+
+def _openrouter_json_completion(system_prompt: str, user_prompt: str) -> Optional[Dict[str, Any]]:
+    if not OPENROUTER_API_KEY:
+        return None
+
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+    }
+
+    payload = {
+        "model": OPENROUTER_MODEL,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        "response_format": {"type": "json_object"},
+        "temperature": 0.2,
+    }
+
+    try:
+        with httpx.Client(timeout=45.0) as client:
+            response = client.post(OPENROUTER_API_URL, headers=headers, json=payload)
+            response.raise_for_status()
+            body = response.json()
+    except Exception:
+        return None
+
+    choices = body.get("choices", [])
+    if not choices:
+        return None
+
+    content: Any = choices[0].get("message", {}).get("content", "")
+    if isinstance(content, list):
+        content = "".join(
+            chunk.get("text", "") if isinstance(chunk, dict) else str(chunk) for chunk in content
+        )
+    if not isinstance(content, str):
+        content = str(content)
+
+    return _safe_parse_json(content)
+
+
 class TreatyAnalyzeRequest(StrictSchema):
-    treaty_text: str = Field(..., min_length=50, max_length=120000)
-    national_law_text: str = Field(..., min_length=50, max_length=120000)
+    treaty_text: str = Field(default="", max_length=120000)
+    national_law_text: str = Field(default="", max_length=120000)
+    treaty_doc_text: Optional[str] = Field(default=None, max_length=240000)
+    law_doc_text: Optional[str] = Field(default=None, max_length=240000)
     treaty_name: str = Field(default="Unknown Treaty", min_length=1, max_length=255)
     law_name: str = Field(default="Unknown Law", min_length=1, max_length=255)
 
     @field_validator("treaty_text", "national_law_text", "treaty_name", "law_name")
     @classmethod
     def must_not_be_blank(cls, value: str) -> str:
+        return value.strip()
+
+    @field_validator("treaty_doc_text", "law_doc_text")
+    @classmethod
+    def normalize_optional_doc_text(cls, value: Optional[str]) -> Optional[str]:
+        if value is None:
+            return None
         trimmed = value.strip()
-        if not trimmed:
-            raise ValueError("must not be blank")
-        return trimmed
+        return trimmed or None
+
+    @model_validator(mode="after")
+    def validate_source_coverage(self) -> "TreatyAnalyzeRequest":
+        if not self.treaty_name:
+            raise ValueError("treaty_name must not be blank")
+        if not self.law_name:
+            raise ValueError("law_name must not be blank")
+        if len(self.treaty_text) < 50 and not self.treaty_doc_text:
+            raise ValueError("provide treaty_text with at least 50 chars or treaty_doc_text")
+        if len(self.national_law_text) < 50 and not self.law_doc_text:
+            raise ValueError("provide national_law_text with at least 50 chars or law_doc_text")
+        return self
 
 
 class TreatyAnalysisResult(StrictSchema):
@@ -72,6 +197,7 @@ class TreatyAnalyzeResponse(StrictSchema):
     law: str
     generated_at: str
     reference_no: str
+    mode_used: ModeUsed
     classification: str = "INTERNAL PILOT USE ONLY"
     executive_summary: str
     top_urgent_gaps: List[str]
@@ -151,25 +277,65 @@ def _pick_treaty_rows(treaty_name: str, law_name: str) -> List[TreatyAnalysisRes
     return rows
 
 
-@app.post("/api/treaty/analyze", response_model=TreatyAnalyzeResponse)
-def treaty_analyze(payload: TreatyAnalyzeRequest) -> TreatyAnalyzeResponse:
+def _coerce_treaty_results(raw_results: Any) -> List[TreatyAnalysisResult]:
+    if not isinstance(raw_results, list):
+        return []
+
+    results: List[TreatyAnalysisResult] = []
+    for raw in raw_results:
+        if not isinstance(raw, dict):
+            continue
+
+        treaty_article = str(raw.get("treaty_article", "")).strip()
+        obligation = str(raw.get("obligation", "")).strip()
+        national_mapping = str(raw.get("national_mapping", "")).strip()
+        recommendation = str(raw.get("recommendation", "")).strip()
+        if not treaty_article or not obligation or not national_mapping or not recommendation:
+            continue
+
+        status_raw = str(raw.get("status", ComplianceStatus.partial.value)).strip().lower()
+        severity_raw = str(raw.get("severity", SeverityLevel.medium.value)).strip().lower()
+        status = ComplianceStatus(status_raw) if status_raw in ComplianceStatus._value2member_map_ else ComplianceStatus.partial
+        severity = SeverityLevel(severity_raw) if severity_raw in SeverityLevel._value2member_map_ else SeverityLevel.medium
+
+        try:
+            confidence = float(raw.get("confidence", 0.7))
+        except (TypeError, ValueError):
+            confidence = 0.7
+        confidence = max(0.0, min(1.0, confidence))
+
+        results.append(
+            TreatyAnalysisResult(
+                treaty_article=treaty_article,
+                obligation=obligation,
+                national_mapping=national_mapping,
+                status=status,
+                severity=severity,
+                recommendation=recommendation,
+                confidence=confidence,
+            )
+        )
+
+    return results
+
+
+def _build_treaty_fallback(payload: TreatyAnalyzeRequest, now: datetime, ref: str) -> TreatyAnalyzeResponse:
     results = _pick_treaty_rows(payload.treaty_name, payload.law_name)
     top_gaps = [
         f"{r.treaty_article}: {r.recommendation}" for r in results if r.status != ComplianceStatus.compliant
     ][:5]
-
-    now = datetime.now(timezone.utc)
-    ref = f"KHM-GOV-{now.strftime('%Y%m%d')}-TC-{now.strftime('%H%M%S')}"
 
     return TreatyAnalyzeResponse(
         treaty=payload.treaty_name,
         law=payload.law_name,
         generated_at=now.isoformat(),
         reference_no=ref,
+        mode_used=ModeUsed.fallback,
         executive_summary=(
             "Preliminary AI-assisted gap analysis indicates partial alignment between treaty obligations and the selected "
             "domestic instrument, with high-priority areas requiring codified reporting timelines and clearer implementing authority. "
-            f"Input coverage: treaty excerpt {len(payload.treaty_text)} chars; national instrument excerpt {len(payload.national_law_text)} chars."
+            f"Input coverage: treaty excerpt {len(payload.treaty_text)} chars; treaty doc {len(payload.treaty_doc_text or '')} chars; "
+            f"national instrument excerpt {len(payload.national_law_text)} chars; law doc {len(payload.law_doc_text or '')} chars."
         ),
         top_urgent_gaps=top_gaps,
         action_list_30_60_90=[
@@ -184,6 +350,88 @@ def treaty_analyze(payload: TreatyAnalyzeRequest) -> TreatyAnalyzeResponse:
     )
 
 
+def _build_treaty_ai_response(
+    payload: TreatyAnalyzeRequest, now: datetime, ref: str
+) -> Optional[TreatyAnalyzeResponse]:
+    ai_json = _openrouter_json_completion(
+        system_prompt=(
+            "You are a government legal analyst. Return only valid JSON. "
+            "Do not add markdown or any text outside the JSON object."
+        ),
+        user_prompt=(
+            "Build a treaty compliance analysis JSON using this schema:\n"
+            "{\n"
+            '  "executive_summary": string,\n'
+            '  "top_urgent_gaps": string[],\n'
+            '  "action_list_30_60_90": string[],\n'
+            '  "human_review_disclaimer": string,\n'
+            '  "results": [\n'
+            "    {\n"
+            '      "treaty_article": string,\n'
+            '      "obligation": string,\n'
+            '      "national_mapping": string,\n'
+            '      "status": "compliant" | "partial" | "gap",\n'
+            '      "severity": "low" | "medium" | "high",\n'
+            '      "recommendation": string,\n'
+            '      "confidence": number\n'
+            "    }\n"
+            "  ]\n"
+            "}\n\n"
+            f"Treaty Name: {payload.treaty_name}\n"
+            f"Law Name: {payload.law_name}\n\n"
+            f"Treaty excerpt:\n{_truncate_for_prompt(payload.treaty_text)}\n\n"
+            f"Treaty document text:\n{_truncate_for_prompt(payload.treaty_doc_text)}\n\n"
+            f"National law excerpt:\n{_truncate_for_prompt(payload.national_law_text)}\n\n"
+            f"Law document text:\n{_truncate_for_prompt(payload.law_doc_text)}\n"
+        ),
+    )
+
+    if not ai_json:
+        return None
+
+    results = _coerce_treaty_results(ai_json.get("results"))
+    if not results:
+        return None
+
+    top_urgent_gaps = _coerce_string_list(ai_json.get("top_urgent_gaps"), max_items=5)
+    action_list = _coerce_string_list(ai_json.get("action_list_30_60_90"), max_items=3)
+    if len(action_list) < 3:
+        action_list = [
+            "30 days: validate article-level legal mapping and assign owners.",
+            "60 days: draft targeted legal amendments and implementation directives.",
+            "90 days: publish compliance roadmap and monitoring cadence.",
+        ]
+
+    executive_summary = str(ai_json.get("executive_summary", "")).strip()
+    human_review = str(ai_json.get("human_review_disclaimer", "")).strip()
+    if not executive_summary or not human_review:
+        return None
+
+    return TreatyAnalyzeResponse(
+        treaty=payload.treaty_name,
+        law=payload.law_name,
+        generated_at=now.isoformat(),
+        reference_no=ref,
+        mode_used=ModeUsed.ai,
+        executive_summary=executive_summary,
+        top_urgent_gaps=top_urgent_gaps,
+        action_list_30_60_90=action_list,
+        human_review_disclaimer=human_review,
+        results=results,
+    )
+
+
+@app.post("/api/treaty/analyze", response_model=TreatyAnalyzeResponse)
+def treaty_analyze(payload: TreatyAnalyzeRequest) -> TreatyAnalyzeResponse:
+    now = datetime.now(timezone.utc)
+    ref = f"KHM-GOV-{now.strftime('%Y%m%d')}-TC-{now.strftime('%H%M%S')}"
+
+    ai_response = _build_treaty_ai_response(payload, now, ref) if OPENROUTER_API_KEY else None
+    if ai_response is not None:
+        return ai_response
+    return _build_treaty_fallback(payload, now, ref)
+
+
 class CrisisGenerateRequest(StrictSchema):
     mission_location: str = Field(..., min_length=1, max_length=255)
     crisis_type: str = Field(..., min_length=1, max_length=255)
@@ -191,8 +439,9 @@ class CrisisGenerateRequest(StrictSchema):
     embassy_resources: List[str] = Field(default_factory=list, max_length=100)
     constraints: List[str] = Field(default_factory=list, max_length=50)
     local_conditions: str = Field(..., min_length=30, max_length=5000)
+    scenario_doc_text: Optional[str] = Field(default=None, max_length=240000)
 
-    @field_validator("mission_location", "crisis_type")
+    @field_validator("mission_location", "crisis_type", "local_conditions")
     @classmethod
     def must_not_be_blank(cls, value: str) -> str:
         trimmed = value.strip()
@@ -204,6 +453,14 @@ class CrisisGenerateRequest(StrictSchema):
     @classmethod
     def normalize_list(cls, value: List[str]) -> List[str]:
         return [item.strip() for item in value if item.strip()]
+
+    @field_validator("scenario_doc_text")
+    @classmethod
+    def normalize_optional_scenario_doc(cls, value: Optional[str]) -> Optional[str]:
+        if value is None:
+            return None
+        trimmed = value.strip()
+        return trimmed or None
 
     @field_validator("embassy_resources")
     @classmethod
@@ -233,6 +490,7 @@ class TimelinePhase(StrictSchema):
 class CrisisGenerateResponse(StrictSchema):
     reference_no: str
     generated_at: str
+    mode_used: ModeUsed
     classification: str = "INTERNAL PILOT USE ONLY"
     mission_location: str
     crisis_type: str
@@ -248,16 +506,13 @@ class CrisisGenerateResponse(StrictSchema):
     human_review_disclaimer: str
 
 
-@app.post("/api/crisis/generate", response_model=CrisisGenerateResponse)
-def crisis_generate(payload: CrisisGenerateRequest) -> CrisisGenerateResponse:
-    now = datetime.now(timezone.utc)
-    ref = f"KHM-GOV-{now.strftime('%Y%m%d')}-CR-{now.strftime('%H%M%S')}"
-
+def _build_crisis_fallback(payload: CrisisGenerateRequest, now: datetime, ref: str) -> CrisisGenerateResponse:
     constraints_text = ", ".join(payload.constraints) if payload.constraints else "No specific constraints provided"
 
     return CrisisGenerateResponse(
         reference_no=ref,
         generated_at=now.isoformat(),
+        mode_used=ModeUsed.fallback,
         mission_location=payload.mission_location,
         crisis_type=payload.crisis_type,
         nationals_affected=payload.nationals_affected,
@@ -307,3 +562,110 @@ def crisis_generate(payload: CrisisGenerateRequest) -> CrisisGenerateResponse:
             "This plan is AI-assisted decision support. Final operational orders must be issued by authorized mission leadership and competent government authorities."
         ),
     )
+
+
+def _coerce_role_tasks(raw_tasks: Any) -> List[RoleTask]:
+    if not isinstance(raw_tasks, list):
+        return []
+    out: List[RoleTask] = []
+    for raw in raw_tasks:
+        if not isinstance(raw, dict):
+            continue
+        role = str(raw.get("role", "")).strip()
+        task = str(raw.get("task", "")).strip()
+        if role and task:
+            out.append(RoleTask(role=role, task=task))
+    return out
+
+
+def _coerce_timeline(raw_timeline: Any) -> List[TimelinePhase]:
+    if not isinstance(raw_timeline, list):
+        return []
+    out: List[TimelinePhase] = []
+    for raw in raw_timeline:
+        if not isinstance(raw, dict):
+            continue
+        phase = str(raw.get("phase", "")).strip()
+        actions = _coerce_string_list(raw.get("actions"), max_items=10)
+        if phase and actions:
+            out.append(TimelinePhase(phase=phase, actions=actions))
+    return out
+
+
+def _build_crisis_ai_response(
+    payload: CrisisGenerateRequest, now: datetime, ref: str
+) -> Optional[CrisisGenerateResponse]:
+    ai_json = _openrouter_json_completion(
+        system_prompt=(
+            "You are a consular crisis planning assistant for government users. "
+            "Return only valid JSON and avoid markdown."
+        ),
+        user_prompt=(
+            "Build an operational response plan JSON using this schema:\n"
+            "{\n"
+            '  "condition_yellow": string[],\n'
+            '  "condition_orange": string[],\n'
+            '  "condition_red": string[],\n'
+            '  "role_assigned_tasks": [{"role": string, "task": string}],\n'
+            '  "timeline": [{"phase": string, "actions": string[]}],\n'
+            '  "communication_templates": string[],\n'
+            '  "sitrep_template": string,\n'
+            '  "assumptions_and_unknowns": string[],\n'
+            '  "human_review_disclaimer": string\n'
+            "}\n\n"
+            f"Mission location: {payload.mission_location}\n"
+            f"Crisis type: {payload.crisis_type}\n"
+            f"Nationals affected: {payload.nationals_affected}\n"
+            f"Embassy resources: {', '.join(payload.embassy_resources)}\n"
+            f"Constraints: {', '.join(payload.constraints)}\n"
+            f"Local conditions: {_truncate_for_prompt(payload.local_conditions, limit=6000)}\n"
+            f"Scenario document text: {_truncate_for_prompt(payload.scenario_doc_text)}\n"
+        ),
+    )
+
+    if not ai_json:
+        return None
+
+    yellow = _coerce_string_list(ai_json.get("condition_yellow"), max_items=10)
+    orange = _coerce_string_list(ai_json.get("condition_orange"), max_items=10)
+    red = _coerce_string_list(ai_json.get("condition_red"), max_items=10)
+    role_tasks = _coerce_role_tasks(ai_json.get("role_assigned_tasks"))
+    timeline = _coerce_timeline(ai_json.get("timeline"))
+    comms = _coerce_string_list(ai_json.get("communication_templates"), max_items=10)
+    assumptions = _coerce_string_list(ai_json.get("assumptions_and_unknowns"), max_items=10)
+    sitrep = str(ai_json.get("sitrep_template", "")).strip()
+    human_review = str(ai_json.get("human_review_disclaimer", "")).strip()
+
+    if not yellow or not orange or not red or not role_tasks or not timeline or not comms:
+        return None
+    if not sitrep or not human_review:
+        return None
+
+    return CrisisGenerateResponse(
+        reference_no=ref,
+        generated_at=now.isoformat(),
+        mode_used=ModeUsed.ai,
+        mission_location=payload.mission_location,
+        crisis_type=payload.crisis_type,
+        nationals_affected=payload.nationals_affected,
+        condition_yellow=yellow,
+        condition_orange=orange,
+        condition_red=red,
+        role_assigned_tasks=role_tasks,
+        timeline=timeline,
+        communication_templates=comms,
+        sitrep_template=sitrep,
+        assumptions_and_unknowns=assumptions,
+        human_review_disclaimer=human_review,
+    )
+
+
+@app.post("/api/crisis/generate", response_model=CrisisGenerateResponse)
+def crisis_generate(payload: CrisisGenerateRequest) -> CrisisGenerateResponse:
+    now = datetime.now(timezone.utc)
+    ref = f"KHM-GOV-{now.strftime('%Y%m%d')}-CR-{now.strftime('%H%M%S')}"
+
+    ai_response = _build_crisis_ai_response(payload, now, ref) if OPENROUTER_API_KEY else None
+    if ai_response is not None:
+        return ai_response
+    return _build_crisis_fallback(payload, now, ref)

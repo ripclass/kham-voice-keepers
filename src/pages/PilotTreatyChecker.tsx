@@ -1,8 +1,12 @@
-import { useMemo, useState } from "react";
+import { type ChangeEvent, useMemo, useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { treaties, nationalInstruments } from "@/lib/pilotSeed";
+
+type ModeUsed = "ai" | "fallback";
 
 type TreatyResult = {
   treaty_article: string;
@@ -19,6 +23,7 @@ type TreatyResponse = {
   law: string;
   generated_at: string;
   reference_no: string;
+  mode_used: ModeUsed;
   classification: string;
   executive_summary: string;
   top_urgent_gaps: string[];
@@ -36,17 +41,74 @@ const steps = [
   "Scoring gaps and generating recommendations",
 ];
 
+const readGroundingDoc = async (file: File): Promise<string> => {
+  const filename = file.name.toLowerCase();
+  if (filename.endsWith(".txt")) {
+    return (await file.text()).trim();
+  }
+
+  if (filename.endsWith(".pdf")) {
+    return `[PDF FILE: ${file.name}] PDF extraction not implemented on client; upload a .txt export for full text grounding.`;
+  }
+
+  throw new Error("Only .txt and .pdf files are supported.");
+};
+
 export default function PilotTreatyChecker() {
   const [treatyName, setTreatyName] = useState(treaties[0]);
   const [lawName, setLawName] = useState(nationalInstruments[0]);
   const [treatyText, setTreatyText] = useState("");
   const [lawText, setLawText] = useState("");
+  const [treatyDocText, setTreatyDocText] = useState("");
+  const [lawDocText, setLawDocText] = useState("");
+  const [treatyDocName, setTreatyDocName] = useState<string | null>(null);
+  const [lawDocName, setLawDocName] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [stepIndex, setStepIndex] = useState<number>(-1);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<TreatyResponse | null>(null);
 
   const progressLabel = useMemo(() => (stepIndex >= 0 ? steps[Math.min(stepIndex, 3)] : ""), [stepIndex]);
+  const treatySourceReady = treatyText.trim().length >= 50 || treatyDocText.trim().length > 0;
+  const lawSourceReady = lawText.trim().length >= 50 || lawDocText.trim().length > 0;
+
+  const handleTreatyDocUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) {
+      setTreatyDocText("");
+      setTreatyDocName(null);
+      return;
+    }
+
+    try {
+      const text = await readGroundingDoc(file);
+      setTreatyDocText(text);
+      setTreatyDocName(file.name);
+    } catch (e) {
+      setTreatyDocText("");
+      setTreatyDocName(null);
+      setError(e instanceof Error ? e.message : "Failed to read treaty document.");
+    }
+  };
+
+  const handleLawDocUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) {
+      setLawDocText("");
+      setLawDocName(null);
+      return;
+    }
+
+    try {
+      const text = await readGroundingDoc(file);
+      setLawDocText(text);
+      setLawDocName(file.name);
+    } catch (e) {
+      setLawDocText("");
+      setLawDocName(null);
+      setError(e instanceof Error ? e.message : "Failed to read law document.");
+    }
+  };
 
   const analyze = async () => {
     setLoading(true);
@@ -65,6 +127,8 @@ export default function PilotTreatyChecker() {
         body: JSON.stringify({
           treaty_text: treatyText,
           national_law_text: lawText,
+          treaty_doc_text: treatyDocText || undefined,
+          law_doc_text: lawDocText || undefined,
           treaty_name: treatyName,
           law_name: lawName,
         }),
@@ -119,11 +183,19 @@ export default function PilotTreatyChecker() {
               <label className="text-sm">Treaty Text (or excerpt)</label>
               <Textarea value={treatyText} onChange={(e) => setTreatyText(e.target.value)} className="min-h-24" />
 
+              <label className="text-sm">Treaty Doc Upload (.txt/.pdf)</label>
+              <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleTreatyDocUpload(e)} />
+              {treatyDocName && <p className="text-xs text-ink/60">Attached treaty doc: {treatyDocName}</p>}
+
               <label className="text-sm">National Law Text (or excerpt)</label>
               <Textarea value={lawText} onChange={(e) => setLawText(e.target.value)} className="min-h-24" />
 
-              <Button onClick={analyze} disabled={loading || treatyText.trim().length < 50 || lawText.trim().length < 50} className="w-full">{loading ? "Analyzing..." : "Analyze Compliance"}</Button>
-              <p className="text-xs text-ink/60">Provide at least 50 characters in both text fields.</p>
+              <label className="text-sm">Law Doc Upload (.txt/.pdf)</label>
+              <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleLawDocUpload(e)} />
+              {lawDocName && <p className="text-xs text-ink/60">Attached law doc: {lawDocName}</p>}
+
+              <Button onClick={analyze} disabled={loading || !treatySourceReady || !lawSourceReady} className="w-full">{loading ? "Analyzing..." : "Analyze Compliance"}</Button>
+              <p className="text-xs text-ink/60">Provide either 50+ chars or a grounding doc for both treaty and law inputs.</p>
               {error && <p className="text-red-600 text-sm">{error}</p>}
             </CardContent>
           </Card>
@@ -153,6 +225,7 @@ export default function PilotTreatyChecker() {
                     <p><strong>Reference:</strong> {data.reference_no}</p>
                     <p><strong>Date:</strong> {new Date(data.generated_at).toLocaleString()}</p>
                     <p><strong>Classification:</strong> {data.classification}</p>
+                    <p><strong>Mode:</strong> <Badge variant={data.mode_used === "ai" ? "default" : "secondary"}>{data.mode_used.toUpperCase()}</Badge></p>
                   </div>
 
                   <p><strong>Executive Summary:</strong> {data.executive_summary}</p>

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { type ChangeEvent, useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -7,10 +8,12 @@ import { crisisConstraints, crisisTypes, missions } from "@/lib/pilotSeed";
 
 type RoleTask = { role: string; task: string };
 type TimelinePhase = { phase: string; actions: string[] };
+type ModeUsed = "ai" | "fallback";
 
 type CrisisResponse = {
   reference_no: string;
   generated_at: string;
+  mode_used: ModeUsed;
   classification: string;
   mission_location: string;
   crisis_type: string;
@@ -28,12 +31,27 @@ type CrisisResponse = {
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://kham-pilot-api.onrender.com";
 
+const readGroundingDoc = async (file: File): Promise<string> => {
+  const filename = file.name.toLowerCase();
+  if (filename.endsWith(".txt")) {
+    return (await file.text()).trim();
+  }
+
+  if (filename.endsWith(".pdf")) {
+    return `[PDF FILE: ${file.name}] PDF extraction not implemented on client; upload a .txt export for full text grounding.`;
+  }
+
+  throw new Error("Only .txt and .pdf files are supported.");
+};
+
 export default function PilotCrisisPlanner() {
   const [missionLocation, setMissionLocation] = useState(missions[2]);
   const [crisisType, setCrisisType] = useState(crisisTypes[0]);
   const [nationalsAffected, setNationalsAffected] = useState(50000);
   const [resources, setResources] = useState("2 mission vehicles, 12 staff, hotline, temporary shelter partner");
   const [localConditions, setLocalConditions] = useState("Intermittent telecom and roadblocks in two districts.");
+  const [scenarioDocText, setScenarioDocText] = useState("");
+  const [scenarioDocName, setScenarioDocName] = useState<string | null>(null);
   const [selectedConstraints, setSelectedConstraints] = useState<string[]>(["Telecom outage", "Roadblocks"]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -43,6 +61,25 @@ export default function PilotCrisisPlanner() {
     setSelectedConstraints((prev) =>
       prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
     );
+  };
+
+  const handleScenarioDocUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) {
+      setScenarioDocText("");
+      setScenarioDocName(null);
+      return;
+    }
+
+    try {
+      const text = await readGroundingDoc(file);
+      setScenarioDocText(text);
+      setScenarioDocName(file.name);
+    } catch (e) {
+      setScenarioDocText("");
+      setScenarioDocName(null);
+      setError(e instanceof Error ? e.message : "Failed to read scenario document.");
+    }
   };
 
   const generatePlan = async () => {
@@ -63,6 +100,7 @@ export default function PilotCrisisPlanner() {
           embassy_resources: embassyResources,
           constraints: selectedConstraints,
           local_conditions: localConditions,
+          scenario_doc_text: scenarioDocText || undefined,
         }),
       });
 
@@ -128,6 +166,10 @@ export default function PilotCrisisPlanner() {
               <label className="text-sm">Local Conditions</label>
               <Textarea value={localConditions} onChange={(e) => setLocalConditions(e.target.value)} className="min-h-24" />
 
+              <label className="text-sm">Situation Brief Upload (.txt/.pdf)</label>
+              <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleScenarioDocUpload(e)} />
+              {scenarioDocName && <p className="text-xs text-ink/60">Attached scenario brief: {scenarioDocName}</p>}
+
               <Button
                 onClick={generatePlan}
                 disabled={
@@ -154,6 +196,7 @@ export default function PilotCrisisPlanner() {
                     <p><strong>Reference:</strong> {data.reference_no}</p>
                     <p><strong>Date:</strong> {new Date(data.generated_at).toLocaleString()}</p>
                     <p><strong>Mission:</strong> {data.mission_location} | <strong>Crisis:</strong> {data.crisis_type}</p>
+                    <p><strong>Mode:</strong> <Badge variant={data.mode_used === "ai" ? "default" : "secondary"}>{data.mode_used.toUpperCase()}</Badge></p>
                   </div>
 
                   <div>
