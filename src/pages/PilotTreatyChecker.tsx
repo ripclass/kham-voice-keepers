@@ -1,5 +1,4 @@
 import { useMemo, useState } from "react";
-import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -89,8 +88,7 @@ export default function PilotTreatyChecker() {
 
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <Navigation />
-      <main className="max-w-6xl mx-auto px-6 pt-28 pb-16">
+      <main className="max-w-6xl mx-auto px-6 pt-10 pb-16">
         <header className="mb-8 border border-ink/15 rounded-lg p-4 bg-white/80">
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div>
@@ -99,7 +97,7 @@ export default function PilotTreatyChecker() {
             </div>
             <div className="text-right text-xs text-ink/70">
               <p>Classification: INTERNAL PILOT USE ONLY</p>
-              <p>Ref: Auto-generated per run</p>
+              <p>Ref: {data?.reference_no ?? "KHM-GOV-YYYYMMDD-TC-HHMMSS"}</p>
             </div>
           </div>
         </header>

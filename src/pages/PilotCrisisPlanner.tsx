@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -83,8 +82,7 @@ export default function PilotCrisisPlanner() {
 
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <Navigation />
-      <main className="max-w-6xl mx-auto px-6 pt-28 pb-16">
+      <main className="max-w-6xl mx-auto px-6 pt-10 pb-16">
         <header className="mb-8 border border-ink/15 rounded-lg p-4 bg-white/80">
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div>
