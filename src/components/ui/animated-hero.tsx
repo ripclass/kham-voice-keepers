@@ -57,7 +57,7 @@ function Hero() {
               <span>Voices</span>
             </h1>
 
-            <p className="font-display text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-ink/80 dark:text-paper/80 text-center">
+            <p className="font-display text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-ink/80 dark:text-paper/95 text-center">
               KhaM is an open-source initiative preserving forgotten dialects, lost tone, and emotional language in AI—beginning with South Asia.
             </p>
           </div>
@@ -77,4 +77,5 @@ function Hero() {
 }
 
 export { Hero };
+
 
