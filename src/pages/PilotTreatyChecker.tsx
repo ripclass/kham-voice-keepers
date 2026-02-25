@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { treaties, nationalInstruments } from "@/lib/pilotSeed";
+import PilotFrame from "@/components/pilot/PilotFrame";
 
 type ModeUsed = "ai" | "fallback";
 
@@ -142,18 +143,17 @@ export default function PilotTreatyChecker() {
 
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <main className="max-w-4xl mx-auto px-4 md:px-6 py-6 space-y-5">
-        <Card className="border-ink/20">
-          <CardContent className="py-4 flex items-center justify-between gap-3">
-            <div>
-              <p className="text-xs text-ink/80 dark:text-paper/70">KhaM for GOV • INTERNAL PILOT USE ONLY</p>
-              <h1 className="font-news text-2xl md:text-3xl">International Treaty Compliance Checker</h1>
-            </div>
-            <Button variant="outline" onClick={() => setDark((v) => !v)}>{dark ? "Light" : "Dark"}</Button>
-          </CardContent>
-        </Card>
-
-        <Card>
+      <main className="max-w-5xl mx-auto px-4 md:px-6 py-6">
+        <PilotFrame
+          title="International Treaty Compliance Checker"
+          subtitle="Map treaty obligations against domestic legal instruments with auditable, side-by-side citations and quality-gated outputs."
+          badgeLeft="Policy Compliance Module"
+          badgeRight="TC • V1.1"
+          dark={dark}
+          onToggleTheme={() => setDark((v) => !v)}
+        >
+          <div className="space-y-5">
+          <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
           <CardHeader><CardTitle className="font-news text-xl">Input Brief</CardTitle></CardHeader>
           <CardContent className="space-y-3">
             <div className="grid md:grid-cols-2 gap-3">
@@ -182,7 +182,7 @@ export default function PilotTreatyChecker() {
               </div>
             </div>
 
-            <Button onClick={analyze} disabled={loading || !treatyReady || !lawReady} className="w-full md:w-auto">
+            <Button onClick={analyze} disabled={loading || !treatyReady || !lawReady} className="w-full md:w-auto rounded-none">
               {loading ? "Analyzing..." : "Analyze Compliance"}
             </Button>
             {!!progressLabel && <p className="text-xs text-ink/80 dark:text-paper/70">{progressLabel}</p>}
@@ -191,7 +191,7 @@ export default function PilotTreatyChecker() {
         </Card>
 
         {data && (
-          <Card>
+          <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
             <CardHeader>
               <CardTitle className="font-news text-xl">Policy Memo Output</CardTitle>
             </CardHeader>
@@ -257,9 +257,12 @@ export default function PilotTreatyChecker() {
             </CardContent>
           </Card>
         )}
+          </div>
+        </PilotFrame>
       </main>
     </div>
   );
 }
+
 
 

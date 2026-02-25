@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { crisisConstraints, crisisTypes, missions } from "@/lib/pilotSeed";
+import PilotFrame from "@/components/pilot/PilotFrame";
 
 type ModeUsed = "ai" | "fallback";
 type RoleTask = { role: string; task: string };
@@ -125,18 +126,17 @@ export default function PilotCrisisPlanner() {
 
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <main className="max-w-4xl mx-auto px-4 md:px-6 py-6 space-y-5">
-        <Card className="border-ink/20">
-          <CardContent className="py-4 flex items-center justify-between gap-3">
-            <div>
-              <p className="text-xs text-ink/80 dark:text-paper/70">KhaM for GOV • INTERNAL PILOT USE ONLY</p>
-              <h1 className="font-news text-2xl md:text-3xl">Consular Crisis Response Planner</h1>
-            </div>
-            <Button variant="outline" onClick={() => setDark((v) => !v)}>{dark ? "Light" : "Dark"}</Button>
-          </CardContent>
-        </Card>
-
-        <Card>
+      <main className="max-w-5xl mx-auto px-4 md:px-6 py-6">
+        <PilotFrame
+          title="Consular Crisis Response Planner"
+          subtitle="Generate structured mission-ready response plans with phased actions, evacuation structure, and quality-gated compliance checks."
+          badgeLeft="Emergency Planning Module"
+          badgeRight="CR • V1.1"
+          dark={dark}
+          onToggleTheme={() => setDark((v) => !v)}
+        >
+          <div className="space-y-5">
+          <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
           <CardHeader><CardTitle className="font-news text-xl">Mission Briefing</CardTitle></CardHeader>
           <CardContent className="space-y-3">
             <div className="grid md:grid-cols-2 gap-3">
@@ -180,7 +180,7 @@ export default function PilotCrisisPlanner() {
             <Button
               onClick={generatePlan}
               disabled={loading || resources.trim().length < 15 || localConditions.trim().length < 30 || selectedConstraints.length < 1}
-              className="w-full md:w-auto"
+              className="w-full md:w-auto rounded-none"
             >
               {loading ? "Generating..." : "Generate Response Plan"}
             </Button>
@@ -189,7 +189,7 @@ export default function PilotCrisisPlanner() {
         </Card>
 
         {data && (
-          <Card>
+          <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
             <CardHeader><CardTitle className="font-news text-xl">Operational Order Output</CardTitle></CardHeader>
             <CardContent className="space-y-4 text-sm">
               <div className="flex flex-wrap gap-3 items-center text-xs text-ink/80 dark:text-paper/80">
@@ -276,9 +276,12 @@ export default function PilotCrisisPlanner() {
             </CardContent>
           </Card>
         )}
+          </div>
+        </PilotFrame>
       </main>
     </div>
   );
 }
+
 
 
