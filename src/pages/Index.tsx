@@ -8,9 +8,9 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>KhaM – Cultural Memory Infrastructure for South Asia</title>
-        <meta name="description" content="KhaM is building cultural memory infrastructure for South Asian languages—preserving dialect, tone, and emotional nuance before they vanish from both memory and machine." />
-        <meta property="og:title" content="KhaM – Cultural Memory Infrastructure for South Asia" />
+        <title>KhaM — Sovereign AI for South Asia</title>
+        <meta name="description" content="The languages of South Asia are not just multilingual — they are emotionally polyphonic. KhaM is building the cultural infrastructure to preserve them in AI before they disappear from both memory and machine." />
+        <meta property="og:title" content="KhaM — Sovereign AI for South Asia" />
         <meta property="og:description" content="Protecting endangered voices and emotional nuance in South Asian languages through open-source tools and care." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://khamlabs.org" />
@@ -65,7 +65,7 @@ const Index = () => {
             {/* What is KhaM */}
             <SystemPageFrame
               title="What is KhaM"
-              subtitle="Named after Khayer and Mamtaj. A vessel for memory, not metrics."
+              subtitle="Named after my parents — Khayer and Mamtaj. A vessel for memory, not metrics."
             >
               <div id="what-is-kham" className="space-y-5">
                 <SystemSection
@@ -73,9 +73,9 @@ const Index = () => {
                   description="How KhaM came to be."
                 >
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/90 dark:text-foreground/90">
-                    KhaM means envelope—a place where memory is kept safe. What began as personal grief became
-                    a public mission: preserving the voices, dialects, and emotional registers that formal language
-                    systems often ignore. KhaM is not only a technical initiative. It is an act of continuity.
+                    I grew up in Chittagong. The language I spoke at home — Chatgayaan — wasn't considered real.
+                    No script. No prestige. So we were taught to hide it. To speak proper Bangla. To translate
+                    ourselves into acceptability.
                   </p>
                 </SystemSection>
 
@@ -84,9 +84,8 @@ const Index = () => {
                   description="What we're protecting."
                 >
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
-                    A dialect is never just vocabulary. It carries intimacy, humor, hierarchy, grief, and care.
-                    When AI flattens language into neutral text, it erases cultural intelligence. KhaM exists
-                    to protect what translation alone cannot hold.
+                    But Chatgayaan was how my mother loved me. It was how neighbors joked, how elders prayed,
+                    how loss and joy were carried in voice — not grammar.
                   </p>
                 </SystemSection>
               </div>
@@ -95,7 +94,7 @@ const Index = () => {
             {/* Memory Infrastructure */}
             <SystemPageFrame
               title="Memory Infrastructure"
-              subtitle="We are not only translating language. We are encoding memory."
+              subtitle="Who controls a language in AI controls its future."
             >
               <div className="space-y-5">
                 <SystemSection
@@ -103,9 +102,9 @@ const Index = () => {
                   description="Languages and dialects in scope."
                 >
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
-                    KhaM is building open infrastructure for culturally aware AI across South Asia—starting with
-                    Bangla, Hindi, Urdu, Tamil, Telugu, Punjabi, Gujarati, and Marathi, including regional dialects
-                    often excluded from mainstream systems.
+                    Right now, the languages of South Asia — spoken by over 1.8 billion people — are being processed
+                    by AI systems built in the West, trained on Western data, and optimized for Western emotional registers.
+                    This is not a translation problem. It is a sovereignty problem.
                   </p>
                 </SystemSection>
 
@@ -114,12 +113,11 @@ const Index = () => {
                   description="How we work."
                 >
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
-                    Our approach combines dialect documentation, emotional speech patterns, and context-aware voice
-                    modeling. We prioritize fidelity over speed, and community consent over extraction—so the
-                    resulting systems reflect real people, not generic language averages.
+                    KhaM is building the open cultural infrastructure that changes this — starting with the dialects,
+                    tones, and emotional registers that no current AI can hold. Not translation tools. Memory tools.
                   </p>
                   <blockquote className="mt-5 pl-4 border-l-2 border-terracotta/50 font-news text-lg md:text-xl text-ink/75 dark:text-foreground/90 italic">
-                    "This isn't translation—it's memory encoding."
+                    "If we don't preserve this — not the dictionary, but the tone — we'll lose more than language. We'll lose the way we were loved."
                   </blockquote>
                 </SystemSection>
               </div>
@@ -128,16 +126,16 @@ const Index = () => {
             {/* Who It's For */}
             <SystemPageFrame
               title="Who It's For"
-              subtitle="For people who know language is more than text."
+              subtitle="Early-stage, open-source, and actively looking for people who feel the same urgency."
             >
               <SystemSection
                 title="Audience"
                 description="Creators, linguists, builders, cultural workers."
               >
                 <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
-                  KhaM is built for creators, linguists, researchers, AI teams, and cultural archivists working at
-                  the edge of language and identity. It serves those who care about cadence, context, and emotional
-                  truth—and who believe future AI should represent how communities actually speak and feel.
+                  KhaM is for people working at the edge of language and memory: linguistic experts in South Asian
+                  languages, AI researchers, voice contributors, diaspora organizers, and institutions that care about
+                  cultural continuity.
                 </p>
               </SystemSection>
             </SystemPageFrame>
@@ -145,7 +143,7 @@ const Index = () => {
             {/* Why This Matters */}
             <SystemPageFrame
               title="Why This Matters"
-              subtitle="If language is infrastructure, erasure is technical debt."
+              subtitle="Not translation tools. Memory tools."
             >
               <div className="space-y-5">
                 <SystemSection
@@ -153,9 +151,9 @@ const Index = () => {
                   description="What current AI misses."
                 >
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
-                    Most AI systems are optimized for dominant language standards, not lived linguistic diversity.
-                    That gap affects representation, trust, and whose voice remains legible in the future. When
-                    dialects are excluded from training data, cultures are excluded from capability.
+                    KhaM is building open infrastructure for culturally-aware AI — starting with voice, emotion,
+                    and dialect. Everything we create will be released openly so researchers, developers, and
+                    communities can build on it.
                   </p>
                 </SystemSection>
 
@@ -164,9 +162,9 @@ const Index = () => {
                   description="What KhaM is building toward."
                 >
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/70 dark:text-foreground/90">
-                    KhaM aims to make South Asian language intelligence culturally grounded, technically usable,
-                    and openly extensible. The goal is not only better outputs. The goal is continuity: preserving
-                    how meaning, emotion, and belonging are actually expressed.
+                    These are not obscure languages. They are living tongues, spoken across millions of homes,
+                    carried across oceans by diaspora communities, and almost entirely absent from AI systems being
+                    built today. KhaM is documenting them — one dialect at a time.
                   </p>
                 </SystemSection>
               </div>
