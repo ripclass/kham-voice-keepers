@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 
 const navLinks: [string, string][] = [
-  ["The Vision", "/#the-argument"],
-  ["Origin", "/#founder"],
-  ["What We Build", "/#what-we-build"],
-  ["Dialects", "/#dialect-map"],
-  ["Contact", "/#get-involved"],
+  ["The Vision", "#the-argument"],
+  ["Origin", "#founder"],
+  ["What We Build", "#what-we-build"],
+  ["Dialects", "#dialect-map"],
+  ["Contact", "#get-involved"],
 ];
 
 const SystemHeaderNav = () => {
@@ -61,4 +61,5 @@ const SystemHeaderNav = () => {
 };
 
 export default SystemHeaderNav;
+
 

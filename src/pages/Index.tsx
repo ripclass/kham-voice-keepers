@@ -190,7 +190,7 @@ const Index = () => {
                     These are not obscure languages. They are living tongues, spoken across millions of homes, carried across oceans by diaspora communities, and almost entirely absent from the AI systems being built today. KhaM is documenting them — one dialect at a time.
                   </p>
                   <p className="mt-4">
-                    <a href="#contact" className="font-tech text-[11px] uppercase tracking-[0.12em] text-terracotta hover:underline">Contribute a Voice →</a>
+                    <a href="#get-involved" className="font-tech text-[11px] uppercase tracking-[0.12em] text-terracotta hover:underline">Contribute a Voice →</a>
                   </p>
                 </SystemSection>
 
@@ -262,6 +262,7 @@ const Index = () => {
 };
 
 export default Index;
+
 
 
 

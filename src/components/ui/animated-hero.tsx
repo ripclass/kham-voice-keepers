@@ -1,9 +1,14 @@
 import { MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 
 function Hero() {
-  const navigate = useNavigate();
+  const jumpTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", `#${id}`);
+    }
+  };
 
   return (
     <div className="w-full px-4 md:px-6 py-8 md:py-10">
@@ -20,7 +25,7 @@ function Hero() {
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Button
-              onClick={() => navigate('/#get-involved')}
+              onClick={() => jumpTo("get-involved")}
               className="rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink/80 dark:border-foreground/60 !bg-ink/5 dark:!bg-foreground/10 !text-ink dark:!text-paper hover:!bg-ink hover:!text-paper dark:hover:!bg-paper dark:hover:!text-ink font-semibold shadow-[inset_0_0_0_1px_rgba(0,0,0,0.45)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] gap-3"
               aria-label="Get involved with KhaM"
             >
@@ -29,7 +34,7 @@ function Hero() {
 
             <Button
               variant="ghost"
-              onClick={() => navigate('/#founder')}
+              onClick={() => jumpTo("founder")}
               className="rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink/40 dark:border-border text-ink/80 dark:text-foreground/85 hover:text-ink dark:hover:text-foreground"
               aria-label="Read the origin story"
             >
