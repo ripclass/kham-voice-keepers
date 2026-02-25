@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+import SystemHeaderNav from "@/components/system/SystemHeaderNav";
 import { Helmet } from "react-helmet-async";
 import { Hero } from "@/components/ui/animated-hero";
 import SystemPageFrame from "@/components/system/SystemPageFrame";
@@ -42,9 +42,9 @@ const Index = () => {
       </Helmet>
 
       <div className="min-h-screen bg-paper text-ink dark:bg-background dark:text-paper">
-        <Navigation />
+        <SystemHeaderNav />
 
-        <main className="pt-24 pb-16 px-4 md:px-6">
+        <main className="pt-8 pb-16 px-4 md:px-6">
           <div className="max-w-4xl mx-auto space-y-5">
             {/* ASCII-style module strip aligned to content frame */}
             <div className="kham-frame p-3 md:p-4 space-y-3">

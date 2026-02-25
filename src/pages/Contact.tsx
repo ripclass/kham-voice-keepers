@@ -1,5 +1,5 @@
 
-import Navigation from "@/components/Navigation";
+import SystemHeaderNav from "@/components/system/SystemHeaderNav";
 import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
@@ -35,9 +35,9 @@ const Contact = () => {
       </Helmet>
 
       <div className="min-h-screen bg-paper text-ink">
-        <Navigation />
+        <SystemHeaderNav />
         
-        <div className="pt-24 pb-20 px-6 md:px-12">
+        <div className="pt-8 pb-20 px-6 md:px-12">
           <div className="max-w-2xl mx-auto space-y-16 text-center">
             
             {/* Header */}

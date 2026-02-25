@@ -1,5 +1,5 @@
 
-import Navigation from "@/components/Navigation";
+import SystemHeaderNav from "@/components/system/SystemHeaderNav";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
@@ -21,9 +21,9 @@ const EmotionPaper = () => {
       </Helmet>
 
       <div className="min-h-screen bg-paper text-ink">
-        <Navigation />
+        <SystemHeaderNav />
         
-        <main className="pt-24 pb-20 px-6 md:px-12">
+        <main className="pt-8 pb-20 px-6 md:px-12">
           <div className="max-w-4xl mx-auto">
             {/* Back link */}
             <Link 

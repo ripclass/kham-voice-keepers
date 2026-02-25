@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+import SystemHeaderNav from "@/components/system/SystemHeaderNav";
 import { Helmet } from "react-helmet-async";
 import ResearchHero from "@/components/research/ResearchHero";
 import FeaturedPapers from "@/components/research/FeaturedPapers";
@@ -75,9 +75,9 @@ const Research = () => {
       </Helmet>
 
       <div className="min-h-screen bg-paper text-ink dark:bg-background dark:text-paper">
-        <Navigation />
+        <SystemHeaderNav />
 
-        <main className="pt-24 pb-20 px-4 md:px-6">
+        <main className="pt-8 pb-20 px-4 md:px-6">
           {/* Module identity strip */}
           <div className="max-w-4xl mx-auto mb-6">
             <div className="flex items-center gap-3 opacity-60">
