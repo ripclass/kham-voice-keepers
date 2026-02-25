@@ -43,12 +43,26 @@ const Index = () => {
       <div className="min-h-screen bg-paper text-ink dark:bg-background dark:text-paper">
         <Navigation />
 
-        <main className="pt-20">
-          {/* Animated Hero — kept intact */}
-          <Hero />
+        <main className="pt-24 pb-16 px-4 md:px-6">
+          <div className="max-w-4xl mx-auto space-y-5">
+            {/* ASCII-style module strip aligned to content frame */}
+            <div className="kham-frame p-3 md:p-4">
+              <div className="flex items-center gap-3 opacity-70">
+                <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-paper/70">KhaM</span>
+                <span className="font-tech text-[10px] text-ink/40 dark:text-paper/40">•</span>
+                <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-paper/70">Cultural Memory Infrastructure</span>
+                <div className="flex-1 border-t border-dashed border-ink/30 dark:border-paper/30" />
+                <span className="font-tech text-[10px] uppercase tracking-[0.16em] text-ink/50 dark:text-paper/50">System Active</span>
+              </div>
+            </div>
 
-          {/* Content sections wrapped in consistent frame */}
-          <div className="max-w-4xl mx-auto px-4 md:px-6 py-12 space-y-5">
+            {/* Hero aligned with body frame */}
+            <div className="kham-frame overflow-hidden">
+              <Hero />
+            </div>
+
+            {/* Content sections wrapped in consistent frame */}
+            <div className="space-y-5">
 
             {/* What is KhaM */}
             <SystemPageFrame
@@ -162,25 +176,27 @@ const Index = () => {
               </div>
             </SystemPageFrame>
 
+            </div>
+
+            {/* Footer aligned to same content width */}
+            <footer className="kham-frame p-6 md:p-8">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 opacity-70">
+                  <div className="w-10 h-px bg-ink/60 dark:bg-paper/60" />
+                  <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-paper/70">KhaM Labs</span>
+                  <div className="flex-1 border-t border-dashed border-ink/30 dark:border-paper/30" />
+                  <span className="font-tech text-[10px] uppercase tracking-[0.16em] text-ink/50 dark:text-paper/50">Archive Mode</span>
+                </div>
+                <blockquote className="font-news text-xl md:text-2xl text-ink/90 dark:text-paper/90 italic">
+                  "KhaM is not a product.<br />It's a promise."
+                </blockquote>
+                <p className="font-tech text-[11px] uppercase tracking-[0.12em] text-ink/55 dark:text-paper/55 pt-1">
+                  © KhaM Labs · ripon@khamlabs.org
+                </p>
+              </div>
+            </footer>
           </div>
         </main>
-
-        {/* Footer */}
-        <footer className="w-full border-t border-ink/20 dark:border-paper/20 bg-ink dark:bg-background py-12 px-6 md:px-12">
-          <div className="max-w-4xl mx-auto space-y-4">
-            <div className="flex items-center gap-3 opacity-60 mb-4">
-              <div className="w-10 h-px bg-paper/60" />
-              <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-paper/70">KhaM Labs</span>
-              <div className="flex-1 border-t border-dashed border-paper/30" />
-            </div>
-            <blockquote className="font-news text-xl md:text-2xl text-paper/90 italic">
-              "KhaM is not a product.<br />It's a promise."
-            </blockquote>
-            <p className="font-tech text-[11px] uppercase tracking-[0.12em] text-paper/50 pt-2">
-              © KhaM Labs · ripon@khamlabs.org
-            </p>
-          </div>
-        </footer>
       </div>
     </>
   );
