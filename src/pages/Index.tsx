@@ -170,31 +170,36 @@ const Index = () => {
               </div>
             </SystemPageFrame>
 
-            {/* Why This Matters */}
+            {/* What We Build */}
             <SystemPageFrame
-              title="Why This Matters"
+              title="What We Build"
               subtitle="Not translation tools. Memory tools."
             >
               <div className="space-y-5">
                 <SystemSection
-                  title="The Problem"
-                  description="What current AI misses."
+                  title="Build Scope"
+                  description="Open infrastructure"
                 >
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
-                    KhaM is building open infrastructure for culturally-aware AI - starting with voice, emotion,
-                    and dialect. Everything we create will be released openly so researchers, developers, and
-                    communities can build on it.
+                    KhaM is building open infrastructure for culturally-aware AI — starting with voice, emotion, and dialect. Everything we create will be released openly so researchers, developers, and communities can build on it.
                   </p>
                 </SystemSection>
 
-                <SystemSection
-                  title="The Vision"
-                  description="What KhaM is building toward."
-                >
-                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/70 dark:text-foreground/90">
-                    These are not obscure languages. They are living tongues, spoken across millions of homes,
-                    carried across oceans by diaspora communities, and almost entirely absent from AI systems being
-                    built today. KhaM is documenting them - one dialect at a time.
+                <SystemSection title="01 Voice Archive" description="In progress">
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
+                    A growing collection of South Asian dialects recorded with full consent, cultural context, and community participation. Each voice comes with a story, not just a waveform.
+                  </p>
+                </SystemSection>
+
+                <SystemSection title="02 Emotional Speech Models" description="Building">
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
+                    Open-source AI models trained to understand emotional nuance — the seventeen ways Bengali expresses love, the pause before an elder says your name, the lilt that carries grief.
+                  </p>
+                </SystemSection>
+
+                <SystemSection title="03 Open Datasets" description="Coming soon">
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
+                    Fully attributed, community-owned datasets released for any researcher, developer, or institution working on South Asian language AI. No extraction. Cultural collaboration.
                   </p>
                 </SystemSection>
               </div>
