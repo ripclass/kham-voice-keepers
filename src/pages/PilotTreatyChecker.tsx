@@ -154,35 +154,35 @@ export default function PilotTreatyChecker() {
         >
           <div className="space-y-5">
           <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
-          <CardHeader><CardTitle className="font-news text-xl">Input Brief</CardTitle></CardHeader>
+          <CardHeader><CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Input Brief</CardTitle></CardHeader>
           <CardContent className="space-y-3">
             <div className="grid md:grid-cols-2 gap-3">
               <div>
-                <label className="text-xs text-ink/80 dark:text-paper/80">Treaty</label>
+                <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Treaty</label>
                 <select className="w-full border rounded-md p-2 bg-background" value={treatyName} onChange={(e) => setTreatyName(e.target.value)}>{treaties.map((t) => <option key={t}>{t}</option>)}</select>
               </div>
               <div>
-                <label className="text-xs text-ink/80 dark:text-paper/80">National Instrument</label>
+                <label className="font-tech text-xs text-ink/80 dark:text-paper/80">National Instrument</label>
                 <select className="w-full border rounded-md p-2 bg-background" value={lawName} onChange={(e) => setLawName(e.target.value)}>{nationalInstruments.map((n) => <option key={n}>{n}</option>)}</select>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-3">
               <div className="space-y-2">
-                <label className="text-xs text-ink/80 dark:text-paper/80">Treaty text (50+ chars) or upload</label>
+                <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Treaty text (50+ chars) or upload</label>
                 <Textarea value={treatyText} onChange={(e) => setTreatyText(e.target.value)} className="min-h-24" />
                 <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleUpload(e, setTreatyDocText, setTreatyDocName)} />
                 {treatyDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {treatyDocName}</p>}
               </div>
               <div className="space-y-2">
-                <label className="text-xs text-ink/80 dark:text-paper/80">Law text (50+ chars) or upload</label>
+                <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Law text (50+ chars) or upload</label>
                 <Textarea value={lawText} onChange={(e) => setLawText(e.target.value)} className="min-h-24" />
                 <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleUpload(e, setLawDocText, setLawDocName)} />
                 {lawDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {lawDocName}</p>}
               </div>
             </div>
 
-            <Button onClick={analyze} disabled={loading || !treatyReady || !lawReady} className="w-full md:w-auto rounded-none">
+            <Button onClick={analyze} disabled={loading || !treatyReady || !lawReady} className="w-full md:w-auto rounded-none font-tech uppercase tracking-[0.08em]">
               {loading ? "Analyzing..." : "Analyze Compliance"}
             </Button>
             {!!progressLabel && <p className="text-xs text-ink/80 dark:text-paper/70">{progressLabel}</p>}
@@ -193,7 +193,7 @@ export default function PilotTreatyChecker() {
         {data && (
           <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
             <CardHeader>
-              <CardTitle className="font-news text-xl">Policy Memo Output</CardTitle>
+              <CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Policy Memo Output</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-sm">
               <div className="flex flex-wrap gap-3 items-center text-xs text-ink/80 dark:text-paper/80">
@@ -263,6 +263,7 @@ export default function PilotTreatyChecker() {
     </div>
   );
 }
+
 
 
 

@@ -137,32 +137,32 @@ export default function PilotCrisisPlanner() {
         >
           <div className="space-y-5">
           <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
-          <CardHeader><CardTitle className="font-news text-xl">Mission Briefing</CardTitle></CardHeader>
+          <CardHeader><CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Mission Briefing</CardTitle></CardHeader>
           <CardContent className="space-y-3">
             <div className="grid md:grid-cols-2 gap-3">
               <div>
-                <label className="text-xs text-ink/80 dark:text-paper/80">Mission Location</label>
+                <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Mission Location</label>
                 <select className="w-full border rounded-md p-2 bg-background" value={missionLocation} onChange={(e) => setMissionLocation(e.target.value)}>{missions.map((m) => <option key={m}>{m}</option>)}</select>
               </div>
               <div>
-                <label className="text-xs text-ink/80 dark:text-paper/80">Crisis Type</label>
+                <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Crisis Type</label>
                 <select className="w-full border rounded-md p-2 bg-background" value={crisisType} onChange={(e) => setCrisisType(e.target.value)}>{crisisTypes.map((c) => <option key={c}>{c}</option>)}</select>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-3">
               <div>
-                <label className="text-xs text-ink/80 dark:text-paper/80">Nationals Affected</label>
+                <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Nationals Affected</label>
                 <Input type="number" value={nationalsAffected} onChange={(e) => setNationalsAffected(Number(e.target.value))} />
               </div>
               <div>
-                <label className="text-xs text-ink/80 dark:text-paper/80">Resource Inventory (comma-separated)</label>
+                <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Resource Inventory (comma-separated)</label>
                 <Input value={resources} onChange={(e) => setResources(e.target.value)} />
               </div>
             </div>
 
             <div>
-              <label className="text-xs text-ink/80 dark:text-paper/80">Constraints</label>
+              <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Constraints</label>
               <div className="grid grid-cols-2 gap-2 text-sm mt-1">
                 {crisisConstraints.map((c) => (
                   <label key={c} className="flex items-center gap-2"><input type="checkbox" checked={selectedConstraints.includes(c)} onChange={() => toggleConstraint(c)} /> {c}</label>
@@ -170,17 +170,17 @@ export default function PilotCrisisPlanner() {
               </div>
             </div>
 
-            <label className="text-xs text-ink/80 dark:text-paper/80">Local Conditions (30+ chars)</label>
+            <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Local Conditions (30+ chars)</label>
             <Textarea value={localConditions} onChange={(e) => setLocalConditions(e.target.value)} className="min-h-24" />
 
-            <label className="text-xs text-ink/80 dark:text-paper/80">Situation Brief Upload (.txt/.pdf)</label>
+            <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Situation Brief Upload (.txt/.pdf)</label>
             <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleScenarioDocUpload(e)} />
             {scenarioDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {scenarioDocName}</p>}
 
             <Button
               onClick={generatePlan}
               disabled={loading || resources.trim().length < 15 || localConditions.trim().length < 30 || selectedConstraints.length < 1}
-              className="w-full md:w-auto rounded-none"
+              className="w-full md:w-auto rounded-none font-tech uppercase tracking-[0.08em]"
             >
               {loading ? "Generating..." : "Generate Response Plan"}
             </Button>
@@ -190,7 +190,7 @@ export default function PilotCrisisPlanner() {
 
         {data && (
           <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
-            <CardHeader><CardTitle className="font-news text-xl">Operational Order Output</CardTitle></CardHeader>
+            <CardHeader><CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Operational Order Output</CardTitle></CardHeader>
             <CardContent className="space-y-4 text-sm">
               <div className="flex flex-wrap gap-3 items-center text-xs text-ink/80 dark:text-paper/80">
                 <span>Ref: {data.reference_no}</span>
@@ -282,6 +282,7 @@ export default function PilotCrisisPlanner() {
     </div>
   );
 }
+
 
 
 
