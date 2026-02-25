@@ -238,6 +238,32 @@ const Index = () => {
               </div>
             </SystemPageFrame>
 
+            {/* Get Involved */}
+            <SystemPageFrame
+              title="Get Involved"
+              subtitle="Let's build this together."
+            >
+              <div className="space-y-5">
+                <SystemSection title="Invitation" description="Join the mission">
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
+                    KhaM is early-stage, open-source, and actively looking for people who feel the same urgency. We are one person with a clear vision and a growing community. If any of this resonates, write to us.
+                  </p>
+                  <p className="mt-4 font-tech text-sm md:text-base tracking-[0.08em] text-terracotta">ripon@khamlabs.org</p>
+                </SystemSection>
+
+                <SystemSection title="Ways to Contribute" description="Where you can help">
+                  <ul className="space-y-3">
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Linguistic expertise in South Asian languages</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">AI research &amp; cultural preservation</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Voice contribution &amp; dialect recording</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Institutional partnership &amp; grants</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Diaspora community organizing</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Just want to share your story</li>
+                  </ul>
+                </SystemSection>
+              </div>
+            </SystemPageFrame>
+
             </div>
 
             {/* Footer aligned to same content width */}
