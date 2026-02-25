@@ -100,7 +100,7 @@ const Index = () => {
             {/* Founder / Origin */}
             <SystemPageFrame
               title="Founder"
-              subtitle="Ripon · Builder · Filmmaker · Native Speaker"
+              subtitle="Ripon Chowdhury - Builder · Filmmaker · Native Speaker"
             >
               <div className="space-y-5">
                 <SystemSection
@@ -262,6 +262,7 @@ const Index = () => {
 };
 
 export default Index;
+
 
 
 

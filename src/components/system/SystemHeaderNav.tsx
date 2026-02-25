@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import { Moon, Sun } from "lucide-react";
 
 const navLinks: [string, string][] = [
-  ["Voices", "/voices"],
-  ["Library", "/library"],
-  ["Roadmap", "/roadmap"],
-  ["Origin", "/team"],
-  ["Support", "/support"],
-  ["Research", "/research"],
-  ["Contact", "/contact"],
+  ["The Vision", "/#the-argument"],
+  ["Origin", "/#founder"],
+  ["What We Build", "/#what-we-build"],
+  ["Dialects", "/#dialect-map"],
+  ["Contact", "/#get-involved"],
 ];
 
 const SystemHeaderNav = () => {
