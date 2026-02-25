@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 
 const navLinks: [string, string][] = [
-  ["The Vision", "#the-argument"],
-  ["Origin", "#founder"],
-  ["What We Build", "#what-we-build"],
-  ["Dialects", "#dialect-map"],
-  ["Contact", "#get-involved"],
+  ["The Vision", "the-argument"],
+  ["Origin", "founder"],
+  ["What We Build", "what-we-build"],
+  ["Dialects", "dialect-map"],
+  ["Contact", "get-involved"],
 ];
 
 const SystemHeaderNav = () => {
@@ -20,6 +20,14 @@ const SystemHeaderNav = () => {
     const next = !dark;
     setDark(next);
     document.documentElement.classList.toggle("dark", next);
+  };
+
+  const jumpTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", `#${id}`);
+    }
   };
 
   return (
@@ -36,14 +44,15 @@ const SystemHeaderNav = () => {
           <div className="flex-1 border-t border-dashed border-ink/25 dark:border-border" />
 
           <nav className="flex items-center gap-x-4 md:gap-x-5 flex-wrap justify-end">
-            {navLinks.map(([label, href]) => (
-              <a
+            {navLinks.map(([label, id]) => (
+              <button
                 key={label}
-                href={href}
+                type="button"
+                onClick={() => jumpTo(id)}
                 className="font-tech text-[11px] uppercase tracking-[0.12em] text-ink/65 dark:text-foreground/65 hover:text-ink dark:hover:text-foreground transition-colors whitespace-nowrap"
               >
                 {label}
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -61,5 +70,3 @@ const SystemHeaderNav = () => {
 };
 
 export default SystemHeaderNav;
-
-
