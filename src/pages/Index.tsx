@@ -205,6 +205,39 @@ const Index = () => {
               </div>
             </SystemPageFrame>
 
+            {/* The Dialect Map */}
+            <SystemPageFrame
+              title="The Dialect Map"
+              subtitle="Tracking what AI has forgotten."
+            >
+              <div className="space-y-5">
+                <SystemSection
+                  title="Coverage"
+                  description="Living tongues, underrepresented in AI"
+                >
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
+                    These are not obscure languages. They are living tongues, spoken across millions of homes, carried across oceans by diaspora communities, and almost entirely absent from the AI systems being built today. KhaM is documenting them — one dialect at a time.
+                  </p>
+                  <p className="mt-4">
+                    <a href="#contact" className="font-tech text-[11px] uppercase tracking-[0.12em] text-terracotta hover:underline">Contribute a Voice →</a>
+                  </p>
+                </SystemSection>
+
+                <SystemSection title="Dialect Status" description="Current tracking map">
+                  <ul className="space-y-3">
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Sylheti — North-East Sylhet · Diaspora — In Fine-Tuning</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Chittagonian / Chatgaya — South-East Hills & Port — Recording</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Comilla — South-Eastern Plains — Recording</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Rangpuri / Bogra Cluster — Northern Belt — Recording</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Standard Bangla — National / Media — Baseline Ready</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Noakhali — Coastal South-East — Training</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Dhakaiya / Faridpuri — Central Urban Belt — Recording</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Barisali · Patna-Dinajpur · Khulnai — Multiple regions — Coming Soon</li>
+                  </ul>
+                </SystemSection>
+              </div>
+            </SystemPageFrame>
+
             </div>
 
             {/* Footer aligned to same content width */}
