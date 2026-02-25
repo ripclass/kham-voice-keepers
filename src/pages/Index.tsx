@@ -63,6 +63,7 @@ const Index = () => {
             <div className="space-y-5">
 
             {/* The Argument */}
+            <section id="the-argument" className="scroll-mt-24">
             <SystemPageFrame
               title="The Argument"
               subtitle="Who controls a language in AI controls its future."
@@ -96,8 +97,10 @@ const Index = () => {
                 </SystemSection>
               </div>
             </SystemPageFrame>
+            </section>
 
             {/* Founder / Origin */}
+            <section id="founder" className="scroll-mt-24">
             <SystemPageFrame
               title="Founder"
               subtitle="Ripon Chowdhury - Builder · Filmmaker · Native Speaker"
@@ -140,8 +143,10 @@ const Index = () => {
                 </SystemSection>
               </div>
             </SystemPageFrame>
+            </section>
 
             {/* What We Build */}
+            <section id="what-we-build" className="scroll-mt-24">
             <SystemPageFrame
               title="What We Build"
               subtitle="Not translation tools. Memory tools."
@@ -175,8 +180,10 @@ const Index = () => {
                 </SystemSection>
               </div>
             </SystemPageFrame>
+            </section>
 
             {/* The Dialect Map */}
+            <section id="dialect-map" className="scroll-mt-24">
             <SystemPageFrame
               title="The Dialect Map"
               subtitle="Tracking what AI has forgotten."
@@ -208,8 +215,10 @@ const Index = () => {
                 </SystemSection>
               </div>
             </SystemPageFrame>
+            </section>
 
             {/* Get Involved */}
+            <section id="get-involved" className="scroll-mt-24">
             <SystemPageFrame
               title="Get Involved"
               subtitle="Let's build this together."
@@ -234,6 +243,7 @@ const Index = () => {
                 </SystemSection>
               </div>
             </SystemPageFrame>
+            </section>
 
             </div>
 
@@ -262,6 +272,7 @@ const Index = () => {
 };
 
 export default Index;
+
 
 
 
