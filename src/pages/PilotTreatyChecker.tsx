@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { treaties, nationalInstruments } from "@/lib/pilotSeed";
 import PilotFrame from "@/components/pilot/PilotFrame";
 import { downloadDoc, downloadPdf, downloadTxt, escapeHtml, openPrintPreview } from "@/lib/reportExport";
+import { Helmet } from "react-helmet-async";
 
 type ModeUsed = "ai" | "fallback";
 
@@ -211,6 +212,13 @@ export default function PilotTreatyChecker() {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>KhaM for GOV | Treaty Compliance Checker</title>
+        <meta name="description" content="KhaM for GOV Treaty Compliance Checker maps treaty obligations against domestic legal instruments with auditable outputs." />
+        <meta name="robots" content="noindex,follow" />
+        <link rel="canonical" href="https://khamlabs.org/pilot/treaty-checker" />
+      </Helmet>
     <div className="min-h-screen bg-paper text-ink">
       <main className="max-w-5xl mx-auto px-4 md:px-6 py-6">
         <PilotFrame
@@ -347,6 +355,7 @@ export default function PilotTreatyChecker() {
         </PilotFrame>
       </main>
     </div>
+    </>
   );
 }
 
