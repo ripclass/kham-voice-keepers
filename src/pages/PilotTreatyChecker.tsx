@@ -240,7 +240,7 @@ export default function PilotTreatyChecker() {
               variant="outline"
               onClick={analyze}
               disabled={loading || !treatyReady || !lawReady}
-              className="relative w-full md:w-auto rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink/40 dark:border-paper/40 bg-transparent text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink transition-all duration-200 before:content-[''] before:absolute before:-top-1 before:-left-1 before:w-2 before:h-2 before:border-t before:border-l before:border-current before:opacity-0 hover:before:opacity-100 after:content-[''] after:absolute after:-bottom-1 after:-right-1 after:w-2 after:h-2 after:border-b after:border-r after:border-current after:opacity-0 hover:after:opacity-100"
+              className="relative w-full md:w-auto rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink transition-all duration-200 before:content-[''] before:absolute before:-top-1 before:-left-1 before:w-2 before:h-2 before:border-t before:border-l before:border-current before:opacity-0 hover:before:opacity-100 after:content-[''] after:absolute after:-bottom-1 after:-right-1 after:w-2 after:h-2 after:border-b after:border-r after:border-current after:opacity-0 hover:after:opacity-100"
             >
               {loading ? "Analyzing..." : "Analyze Compliance"}
             </Button>
@@ -254,7 +254,7 @@ export default function PilotTreatyChecker() {
             <CardHeader>
               <CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Analysis Output</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4 text-sm">
+            <CardContent className="space-y-5 text-sm font-display leading-relaxed">
               <div className="flex flex-wrap gap-3 items-center text-xs text-ink/80 dark:text-paper/80">
                 <span>Ref: {data.reference_no}</span>
                 <span>{new Date(data.generated_at).toLocaleString()}</span>
@@ -267,9 +267,9 @@ export default function PilotTreatyChecker() {
                 )}
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => openPrintPreview(`TC-${data.reference_no}`, buildTreatyReportHtml(data))}>Print / Save PDF</Button>
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => downloadDoc(`TC-${data.reference_no}`, `treaty-report-${data.reference_no}.doc`, buildTreatyReportHtml(data))}>Download DOC</Button>
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => downloadTxt(`treaty-report-${data.reference_no}.txt`, buildTreatyReportTxt(data))}>Download TXT</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => openPrintPreview(`TC-${data.reference_no}`, buildTreatyReportHtml(data))}>Print / Save PDF</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => downloadDoc(`TC-${data.reference_no}`, `treaty-report-${data.reference_no}.doc`, buildTreatyReportHtml(data))}>Download DOC</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => downloadTxt(`treaty-report-${data.reference_no}.txt`, buildTreatyReportTxt(data))}>Download TXT</Button>
               </div>
 
               {data.relevance_warning && <p className="text-xs text-amber-600 dark:text-amber-400">{data.relevance_warning}</p>}
@@ -296,10 +296,10 @@ export default function PilotTreatyChecker() {
               </div>
 
               <div>
-                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Citation Map</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm mb-2">Citation Map</h3>
                 <div className="space-y-2">
                   {data.results.map((r, i) => (
-                    <div key={i} className="border rounded p-2 text-xs">
+                    <div key={i} className="border border-dashed rounded-none p-3 text-xs bg-background/40">
                       <p><strong>{r.treaty_article}</strong></p>
                       <p><strong>Treaty clause:</strong> {r.treaty_clause_text || r.obligation}</p>
                       <p><strong>Domestic clause:</strong> {r.domestic_clause_text || r.national_mapping}</p>
@@ -309,13 +309,13 @@ export default function PilotTreatyChecker() {
               </div>
 
               <div>
-                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Priority Gaps</h3>
-                <ul className="list-disc pl-5">{data.top_urgent_gaps.map((g, i) => <li key={i}>{g}</li>)}</ul>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm mb-2">Priority Gaps</h3>
+                <ul className="list-disc pl-5 space-y-1">{data.top_urgent_gaps.map((g, i) => <li key={i}>{g}</li>)}</ul>
               </div>
 
               <div>
-                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Action Queue 30/60/90</h3>
-                <ul className="list-disc pl-5">{data.action_list_30_60_90.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm mb-2">Action Queue 30/60/90</h3>
+                <ul className="list-disc pl-5 space-y-1">{data.action_list_30_60_90.map((a, i) => <li key={i}>{a}</li>)}</ul>
               </div>
 
               <p className="text-xs text-ink/80 dark:text-paper/70">{data.human_review_disclaimer}</p>
@@ -328,6 +328,8 @@ export default function PilotTreatyChecker() {
     </div>
   );
 }
+
+
 
 
 

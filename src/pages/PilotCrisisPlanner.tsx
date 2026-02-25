@@ -244,7 +244,7 @@ export default function PilotCrisisPlanner() {
               variant="outline"
               onClick={generatePlan}
               disabled={loading || resources.trim().length < 15 || localConditions.trim().length < 30 || selectedConstraints.length < 1}
-              className="relative w-full md:w-auto rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink/40 dark:border-paper/40 bg-transparent text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink transition-all duration-200 before:content-[''] before:absolute before:-top-1 before:-left-1 before:w-2 before:h-2 before:border-t before:border-l before:border-current before:opacity-0 hover:before:opacity-100 after:content-[''] after:absolute after:-bottom-1 after:-right-1 after:w-2 after:h-2 after:border-b after:border-r after:border-current after:opacity-0 hover:after:opacity-100"
+              className="relative w-full md:w-auto rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink transition-all duration-200 before:content-[''] before:absolute before:-top-1 before:-left-1 before:w-2 before:h-2 before:border-t before:border-l before:border-current before:opacity-0 hover:before:opacity-100 after:content-[''] after:absolute after:-bottom-1 after:-right-1 after:w-2 after:h-2 after:border-b after:border-r after:border-current after:opacity-0 hover:after:opacity-100"
             >
               {loading ? "Generating..." : "Generate Response Plan"}
             </Button>
@@ -255,7 +255,7 @@ export default function PilotCrisisPlanner() {
         {data && (
           <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
             <CardHeader><CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Response Output</CardTitle></CardHeader>
-            <CardContent className="space-y-4 text-sm">
+            <CardContent className="space-y-5 text-sm font-display leading-relaxed">
               <div className="flex flex-wrap gap-3 items-center text-xs text-ink/80 dark:text-paper/80">
                 <span>Ref: {data.reference_no}</span>
                 <span>{new Date(data.generated_at).toLocaleString()}</span>
@@ -268,9 +268,9 @@ export default function PilotCrisisPlanner() {
                 )}
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => openPrintPreview(`CR-${data.reference_no}`, buildCrisisReportHtml(data))}>Print / Save PDF</Button>
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => downloadDoc(`CR-${data.reference_no}`, `crisis-report-${data.reference_no}.doc`, buildCrisisReportHtml(data))}>Download DOC</Button>
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => downloadTxt(`crisis-report-${data.reference_no}.txt`, buildCrisisReportTxt(data))}>Download TXT</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => openPrintPreview(`CR-${data.reference_no}`, buildCrisisReportHtml(data))}>Print / Save PDF</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => downloadDoc(`CR-${data.reference_no}`, `crisis-report-${data.reference_no}.doc`, buildCrisisReportHtml(data))}>Download DOC</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => downloadTxt(`crisis-report-${data.reference_no}.txt`, buildCrisisReportTxt(data))}>Download TXT</Button>
               </div>
 
               {data.relevance_warning && <p className="text-xs text-amber-600 dark:text-amber-400">{data.relevance_warning}</p>}
@@ -285,37 +285,37 @@ export default function PilotCrisisPlanner() {
               </div>
 
               <div className="grid md:grid-cols-3 gap-3">
-                <div><h3 className="font-tech uppercase tracking-[0.08em] text-xs">Condition Yellow</h3><ul className="list-disc pl-5">{data.condition_yellow.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
-                <div><h3 className="font-tech uppercase tracking-[0.08em] text-xs">Condition Orange</h3><ul className="list-disc pl-5">{data.condition_orange.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
-                <div><h3 className="font-tech uppercase tracking-[0.08em] text-xs">Condition Red</h3><ul className="list-disc pl-5">{data.condition_red.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
+                <div><h3 className="font-tech uppercase tracking-[0.08em] text-xs mb-2">Condition Yellow</h3><ul className="list-disc pl-5 space-y-1">{data.condition_yellow.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
+                <div><h3 className="font-tech uppercase tracking-[0.08em] text-xs mb-2">Condition Orange</h3><ul className="list-disc pl-5 space-y-1">{data.condition_orange.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
+                <div><h3 className="font-tech uppercase tracking-[0.08em] text-xs mb-2">Condition Red</h3><ul className="list-disc pl-5 space-y-1">{data.condition_red.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
               </div>
 
               <div>
-                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Role Task Matrix</h3>
-                <ul className="list-disc pl-5">{data.role_assigned_tasks.map((r, i) => <li key={i}><strong>{r.role}:</strong> {r.task}</li>)}</ul>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm mb-2">Role Task Matrix</h3>
+                <ul className="list-disc pl-5 space-y-1">{data.role_assigned_tasks.map((r, i) => <li key={i}><strong>{r.role}:</strong> {r.task}</li>)}</ul>
               </div>
 
               <div>
-                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Timeline</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm mb-2">Timeline</h3>
                 {data.timeline.map((t, i) => (
-                  <div key={i} className="mt-2 border rounded p-2">
+                  <div key={i} className="mt-2 border border-dashed rounded-none p-3 bg-background/40">
                     <p className="font-medium">{t.phase}</p>
-                    <ul className="list-disc pl-5">{t.actions.map((a, j) => <li key={j}>{a}</li>)}</ul>
+                    <ul className="list-disc pl-5 space-y-1">{t.actions.map((a, j) => <li key={j}>{a}</li>)}</ul>
                   </div>
                 ))}
               </div>
 
               <div>
-                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Communication Scripts</h3>
-                <ul className="list-disc pl-5">{data.communication_templates.map((c, i) => <li key={i}>{c}</li>)}</ul>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm mb-2">Communication Scripts</h3>
+                <ul className="list-disc pl-5 space-y-1">{data.communication_templates.map((c, i) => <li key={i}>{c}</li>)}</ul>
               </div>
 
               <div>
-                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Evacuation Structure</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm mb-2">Evacuation Structure</h3>
                 <div className="grid md:grid-cols-2 gap-3 text-xs">
                   <div>
                     <p className="font-medium">Assembly Points</p>
-                    <ul className="list-disc pl-5">{data.evacuation_plan.assembly_points.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                    <ul className="list-disc pl-5 space-y-1">{data.evacuation_plan.assembly_points.map((a, i) => <li key={i}>{a}</li>)}</ul>
                   </div>
                   <div>
                     <p className="font-medium">Priority Categories (highest → lowest)</p>
@@ -323,23 +323,23 @@ export default function PilotCrisisPlanner() {
                   </div>
                   <div>
                     <p className="font-medium">Movement Windows</p>
-                    <ul className="list-disc pl-5">{data.evacuation_plan.movement_windows.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                    <ul className="list-disc pl-5 space-y-1">{data.evacuation_plan.movement_windows.map((a, i) => <li key={i}>{a}</li>)}</ul>
                   </div>
                   <div>
                     <p className="font-medium">Coordination Requirements</p>
-                    <ul className="list-disc pl-5">{data.evacuation_plan.coordination_requirements.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                    <ul className="list-disc pl-5 space-y-1">{data.evacuation_plan.coordination_requirements.map((a, i) => <li key={i}>{a}</li>)}</ul>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">SITREP Template</h3>
-                <pre className="whitespace-pre-wrap text-xs border rounded p-2 bg-background">{data.sitrep_template}</pre>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm mb-2">SITREP Template</h3>
+                <pre className="whitespace-pre-wrap text-xs border border-dashed rounded-none p-3 bg-background/40">{data.sitrep_template}</pre>
               </div>
 
               <div>
-                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Assumptions & Unknowns</h3>
-                <ul className="list-disc pl-5">{data.assumptions_and_unknowns.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm mb-2">Assumptions & Unknowns</h3>
+                <ul className="list-disc pl-5 space-y-1">{data.assumptions_and_unknowns.map((a, i) => <li key={i}>{a}</li>)}</ul>
               </div>
 
               <p className="text-xs text-ink/80 dark:text-paper/70">{data.human_review_disclaimer}</p>
@@ -352,6 +352,8 @@ export default function PilotCrisisPlanner() {
     </div>
   );
 }
+
+
 
 
 
