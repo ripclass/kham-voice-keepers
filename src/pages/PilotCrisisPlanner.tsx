@@ -182,9 +182,10 @@ export default function PilotCrisisPlanner() {
             {scenarioDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {scenarioDocName}</p>}
 
             <Button
+              variant="outline"
               onClick={generatePlan}
               disabled={loading || resources.trim().length < 15 || localConditions.trim().length < 30 || selectedConstraints.length < 1}
-              className="w-full md:w-auto rounded-none font-tech uppercase tracking-[0.08em]"
+              className="relative w-full md:w-auto rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink/40 dark:border-paper/40 bg-transparent text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink transition-all duration-200 before:content-[''] before:absolute before:-top-1 before:-left-1 before:w-2 before:h-2 before:border-t before:border-l before:border-current before:opacity-0 hover:before:opacity-100 after:content-[''] after:absolute after:-bottom-1 after:-right-1 after:w-2 after:h-2 after:border-b after:border-r after:border-current after:opacity-0 hover:after:opacity-100"
             >
               {loading ? "Generating..." : "Generate Response Plan"}
             </Button>
