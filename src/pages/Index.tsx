@@ -56,7 +56,7 @@ const Index = () => {
                 <span className="font-tech text-[10px] uppercase tracking-[0.16em] text-ink/50 dark:text-paper/50">System Active</span>
               </div>
 
-              <div className="pt-2 border-t border-dashed border-ink/20 dark:border-paper/20 flex flex-wrap items-center gap-x-4 gap-y-2">
+              <div className="pt-2 border-t border-dashed border-ink/20 dark:border-paper/20 flex flex-wrap items-center justify-end gap-x-4 gap-y-2">
                 {[
                   ["Voices", "/voices"],
                   ["Library", "/library"],
@@ -224,3 +224,4 @@ const Index = () => {
 };
 
 export default Index;
+
