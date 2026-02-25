@@ -1,0 +1,30 @@
+:root {
+  --kham-space-1: 4px;
+  --kham-space-2: 8px;
+  --kham-space-3: 12px;
+  --kham-space-4: 16px;
+  --kham-space-5: 24px;
+  --kham-space-6: 32px;
+
+  --kham-border-default: 1px solid hsl(var(--ink) / 0.24);
+  --kham-border-dashed: 1px dashed hsl(var(--ink) / 0.28);
+}
+
+.dark {
+  --kham-border-default: 1px solid hsl(var(--paper) / 0.26);
+  --kham-border-dashed: 1px dashed hsl(var(--paper) / 0.30);
+}
+
+.kham-frame {
+  border: var(--kham-border-default);
+  background: hsl(var(--background));
+}
+
+.kham-dashed {
+  border: var(--kham-border-dashed);
+}
+
+.kham-section {
+  padding: var(--kham-space-4);
+  border-top: var(--kham-border-dashed);
+}
