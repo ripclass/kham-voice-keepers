@@ -69,7 +69,7 @@ const readGroundingDoc = async (file: File): Promise<string> => {
 };
 
 export default function PilotTreatyChecker() {
-  const [dark, setDark] = useState(true);
+  const [dark] = useState(true);
   const [treatyName, setTreatyName] = useState(treaties[0]);
   const [lawName, setLawName] = useState(nationalInstruments[0]);
   const [treatyText, setTreatyText] = useState("");
@@ -148,10 +148,7 @@ export default function PilotTreatyChecker() {
           title="International Treaty Compliance Checker"
           subtitle="Map treaty obligations against domestic legal instruments with auditable, side-by-side citations and quality-gated outputs."
           badgeLeft="Policy Compliance Module"
-          badgeRight="TC • V1.1"
-          dark={dark}
-          onToggleTheme={() => setDark((v) => !v)}
-        >
+          badgeRight="TC • V1.1">
           <div className="space-y-5">
           <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
           <CardHeader><CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Input Brief</CardTitle></CardHeader>
@@ -263,6 +260,8 @@ export default function PilotTreatyChecker() {
     </div>
   );
 }
+
+
 
 
 

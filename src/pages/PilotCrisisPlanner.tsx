@@ -59,7 +59,7 @@ const readGroundingDoc = async (file: File): Promise<string> => {
 };
 
 export default function PilotCrisisPlanner() {
-  const [dark, setDark] = useState(true);
+  const [dark] = useState(true);
   const [missionLocation, setMissionLocation] = useState(missions[2]);
   const [crisisType, setCrisisType] = useState(crisisTypes[0]);
   const [nationalsAffected, setNationalsAffected] = useState(50000);
@@ -131,10 +131,7 @@ export default function PilotCrisisPlanner() {
           title="Consular Crisis Response Planner"
           subtitle="Generate structured mission-ready response plans with phased actions, evacuation structure, and quality-gated compliance checks."
           badgeLeft="Emergency Planning Module"
-          badgeRight="CR • V1.1"
-          dark={dark}
-          onToggleTheme={() => setDark((v) => !v)}
-        >
+          badgeRight="CR • V1.1">
           <div className="space-y-5">
           <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
           <CardHeader><CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Mission Briefing</CardTitle></CardHeader>
@@ -282,6 +279,8 @@ export default function PilotCrisisPlanner() {
     </div>
   );
 }
+
+
 
 
 
