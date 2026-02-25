@@ -77,6 +77,17 @@ export default function PilotCrisisPlanner() {
     document.documentElement.classList.toggle("dark", dark);
   }, [dark]);
 
+  const resourcesChars = resources.trim().length;
+  const localChars = localConditions.trim().length;
+  const canGenerate = resourcesChars >= 15 && localChars >= 30 && selectedConstraints.length >= 1;
+  const generateHint = selectedConstraints.length < 1
+    ? "Select at least one constraint."
+    : resourcesChars < 15
+      ? `Resource inventory needs at least 15 chars (${resourcesChars}/15).`
+      : localChars < 30
+        ? `Local conditions need at least 30 chars (${localChars}/30).`
+        : "Ready to generate response plan.";
+
   const toggleConstraint = (value: string) => {
     setSelectedConstraints((prev) => (prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]));
   };
@@ -219,6 +230,7 @@ export default function PilotCrisisPlanner() {
               <div>
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Resource Inventory (comma-separated)</label>
                 <Input className="rounded-none border-dashed font-display" value={resources} onChange={(e) => setResources(e.target.value)} />
+                <p className="font-tech text-[11px] text-ink/65 dark:text-paper/65 mt-1">Chars: {resourcesChars}/15</p>
               </div>
             </div>
 
@@ -235,6 +247,7 @@ export default function PilotCrisisPlanner() {
 
             <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Local Conditions (30+ chars)</label>
             <Textarea value={localConditions} onChange={(e) => setLocalConditions(e.target.value)} className="min-h-28 rounded-none border-dashed font-display" />
+            <p className="font-tech text-[11px] text-ink/65 dark:text-paper/65">Chars: {localChars}/30</p>
 
             <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Situation Brief Upload (.txt/.pdf)</label>
             <Input className="rounded-none border-dashed font-tech text-xs" type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleScenarioDocUpload(e)} />
@@ -243,11 +256,12 @@ export default function PilotCrisisPlanner() {
             <Button
               variant="outline"
               onClick={generatePlan}
-              disabled={loading || resources.trim().length < 15 || localConditions.trim().length < 30 || selectedConstraints.length < 1}
+              disabled={loading || !canGenerate}
               className="relative w-full md:w-auto rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink transition-all duration-200 before:content-[''] before:absolute before:-top-1 before:-left-1 before:w-2 before:h-2 before:border-t before:border-l before:border-current before:opacity-0 hover:before:opacity-100 after:content-[''] after:absolute after:-bottom-1 after:-right-1 after:w-2 after:h-2 after:border-b after:border-r after:border-current after:opacity-0 hover:after:opacity-100"
             >
               {loading ? "Generating..." : "Generate Response Plan"}
             </Button>
+            <p className={`font-tech text-[11px] ${canGenerate ? "text-emerald-700 dark:text-emerald-400" : "text-amber-700 dark:text-amber-400"}`}>{generateHint}</p>
             {error && <p className="text-sm text-red-600">{error}</p>}
           </CardContent>
         </Card>

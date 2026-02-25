@@ -88,9 +88,17 @@ export default function PilotTreatyChecker() {
     document.documentElement.classList.toggle("dark", dark);
   }, [dark]);
 
-  const treatyReady = treatyText.trim().length >= 50 || treatyDocText.trim().length > 0;
-  const lawReady = lawText.trim().length >= 50 || lawDocText.trim().length > 0;
+  const treatyChars = treatyText.trim().length;
+  const lawChars = lawText.trim().length;
+  const treatyReady = treatyChars >= 50 || treatyDocText.trim().length > 0;
+  const lawReady = lawChars >= 50 || lawDocText.trim().length > 0;
   const progressLabel = useMemo(() => (stepIndex >= 0 ? steps[Math.min(stepIndex, 3)] : ""), [stepIndex]);
+  const canAnalyze = treatyReady && lawReady;
+  const analyzeHint = !treatyReady
+    ? `Treaty input needs at least 50 chars or a file upload (${treatyChars}/50).`
+    : !lawReady
+      ? `Law input needs at least 50 chars or a file upload (${lawChars}/50).`
+      : "Ready to analyze.";
 
   const handleUpload = async (
     event: ChangeEvent<HTMLInputElement>,
@@ -234,12 +242,14 @@ export default function PilotTreatyChecker() {
               <div className="space-y-2">
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Treaty text (50+ chars) or upload</label>
                 <Textarea value={treatyText} onChange={(e) => setTreatyText(e.target.value)} className="min-h-28 rounded-none border-dashed font-display" />
+                <p className="font-tech text-[11px] text-ink/65 dark:text-paper/65">Chars: {treatyChars}/50</p>
                 <Input className="rounded-none border-dashed font-tech text-xs" type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleUpload(e, setTreatyDocText, setTreatyDocName)} />
                 {treatyDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {treatyDocName}</p>}
               </div>
               <div className="space-y-2">
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Law text (50+ chars) or upload</label>
                 <Textarea value={lawText} onChange={(e) => setLawText(e.target.value)} className="min-h-28 rounded-none border-dashed font-display" />
+                <p className="font-tech text-[11px] text-ink/65 dark:text-paper/65">Chars: {lawChars}/50</p>
                 <Input className="rounded-none border-dashed font-tech text-xs" type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleUpload(e, setLawDocText, setLawDocName)} />
                 {lawDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {lawDocName}</p>}
               </div>
@@ -248,11 +258,12 @@ export default function PilotTreatyChecker() {
             <Button
               variant="outline"
               onClick={analyze}
-              disabled={loading || !treatyReady || !lawReady}
+              disabled={loading || !canAnalyze}
               className="relative w-full md:w-auto rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink transition-all duration-200 before:content-[''] before:absolute before:-top-1 before:-left-1 before:w-2 before:h-2 before:border-t before:border-l before:border-current before:opacity-0 hover:before:opacity-100 after:content-[''] after:absolute after:-bottom-1 after:-right-1 after:w-2 after:h-2 after:border-b after:border-r after:border-current after:opacity-0 hover:after:opacity-100"
             >
               {loading ? "Analyzing..." : "Analyze Compliance"}
             </Button>
+            <p className={`font-tech text-[11px] ${canAnalyze ? "text-emerald-700 dark:text-emerald-400" : "text-amber-700 dark:text-amber-400"}`}>{analyzeHint}</p>
             {!!progressLabel && <p className="text-xs text-ink/80 dark:text-paper/70">{progressLabel}</p>}
             {error && <p className="text-sm text-red-600">{error}</p>}
           </CardContent>
