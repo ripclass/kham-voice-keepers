@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Hero } from "@/components/ui/animated-hero";
 import SystemPageFrame from "@/components/system/SystemPageFrame";
 import SystemSection from "@/components/system/SystemSection";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
@@ -46,13 +47,33 @@ const Index = () => {
         <main className="pt-24 pb-16 px-4 md:px-6">
           <div className="max-w-4xl mx-auto space-y-5">
             {/* ASCII-style module strip aligned to content frame */}
-            <div className="kham-frame p-3 md:p-4">
+            <div className="kham-frame p-3 md:p-4 space-y-3">
               <div className="flex items-center gap-3 opacity-70">
-                <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-paper/70">KhaM</span>
+                <Link to="/" className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/80 dark:text-paper/80 hover:text-ink dark:hover:text-paper transition-colors">KhaM</Link>
                 <span className="font-tech text-[10px] text-ink/40 dark:text-paper/40">•</span>
                 <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-paper/70">Cultural Memory Infrastructure</span>
                 <div className="flex-1 border-t border-dashed border-ink/30 dark:border-paper/30" />
                 <span className="font-tech text-[10px] uppercase tracking-[0.16em] text-ink/50 dark:text-paper/50">System Active</span>
+              </div>
+
+              <div className="pt-2 border-t border-dashed border-ink/20 dark:border-paper/20 flex flex-wrap items-center gap-x-4 gap-y-2">
+                {[
+                  ["Voices", "/voices"],
+                  ["Library", "/library"],
+                  ["Roadmap", "/roadmap"],
+                  ["Origin", "/#what-is-kham"],
+                  ["Support", "/support"],
+                  ["Research", "/research"],
+                  ["Contact", "/contact"],
+                ].map(([label, href]) => (
+                  <Link
+                    key={label}
+                    to={href}
+                    className="font-tech text-[11px] uppercase tracking-[0.12em] text-ink/70 dark:text-paper/70 hover:text-ink dark:hover:text-paper transition-colors"
+                  >
+                    {label}
+                  </Link>
+                ))}
               </div>
             </div>
 
