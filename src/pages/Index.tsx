@@ -8,15 +8,15 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>KhaM — Sovereign AI for South Asia</title>
-        <meta name="description" content="The languages of South Asia are not just multilingual — they are emotionally polyphonic. KhaM is building the cultural infrastructure to preserve them in AI before they disappear from both memory and machine." />
-        <meta property="og:title" content="KhaM — Sovereign AI for South Asia" />
+        <title>KhaM - Sovereign AI for South Asia</title>
+        <meta name="description" content="The languages of South Asia are not just multilingual - they are emotionally polyphonic. KhaM is building the cultural infrastructure to preserve them in AI before they disappear from both memory and machine." />
+        <meta property="og:title" content="KhaM - Sovereign AI for South Asia" />
         <meta property="og:description" content="Protecting endangered voices and emotional nuance in South Asian languages through open-source tools and care." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://khamlabs.org" />
         <meta property="og:image" content="https://khamlabs.org/og/kham-main.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="KhaM – Preserving Disappearing Voices in AI from South Asia" />
+        <meta name="twitter:title" content="KhaM - Preserving Disappearing Voices in AI from South Asia" />
         <meta name="twitter:description" content="KhaM is an open-source project preserving endangered South Asian dialects, voices, and emotional language in AI." />
         <meta name="twitter:image" content="https://khamlabs.org/og/kham-main.jpg" />
         <link rel="canonical" href="https://khamlabs.org/" />
@@ -65,7 +65,7 @@ const Index = () => {
             {/* What is KhaM */}
             <SystemPageFrame
               title="What is KhaM"
-              subtitle="Named after my parents — Khayer and Mamtaj. A vessel for memory, not metrics."
+              subtitle="Named after my parents - Khayer and Mamtaj. A vessel for memory, not metrics."
             >
               <div id="what-is-kham" className="space-y-5">
                 <SystemSection
@@ -73,7 +73,7 @@ const Index = () => {
                   description="How KhaM came to be."
                 >
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/90 dark:text-foreground/90">
-                    I grew up in Chittagong. The language I spoke at home — Chatgayaan — wasn't considered real.
+                    I grew up in Chittagong. The language I spoke at home - Chatgayaan - wasn't considered real.
                     No script. No prestige. So we were taught to hide it. To speak proper Bangla. To translate
                     ourselves into acceptability.
                   </p>
@@ -85,40 +85,43 @@ const Index = () => {
                 >
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
                     But Chatgayaan was how my mother loved me. It was how neighbors joked, how elders prayed,
-                    how loss and joy were carried in voice — not grammar.
+                    how loss and joy were carried in voice - not grammar.
                   </p>
                 </SystemSection>
               </div>
             </SystemPageFrame>
 
-            {/* Memory Infrastructure */}
+            {/* The Argument */}
             <SystemPageFrame
-              title="Memory Infrastructure"
+              title="The Argument"
               subtitle="Who controls a language in AI controls its future."
             >
               <div className="space-y-5">
                 <SystemSection
-                  title="Scope"
-                  description="Languages and dialects in scope."
+                  title="Core Position"
+                  description="Why this is a sovereignty issue."
                 >
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
-                    Right now, the languages of South Asia — spoken by over 1.8 billion people — are being processed
-                    by AI systems built in the West, trained on Western data, and optimized for Western emotional registers.
-                    This is not a translation problem. It is a sovereignty problem.
+                    Right now, the languages of South Asia — spoken by over 1.8 billion people — are being processed by AI systems built in the West, trained on Western data, and optimized for Western emotional registers.
+                  </p>
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95 mt-4">
+                    This is not a translation problem. It is a sovereignty problem. When Bengali is processed by a model that has never understood the seventeen ways it expresses love, something irreplaceable is lost. When Sylheti, Chittagonian, Rangpuri disappear from the training data, they disappear from the future.
+                  </p>
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95 mt-4">
+                    KhaM is building the open cultural infrastructure that changes this — starting with the dialects, tones, and emotional registers that no current AI can hold.
                   </p>
                 </SystemSection>
 
                 <SystemSection
-                  title="Method"
-                  description="How we work."
+                  title="Signal Metrics"
+                  description="Scale and urgency."
                 >
-                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
-                    KhaM is building the open cultural infrastructure that changes this — starting with the dialects,
-                    tones, and emotional registers that no current AI can hold. Not translation tools. Memory tools.
-                  </p>
-                  <blockquote className="mt-5 pl-4 border-l-2 border-terracotta/50 font-news text-lg md:text-xl text-ink/75 dark:text-foreground/90 italic">
-                    "If we don't preserve this — not the dictionary, but the tone — we'll lose more than language. We'll lose the way we were loved."
-                  </blockquote>
+                  <ul className="space-y-3">
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95"><span className="font-tech text-terracotta">1.8B</span> — South Asian language speakers globally</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95"><span className="font-tech text-terracotta">~12</span> — Major dialects KhaM is actively documenting</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95"><span className="font-tech text-terracotta">17</span> — Ways Bengali expresses love — invisible to current AI</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95"><span className="font-tech text-terracotta">0</span> — Open emotional speech datasets for South Asian dialects — until now</li>
+                  </ul>
                 </SystemSection>
               </div>
             </SystemPageFrame>
@@ -151,7 +154,7 @@ const Index = () => {
                   description="What current AI misses."
                 >
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
-                    KhaM is building open infrastructure for culturally-aware AI — starting with voice, emotion,
+                    KhaM is building open infrastructure for culturally-aware AI - starting with voice, emotion,
                     and dialect. Everything we create will be released openly so researchers, developers, and
                     communities can build on it.
                   </p>
@@ -164,7 +167,7 @@ const Index = () => {
                   <p className="font-display text-base md:text-lg leading-relaxed text-ink/70 dark:text-foreground/90">
                     These are not obscure languages. They are living tongues, spoken across millions of homes,
                     carried across oceans by diaspora communities, and almost entirely absent from AI systems being
-                    built today. KhaM is documenting them — one dialect at a time.
+                    built today. KhaM is documenting them - one dialect at a time.
                   </p>
                 </SystemSection>
               </div>
