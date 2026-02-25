@@ -32,12 +32,46 @@ export function escapeHtml(value: string) {
 export function openPrintPreview(title: string, bodyHtml: string) {
   const html = buildHtmlDocument(title, bodyHtml);
   const win = window.open("", "_blank", "noopener,noreferrer,width=1024,height=768");
-  if (!win) return;
+  if (!win) {
+    window.alert("Popup blocked. Please allow popups for PDF print preview.");
+    return;
+  }
   win.document.open();
   win.document.write(html);
   win.document.close();
   win.focus();
   setTimeout(() => win.print(), 250);
+}
+
+export async function downloadPdf(fileName: string, title: string, textBody: string) {
+  const { jsPDF } = await import("jspdf");
+  const doc = new jsPDF({ unit: "mm", format: "a4" });
+
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const margin = 12;
+  let y = margin;
+
+  doc.setFont("courier", "bold");
+  doc.setFontSize(12);
+  const titleLines = doc.splitTextToSize(title, pageWidth - margin * 2);
+  doc.text(titleLines, margin, y);
+  y += titleLines.length * 5 + 2;
+
+  doc.setFont("courier", "normal");
+  doc.setFontSize(9);
+  const lines = doc.splitTextToSize(textBody, pageWidth - margin * 2);
+
+  for (const line of lines) {
+    if (y > pageHeight - margin) {
+      doc.addPage();
+      y = margin;
+    }
+    doc.text(line, margin, y);
+    y += 4;
+  }
+
+  doc.save(fileName);
 }
 
 export function downloadDoc(title: string, fileName: string, bodyHtml: string) {

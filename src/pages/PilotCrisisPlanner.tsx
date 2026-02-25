@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { crisisConstraints, crisisTypes, missions } from "@/lib/pilotSeed";
 import PilotFrame from "@/components/pilot/PilotFrame";
-import { downloadDoc, downloadTxt, escapeHtml, openPrintPreview } from "@/lib/reportExport";
+import { downloadDoc, downloadPdf, downloadTxt, escapeHtml, openPrintPreview } from "@/lib/reportExport";
 
 type ModeUsed = "ai" | "fallback";
 type RoleTask = { role: string; task: string };
@@ -268,9 +268,10 @@ export default function PilotCrisisPlanner() {
                 )}
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => openPrintPreview(`CR-${data.reference_no}`, buildCrisisReportHtml(data))}>Print / Save PDF</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => void downloadPdf(`crisis-report-${data.reference_no}.pdf`, `CR-${data.reference_no}`, buildCrisisReportTxt(data))}>Download PDF</Button>
                 <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => downloadDoc(`CR-${data.reference_no}`, `crisis-report-${data.reference_no}.doc`, buildCrisisReportHtml(data))}>Download DOC</Button>
                 <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => downloadTxt(`crisis-report-${data.reference_no}.txt`, buildCrisisReportTxt(data))}>Download TXT</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => openPrintPreview(`CR-${data.reference_no}`, buildCrisisReportHtml(data))}>Print View</Button>
               </div>
 
               {data.relevance_warning && <p className="text-xs text-amber-600 dark:text-amber-400">{data.relevance_warning}</p>}

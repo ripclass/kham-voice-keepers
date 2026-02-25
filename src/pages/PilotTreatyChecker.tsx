@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { treaties, nationalInstruments } from "@/lib/pilotSeed";
 import PilotFrame from "@/components/pilot/PilotFrame";
-import { downloadDoc, downloadTxt, escapeHtml, openPrintPreview } from "@/lib/reportExport";
+import { downloadDoc, downloadPdf, downloadTxt, escapeHtml, openPrintPreview } from "@/lib/reportExport";
 
 type ModeUsed = "ai" | "fallback";
 
@@ -131,7 +131,16 @@ export default function PilotTreatyChecker() {
           law_doc_text: lawDocText || undefined,
         }),
       });
-      if (!res.ok) throw new Error(`Analyze failed (${res.status})`);
+      if (!res.ok) {
+        let detail = "";
+        try {
+          const errJson = (await res.json()) as { detail?: unknown };
+          detail = typeof errJson.detail === "string" ? errJson.detail : JSON.stringify(errJson.detail ?? "");
+        } catch {
+          detail = await res.text();
+        }
+        throw new Error(`Analyze failed (${res.status})${detail ? `: ${detail}` : ""}`);
+      }
       setData((await res.json()) as TreatyResponse);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Unknown error");
@@ -267,9 +276,10 @@ export default function PilotTreatyChecker() {
                 )}
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => openPrintPreview(`TC-${data.reference_no}`, buildTreatyReportHtml(data))}>Print / Save PDF</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => void downloadPdf(`treaty-report-${data.reference_no}.pdf`, `TC-${data.reference_no}`, buildTreatyReportTxt(data))}>Download PDF</Button>
                 <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => downloadDoc(`TC-${data.reference_no}`, `treaty-report-${data.reference_no}.doc`, buildTreatyReportHtml(data))}>Download DOC</Button>
                 <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => downloadTxt(`treaty-report-${data.reference_no}.txt`, buildTreatyReportTxt(data))}>Download TXT</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => openPrintPreview(`TC-${data.reference_no}`, buildTreatyReportHtml(data))}>Print View</Button>
               </div>
 
               {data.relevance_warning && <p className="text-xs text-amber-600 dark:text-amber-400">{data.relevance_warning}</p>}
