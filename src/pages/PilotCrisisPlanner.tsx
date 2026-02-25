@@ -58,7 +58,7 @@ const readGroundingDoc = async (file: File): Promise<string> => {
 };
 
 export default function PilotCrisisPlanner() {
-  const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
+  const [dark, setDark] = useState(true);
   const [missionLocation, setMissionLocation] = useState(missions[2]);
   const [crisisType, setCrisisType] = useState(crisisTypes[0]);
   const [nationalsAffected, setNationalsAffected] = useState(50000);
@@ -129,7 +129,7 @@ export default function PilotCrisisPlanner() {
         <Card className="border-ink/20">
           <CardContent className="py-4 flex items-center justify-between gap-3">
             <div>
-              <p className="text-xs text-ink/60">KhaM for GOV • INTERNAL PILOT USE ONLY</p>
+              <p className="text-xs text-ink/80 dark:text-paper/70">KhaM for GOV • INTERNAL PILOT USE ONLY</p>
               <h1 className="font-news text-2xl md:text-3xl">Consular Crisis Response Planner</h1>
             </div>
             <Button variant="outline" onClick={() => setDark((v) => !v)}>{dark ? "Light" : "Dark"}</Button>
@@ -141,28 +141,28 @@ export default function PilotCrisisPlanner() {
           <CardContent className="space-y-3">
             <div className="grid md:grid-cols-2 gap-3">
               <div>
-                <label className="text-xs text-ink/70">Mission Location</label>
+                <label className="text-xs text-ink/80 dark:text-paper/80">Mission Location</label>
                 <select className="w-full border rounded-md p-2 bg-background" value={missionLocation} onChange={(e) => setMissionLocation(e.target.value)}>{missions.map((m) => <option key={m}>{m}</option>)}</select>
               </div>
               <div>
-                <label className="text-xs text-ink/70">Crisis Type</label>
+                <label className="text-xs text-ink/80 dark:text-paper/80">Crisis Type</label>
                 <select className="w-full border rounded-md p-2 bg-background" value={crisisType} onChange={(e) => setCrisisType(e.target.value)}>{crisisTypes.map((c) => <option key={c}>{c}</option>)}</select>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-3">
               <div>
-                <label className="text-xs text-ink/70">Nationals Affected</label>
+                <label className="text-xs text-ink/80 dark:text-paper/80">Nationals Affected</label>
                 <Input type="number" value={nationalsAffected} onChange={(e) => setNationalsAffected(Number(e.target.value))} />
               </div>
               <div>
-                <label className="text-xs text-ink/70">Resource Inventory (comma-separated)</label>
+                <label className="text-xs text-ink/80 dark:text-paper/80">Resource Inventory (comma-separated)</label>
                 <Input value={resources} onChange={(e) => setResources(e.target.value)} />
               </div>
             </div>
 
             <div>
-              <label className="text-xs text-ink/70">Constraints</label>
+              <label className="text-xs text-ink/80 dark:text-paper/80">Constraints</label>
               <div className="grid grid-cols-2 gap-2 text-sm mt-1">
                 {crisisConstraints.map((c) => (
                   <label key={c} className="flex items-center gap-2"><input type="checkbox" checked={selectedConstraints.includes(c)} onChange={() => toggleConstraint(c)} /> {c}</label>
@@ -170,12 +170,12 @@ export default function PilotCrisisPlanner() {
               </div>
             </div>
 
-            <label className="text-xs text-ink/70">Local Conditions (30+ chars)</label>
+            <label className="text-xs text-ink/80 dark:text-paper/80">Local Conditions (30+ chars)</label>
             <Textarea value={localConditions} onChange={(e) => setLocalConditions(e.target.value)} className="min-h-24" />
 
-            <label className="text-xs text-ink/70">Situation Brief Upload (.txt/.pdf)</label>
+            <label className="text-xs text-ink/80 dark:text-paper/80">Situation Brief Upload (.txt/.pdf)</label>
             <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleScenarioDocUpload(e)} />
-            {scenarioDocName && <p className="text-xs text-ink/60">Attached: {scenarioDocName}</p>}
+            {scenarioDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {scenarioDocName}</p>}
 
             <Button
               onClick={generatePlan}
@@ -192,7 +192,7 @@ export default function PilotCrisisPlanner() {
           <Card>
             <CardHeader><CardTitle className="font-news text-xl">Operational Order Output</CardTitle></CardHeader>
             <CardContent className="space-y-4 text-sm">
-              <div className="flex flex-wrap gap-3 items-center text-xs text-ink/70">
+              <div className="flex flex-wrap gap-3 items-center text-xs text-ink/80 dark:text-paper/80">
                 <span>Ref: {data.reference_no}</span>
                 <span>{new Date(data.generated_at).toLocaleString()}</span>
                 <Badge variant={data.mode_used === "ai" ? "default" : "secondary"}>{data.mode_used.toUpperCase()}</Badge>
@@ -203,9 +203,9 @@ export default function PilotCrisisPlanner() {
                   <span title="Percentage of key scenario-planning fields sufficiently covered by the submitted brief.">Document Coverage: {Math.round(data.relevance_score * 100)}% ({data.relevance_status})</span>
                 )}
               </div>
-              {data.relevance_warning && <p className="text-xs text-amber-600">{data.relevance_warning}</p>}
+              {data.relevance_warning && <p className="text-xs text-amber-600 dark:text-amber-400">{data.relevance_warning}</p>}
 
-              <div className={`border rounded p-2 text-xs ${data.quality_gate.passed ? "border-emerald-600/40 bg-emerald-50" : "border-red-600/40 bg-red-50"}`}>
+              <div className={`border rounded p-2 text-xs ${data.quality_gate.passed ? "border-emerald-600/40 bg-emerald-50 dark:bg-emerald-900/20 dark:border-emerald-500/40" : "border-red-600/40 bg-red-50 dark:bg-red-900/20 dark:border-red-500/40"}`}>
                 <p><strong>Quality Gate:</strong> {data.quality_gate.passed ? "PASS" : "FAIL"}</p>
                 {!data.quality_gate.passed && (
                   <ul className="list-disc pl-5 mt-1">
@@ -272,7 +272,7 @@ export default function PilotCrisisPlanner() {
                 <ul className="list-disc pl-5">{data.assumptions_and_unknowns.map((a, i) => <li key={i}>{a}</li>)}</ul>
               </div>
 
-              <p className="text-xs text-ink/60">{data.human_review_disclaimer}</p>
+              <p className="text-xs text-ink/80 dark:text-paper/70">{data.human_review_disclaimer}</p>
             </CardContent>
           </Card>
         )}
@@ -280,3 +280,5 @@ export default function PilotCrisisPlanner() {
     </div>
   );
 }
+
+

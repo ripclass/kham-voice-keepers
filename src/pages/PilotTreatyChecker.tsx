@@ -68,7 +68,7 @@ const readGroundingDoc = async (file: File): Promise<string> => {
 };
 
 export default function PilotTreatyChecker() {
-  const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
+  const [dark, setDark] = useState(true);
   const [treatyName, setTreatyName] = useState(treaties[0]);
   const [lawName, setLawName] = useState(nationalInstruments[0]);
   const [treatyText, setTreatyText] = useState("");
@@ -146,7 +146,7 @@ export default function PilotTreatyChecker() {
         <Card className="border-ink/20">
           <CardContent className="py-4 flex items-center justify-between gap-3">
             <div>
-              <p className="text-xs text-ink/60">KhaM for GOV • INTERNAL PILOT USE ONLY</p>
+              <p className="text-xs text-ink/80 dark:text-paper/70">KhaM for GOV • INTERNAL PILOT USE ONLY</p>
               <h1 className="font-news text-2xl md:text-3xl">International Treaty Compliance Checker</h1>
             </div>
             <Button variant="outline" onClick={() => setDark((v) => !v)}>{dark ? "Light" : "Dark"}</Button>
@@ -158,34 +158,34 @@ export default function PilotTreatyChecker() {
           <CardContent className="space-y-3">
             <div className="grid md:grid-cols-2 gap-3">
               <div>
-                <label className="text-xs text-ink/70">Treaty</label>
+                <label className="text-xs text-ink/80 dark:text-paper/80">Treaty</label>
                 <select className="w-full border rounded-md p-2 bg-background" value={treatyName} onChange={(e) => setTreatyName(e.target.value)}>{treaties.map((t) => <option key={t}>{t}</option>)}</select>
               </div>
               <div>
-                <label className="text-xs text-ink/70">National Instrument</label>
+                <label className="text-xs text-ink/80 dark:text-paper/80">National Instrument</label>
                 <select className="w-full border rounded-md p-2 bg-background" value={lawName} onChange={(e) => setLawName(e.target.value)}>{nationalInstruments.map((n) => <option key={n}>{n}</option>)}</select>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-3">
               <div className="space-y-2">
-                <label className="text-xs text-ink/70">Treaty text (50+ chars) or upload</label>
+                <label className="text-xs text-ink/80 dark:text-paper/80">Treaty text (50+ chars) or upload</label>
                 <Textarea value={treatyText} onChange={(e) => setTreatyText(e.target.value)} className="min-h-24" />
                 <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleUpload(e, setTreatyDocText, setTreatyDocName)} />
-                {treatyDocName && <p className="text-xs text-ink/60">Attached: {treatyDocName}</p>}
+                {treatyDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {treatyDocName}</p>}
               </div>
               <div className="space-y-2">
-                <label className="text-xs text-ink/70">Law text (50+ chars) or upload</label>
+                <label className="text-xs text-ink/80 dark:text-paper/80">Law text (50+ chars) or upload</label>
                 <Textarea value={lawText} onChange={(e) => setLawText(e.target.value)} className="min-h-24" />
                 <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleUpload(e, setLawDocText, setLawDocName)} />
-                {lawDocName && <p className="text-xs text-ink/60">Attached: {lawDocName}</p>}
+                {lawDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {lawDocName}</p>}
               </div>
             </div>
 
             <Button onClick={analyze} disabled={loading || !treatyReady || !lawReady} className="w-full md:w-auto">
               {loading ? "Analyzing..." : "Analyze Compliance"}
             </Button>
-            {!!progressLabel && <p className="text-xs text-ink/60">{progressLabel}</p>}
+            {!!progressLabel && <p className="text-xs text-ink/80 dark:text-paper/70">{progressLabel}</p>}
             {error && <p className="text-sm text-red-600">{error}</p>}
           </CardContent>
         </Card>
@@ -196,7 +196,7 @@ export default function PilotTreatyChecker() {
               <CardTitle className="font-news text-xl">Policy Memo Output</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-sm">
-              <div className="flex flex-wrap gap-3 items-center text-xs text-ink/70">
+              <div className="flex flex-wrap gap-3 items-center text-xs text-ink/80 dark:text-paper/80">
                 <span>Ref: {data.reference_no}</span>
                 <span>{new Date(data.generated_at).toLocaleString()}</span>
                 <Badge variant={data.mode_used === "ai" ? "default" : "secondary"}>{data.mode_used.toUpperCase()}</Badge>
@@ -207,9 +207,9 @@ export default function PilotTreatyChecker() {
                   <span title="Percentage of key treaty obligations addressed by the submitted document.">Document Coverage: {Math.round(data.relevance_score * 100)}% ({data.relevance_status})</span>
                 )}
               </div>
-              {data.relevance_warning && <p className="text-xs text-amber-600">{data.relevance_warning}</p>}
+              {data.relevance_warning && <p className="text-xs text-amber-600 dark:text-amber-400">{data.relevance_warning}</p>}
 
-              <div className={`border rounded p-2 text-xs ${data.quality_gate.passed ? "border-emerald-600/40 bg-emerald-50" : "border-red-600/40 bg-red-50"}`}>
+              <div className={`border rounded p-2 text-xs ${data.quality_gate.passed ? "border-emerald-600/40 bg-emerald-50 dark:bg-emerald-900/20 dark:border-emerald-500/40" : "border-red-600/40 bg-red-50 dark:bg-red-900/20 dark:border-red-500/40"}`}>
                 <p><strong>Quality Gate:</strong> {data.quality_gate.passed ? "PASS" : "FAIL"}</p>
                 {!data.quality_gate.passed && (
                   <ul className="list-disc pl-5 mt-1">
@@ -253,7 +253,7 @@ export default function PilotTreatyChecker() {
                 <ul className="list-disc pl-5">{data.action_list_30_60_90.map((a, i) => <li key={i}>{a}</li>)}</ul>
               </div>
 
-              <p className="text-xs text-ink/60">{data.human_review_disclaimer}</p>
+              <p className="text-xs text-ink/80 dark:text-paper/70">{data.human_review_disclaimer}</p>
             </CardContent>
           </Card>
         )}
@@ -261,3 +261,5 @@ export default function PilotTreatyChecker() {
     </div>
   );
 }
+
+
