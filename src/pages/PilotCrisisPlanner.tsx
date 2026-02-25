@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { crisisConstraints, crisisTypes, missions } from "@/lib/pilotSeed";
 import PilotFrame from "@/components/pilot/PilotFrame";
+import { downloadDoc, downloadTxt, escapeHtml, openPrintPreview } from "@/lib/reportExport";
 
 type ModeUsed = "ai" | "fallback";
 type RoleTask = { role: string; task: string };
@@ -124,6 +125,64 @@ export default function PilotCrisisPlanner() {
     }
   };
 
+  const buildCrisisReportHtml = (d: CrisisResponse) => {
+    const cond = (title: string, arr: string[]) => `<div class="section"><h3>${title}</h3><ul>${arr.map((x) => `<li>${escapeHtml(x)}</li>`).join("")}</ul></div>`;
+    const timeline = d.timeline
+      .map((t) => `<h3>${escapeHtml(t.phase)}</h3><ul>${t.actions.map((a) => `<li>${escapeHtml(a)}</li>`).join("")}</ul>`)
+      .join("");
+    const reasons = d.quality_gate.reasons.map((r) => `<li>${escapeHtml(r)}</li>`).join("");
+    return `
+      <h1>Consular Crisis Response Planner</h1>
+      <div class="meta">Ref: ${escapeHtml(d.reference_no)} | Generated: ${escapeHtml(new Date(d.generated_at).toLocaleString())} | Mission: ${escapeHtml(d.mission_location)} | Crisis: ${escapeHtml(d.crisis_type)}</div>
+      <div class="section"><h2>Quality Gate: ${d.quality_gate.passed ? "PASS" : "FAIL"}</h2>${d.quality_gate.passed ? "<p class='small'>All mandatory quality checks passed.</p>" : `<ul>${reasons}</ul>`}</div>
+      ${cond("Condition Yellow", d.condition_yellow)}
+      ${cond("Condition Orange", d.condition_orange)}
+      ${cond("Condition Red", d.condition_red)}
+      <div class="section"><h2>Timeline</h2>${timeline}</div>
+      <div class="section"><h2>Evacuation Structure</h2>
+        <h3>Assembly Points</h3><ul>${d.evacuation_plan.assembly_points.map((x) => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+        <h3>Priority Categories</h3><ol>${d.evacuation_plan.priority_categories.map((x) => `<li>${escapeHtml(x)}</li>`).join("")}</ol>
+        <h3>Movement Windows</h3><ul>${d.evacuation_plan.movement_windows.map((x) => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+      </div>
+      <div class="section"><h2>SITREP Template</h2><pre>${escapeHtml(d.sitrep_template)}</pre></div>
+      <div class="section"><h2>Review Note</h2><p>${escapeHtml(d.human_review_disclaimer)}</p></div>
+      <div class="footer"><span>KhaM for GOV • Internal Pilot Use Only</span><span>Human Review Required</span></div>
+    `;
+  };
+
+  const buildCrisisReportTxt = (d: CrisisResponse) => {
+    const lines = [
+      "CONSULAR CRISIS RESPONSE PLANNER",
+      `Ref: ${d.reference_no}`,
+      `Generated: ${new Date(d.generated_at).toLocaleString()}`,
+      `Mission: ${d.mission_location}`,
+      `Crisis: ${d.crisis_type}`,
+      "",
+      `QUALITY GATE: ${d.quality_gate.passed ? "PASS" : "FAIL"}`,
+      ...d.quality_gate.reasons.map((r) => `- ${r}`),
+      "",
+      "CONDITION YELLOW:",
+      ...d.condition_yellow.map((x) => `- ${x}`),
+      "",
+      "CONDITION ORANGE:",
+      ...d.condition_orange.map((x) => `- ${x}`),
+      "",
+      "CONDITION RED:",
+      ...d.condition_red.map((x) => `- ${x}`),
+      "",
+      "TIMELINE:",
+      ...d.timeline.flatMap((t) => [`${t.phase}:`, ...t.actions.map((a) => `- ${a}`)]),
+      "",
+      "SITREP TEMPLATE:",
+      d.sitrep_template,
+      "",
+      d.human_review_disclaimer,
+      "",
+      "KhaM for GOV • Internal Pilot Use Only",
+    ];
+    return lines.join("\n");
+  };
+
   return (
     <div className="min-h-screen bg-paper text-ink">
       <main className="max-w-5xl mx-auto px-4 md:px-6 py-6">
@@ -208,6 +267,12 @@ export default function PilotCrisisPlanner() {
                   <span title="Percentage of key scenario-planning fields sufficiently covered by the submitted brief.">Document Coverage: {Math.round(data.relevance_score * 100)}% ({data.relevance_status})</span>
                 )}
               </div>
+              <div className="flex flex-wrap gap-2">
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => openPrintPreview(`CR-${data.reference_no}`, buildCrisisReportHtml(data))}>Print / Save PDF</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => downloadDoc(`CR-${data.reference_no}`, `crisis-report-${data.reference_no}.doc`, buildCrisisReportHtml(data))}>Download DOC</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => downloadTxt(`crisis-report-${data.reference_no}.txt`, buildCrisisReportTxt(data))}>Download TXT</Button>
+              </div>
+
               {data.relevance_warning && <p className="text-xs text-amber-600 dark:text-amber-400">{data.relevance_warning}</p>}
 
               <div className={`border rounded p-2 text-xs ${data.quality_gate.passed ? "border-emerald-600/40 bg-emerald-50 dark:bg-emerald-900/20 dark:border-emerald-500/40" : "border-red-600/40 bg-red-50 dark:bg-red-900/20 dark:border-red-500/40"}`}>

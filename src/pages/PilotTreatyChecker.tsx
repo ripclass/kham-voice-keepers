@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { treaties, nationalInstruments } from "@/lib/pilotSeed";
 import PilotFrame from "@/components/pilot/PilotFrame";
+import { downloadDoc, downloadTxt, escapeHtml, openPrintPreview } from "@/lib/reportExport";
 
 type ModeUsed = "ai" | "fallback";
 
@@ -141,6 +142,57 @@ export default function PilotTreatyChecker() {
     }
   };
 
+  const buildTreatyReportHtml = (d: TreatyResponse) => {
+    const rows = d.results
+      .map(
+        (r) => `<tr><td>${escapeHtml(r.treaty_article)}</td><td>${escapeHtml(r.status)}</td><td>${escapeHtml(r.severity)}</td><td>${Math.round(r.confidence * 100)}%</td><td>${escapeHtml(r.confidence_rationale || "-")}</td></tr>`,
+      )
+      .join("");
+    const gaps = d.top_urgent_gaps.map((g) => `<li>${escapeHtml(g)}</li>`).join("");
+    const actions = d.action_list_30_60_90.map((a) => `<li>${escapeHtml(a)}</li>`).join("");
+    const reasons = d.quality_gate.reasons.map((r) => `<li>${escapeHtml(r)}</li>`).join("");
+
+    return `
+      <h1>International Treaty Compliance Checker</h1>
+      <div class="meta">Ref: ${escapeHtml(d.reference_no)} | Generated: ${escapeHtml(new Date(d.generated_at).toLocaleString())} | Mode: ${escapeHtml(d.mode_used.toUpperCase())}</div>
+      <div class="section"><h2>Executive Summary</h2><p>${escapeHtml(d.executive_summary)}</p></div>
+      <div class="section"><h2>Quality Gate: ${d.quality_gate.passed ? "PASS" : "FAIL"}</h2>${d.quality_gate.passed ? "<p class='small'>All mandatory quality checks passed.</p>" : `<ul>${reasons}</ul>`}</div>
+      <div class="section"><h2>Compliance Matrix</h2><table><thead><tr><th>Article</th><th>Status</th><th>Severity</th><th>Confidence</th><th>Rationale</th></tr></thead><tbody>${rows}</tbody></table></div>
+      <div class="section"><h2>Priority Gaps</h2><ul>${gaps}</ul></div>
+      <div class="section"><h2>Action Queue 30/60/90</h2><ol>${actions}</ol></div>
+      <div class="section"><h2>Review Note</h2><p>${escapeHtml(d.human_review_disclaimer)}</p></div>
+      <div class="footer"><span>KhaM for GOV • Internal Pilot Use Only</span><span>Human Review Required</span></div>
+    `;
+  };
+
+  const buildTreatyReportTxt = (d: TreatyResponse) => {
+    const lines = [
+      "INTERNATIONAL TREATY COMPLIANCE CHECKER",
+      `Ref: ${d.reference_no}`,
+      `Generated: ${new Date(d.generated_at).toLocaleString()}`,
+      `Mode: ${d.mode_used.toUpperCase()}`,
+      "",
+      `QUALITY GATE: ${d.quality_gate.passed ? "PASS" : "FAIL"}`,
+      ...d.quality_gate.reasons.map((r) => `- ${r}`),
+      "",
+      `SUMMARY: ${d.executive_summary}`,
+      "",
+      "PRIORITY GAPS:",
+      ...d.top_urgent_gaps.map((g) => `- ${g}`),
+      "",
+      "ACTION QUEUE 30/60/90:",
+      ...d.action_list_30_60_90.map((a) => `- ${a}`),
+      "",
+      "COMPLIANCE MATRIX:",
+      ...d.results.map((r) => `- ${r.treaty_article} | ${r.status} | ${r.severity} | ${Math.round(r.confidence * 100)}%`),
+      "",
+      d.human_review_disclaimer,
+      "",
+      "KhaM for GOV • Internal Pilot Use Only",
+    ];
+    return lines.join("\n");
+  };
+
   return (
     <div className="min-h-screen bg-paper text-ink">
       <main className="max-w-5xl mx-auto px-4 md:px-6 py-6">
@@ -214,6 +266,12 @@ export default function PilotTreatyChecker() {
                   <span title="Percentage of key treaty obligations addressed by the submitted document.">Document Coverage: {Math.round(data.relevance_score * 100)}% ({data.relevance_status})</span>
                 )}
               </div>
+              <div className="flex flex-wrap gap-2">
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => openPrintPreview(`TC-${data.reference_no}`, buildTreatyReportHtml(data))}>Print / Save PDF</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => downloadDoc(`TC-${data.reference_no}`, `treaty-report-${data.reference_no}.doc`, buildTreatyReportHtml(data))}>Download DOC</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border-dashed" onClick={() => downloadTxt(`treaty-report-${data.reference_no}.txt`, buildTreatyReportTxt(data))}>Download TXT</Button>
+              </div>
+
               {data.relevance_warning && <p className="text-xs text-amber-600 dark:text-amber-400">{data.relevance_warning}</p>}
 
               <div className={`border rounded p-2 text-xs ${data.quality_gate.passed ? "border-emerald-600/40 bg-emerald-50 dark:bg-emerald-900/20 dark:border-emerald-500/40" : "border-red-600/40 bg-red-50 dark:bg-red-900/20 dark:border-red-500/40"}`}>
