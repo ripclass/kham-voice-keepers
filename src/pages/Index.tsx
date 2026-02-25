@@ -40,7 +40,7 @@ const Index = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-paper text-ink dark:bg-background dark:text-ink">
+      <div className="min-h-screen bg-paper text-ink dark:bg-background dark:text-paper">
         <SystemHeaderNav />
 
         <main className="pt-8 pb-16 px-4 md:px-6">
@@ -48,9 +48,9 @@ const Index = () => {
             {/* ASCII-style module strip aligned to content frame */}
             <div className="kham-frame p-3 md:p-4">
               <div className="flex items-center gap-3 opacity-70">
-                <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-ink/90">Cultural Memory Infrastructure</span>
-                <div className="flex-1 border-t border-dashed border-ink/30 dark:border-ink/30" />
-                <span className="font-tech text-[10px] uppercase tracking-[0.16em] text-ink/50 dark:text-ink/75">System Active</span>
+                <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-paper/90">Cultural Memory Infrastructure</span>
+                <div className="flex-1 border-t border-dashed border-ink/30 dark:border-paper/30" />
+                <span className="font-tech text-[10px] uppercase tracking-[0.16em] text-ink/50 dark:text-paper/75">System Active</span>
               </div>
             </div>
 
@@ -72,7 +72,7 @@ const Index = () => {
                   title="Origin"
                   description="How KhaM came to be."
                 >
-                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/90 dark:text-ink/90">
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/90 dark:text-paper/90">
                     KhaM means envelope. It's a container for stories never written down. Born out of personal grief
                     and the urgent need to preserve language before it fades, KhaM is more than a technical project.
                     It's an act of remembrance—a way to hold onto the voices that shaped us before they disappear forever.
@@ -83,7 +83,7 @@ const Index = () => {
                   title="The Irreplaceable"
                   description="What we're protecting."
                 >
-                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-ink/95">
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-paper/95">
                     Every dialect carries within it a universe of feeling—a way of seeing the world that cannot be
                     reduced to mere translation. We build not for efficiency, but for the irreplaceable.
                   </p>
@@ -101,7 +101,7 @@ const Index = () => {
                   title="Scope"
                   description="Languages and dialects in scope."
                 >
-                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-ink/95">
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-paper/95">
                     KhaM is building cultural infrastructure that preserves not only words but the tones, pauses,
                     and emotional rhythms that make a language alive. We're starting with Bangla, Hindi, Urdu,
                     Tamil, Telugu, Punjabi, Gujarati, Marathi—and reaching into the dialects within, the ones
@@ -113,12 +113,12 @@ const Index = () => {
                   title="Method"
                   description="How we work."
                 >
-                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-ink/95">
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-paper/95">
                     Our work is about restoring nuance, honoring emotion, and creating open voice layers that
                     reflect real people—not just formal grammar. Every tool we build is slow-crafted, not rushed—
                     because we believe that speed can erase what silence once protected.
                   </p>
-                  <blockquote className="mt-5 pl-4 border-l-2 border-terracotta/50 font-news text-lg md:text-xl text-ink/75 dark:text-ink/90 italic">
+                  <blockquote className="mt-5 pl-4 border-l-2 border-terracotta/50 font-news text-lg md:text-xl text-ink/75 dark:text-paper/90 italic">
                     "This isn't translation—it's memory encoding."
                   </blockquote>
                 </SystemSection>
@@ -134,7 +134,7 @@ const Index = () => {
                 title="Audience"
                 description="Creators, linguists, builders, cultural workers."
               >
-                <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-ink/95">
+                <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-paper/95">
                   KhaM is for those who still care how things sound—creators who listen for cadence, not just content.
                   It's for linguists and researchers tracing the vanishing edges of oral cultures, where knowledge
                   lives in breath, not books. It's for AI builders who believe accuracy includes emotion, and for
@@ -153,7 +153,7 @@ const Index = () => {
                   title="The Problem"
                   description="What current AI misses."
                 >
-                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-ink/95">
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-paper/95">
                     Current AI treats language like data to process rather than culture to preserve. We're building
                     tools for efficiency, not tools for memory. But every older generation that passes takes with
                     them not just words, but ways of being. The pause before my grandmother says "accha," the
@@ -165,7 +165,7 @@ const Index = () => {
                   title="The Vision"
                   description="What KhaM is building toward."
                 >
-                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/70 dark:text-ink/90">
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/70 dark:text-paper/90">
                     KhaM is about building for the irreplaceable. Imagine AI that doesn't just translate "I love you"
                     into Bengali, but knows the seventeen different ways Bengali expresses love—and which one your
                     mother would use when you're homesick.
@@ -180,15 +180,15 @@ const Index = () => {
             <footer className="kham-frame p-6 md:p-8">
               <div className="space-y-4">
                 <div className="flex items-center gap-3 opacity-70">
-                  <div className="w-10 h-px bg-ink/60 dark:bg-ink/60" />
-                  <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-ink/90">KhaM Labs</span>
-                  <div className="flex-1 border-t border-dashed border-ink/30 dark:border-ink/30" />
-                  <span className="font-tech text-[10px] uppercase tracking-[0.16em] text-ink/50 dark:text-ink/75">Archive Mode</span>
+                  <div className="w-10 h-px bg-ink/60 dark:bg-paper/60" />
+                  <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-paper/90">KhaM Labs</span>
+                  <div className="flex-1 border-t border-dashed border-ink/30 dark:border-paper/30" />
+                  <span className="font-tech text-[10px] uppercase tracking-[0.16em] text-ink/50 dark:text-paper/75">Archive Mode</span>
                 </div>
-                <blockquote className="font-news text-xl md:text-2xl text-ink/90 dark:text-ink/90 italic">
+                <blockquote className="font-news text-xl md:text-2xl text-ink/90 dark:text-paper/90 italic">
                   "KhaM is not a product.<br />It's a promise."
                 </blockquote>
-                <p className="font-tech text-[11px] uppercase tracking-[0.12em] text-ink/55 dark:text-ink/80 pt-1">
+                <p className="font-tech text-[11px] uppercase tracking-[0.12em] text-ink/55 dark:text-paper/80 pt-1">
                   © KhaM Labs · ripon@khamlabs.org
                 </p>
               </div>
@@ -201,8 +201,6 @@ const Index = () => {
 };
 
 export default Index;
-
-
 
 
 

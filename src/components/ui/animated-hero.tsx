@@ -29,7 +29,7 @@ function Hero() {
       <div className="w-full">
         <div className="flex gap-6 md:gap-8 items-center justify-center flex-col">
           <div className="flex gap-3 flex-col">
-            <h1 className="font-tech uppercase text-4xl md:text-6xl lg:text-7xl max-w-4xl tracking-[0.06em] text-center leading-tight text-ink dark:text-ink">
+            <h1 className="font-tech uppercase text-4xl md:text-6xl lg:text-7xl max-w-4xl tracking-[0.06em] text-center leading-tight text-ink dark:text-paper">
               <span>A Container for</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center min-h-[1.25em] md:min-h-[1.2em]">
                 {titles.map((title, index) => (
@@ -57,14 +57,14 @@ function Hero() {
               <span>Voices</span>
             </h1>
 
-            <p className="font-display text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-ink/80 dark:text-ink/95 text-center">
+            <p className="font-display text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-ink/80 dark:text-paper/95 text-center">
               KhaM is an open-source initiative preserving forgotten dialects, lost tone, and emotional language in AI—beginning with South Asia.
             </p>
           </div>
           <div className="pt-4 md:pt-5">
             <Button
               onClick={() => navigate('/team')}
-              className="rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink/80 dark:border-ink/80 !bg-ink/5 dark:!bg-ink/10 !text-ink dark:!text-paper hover:!bg-ink hover:!text-paper dark:hover:!bg-paper dark:hover:!text-ink font-semibold shadow-[inset_0_0_0_1px_rgba(0,0,0,0.45)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] gap-3"
+              className="rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink/80 dark:border-paper/80 !bg-ink/5 dark:!bg-paper/10 !text-ink dark:!text-paper hover:!bg-ink hover:!text-paper dark:hover:!bg-paper dark:hover:!text-ink font-semibold shadow-[inset_0_0_0_1px_rgba(0,0,0,0.45)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] gap-3"
               aria-label="Read the origin story"
             >
               Read the Origin Story <MoveRight className="w-4 h-4" />
@@ -77,7 +77,5 @@ function Hero() {
 }
 
 export { Hero };
-
-
 
 

@@ -26,24 +26,24 @@ const SystemHeaderNav = () => {
   };
 
   return (
-    <header className="w-full border-b border-dashed border-ink/20 dark:border-ink/25 bg-paper/95 dark:bg-background/95 backdrop-blur-sm sticky top-0 z-50">
+    <header className="w-full border-b border-dashed border-ink/20 dark:border-paper/25 bg-paper/95 dark:bg-background/95 backdrop-blur-sm sticky top-0 z-50">
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-3">
         <div className="flex items-center gap-3">
           <Link
             to="/"
-            className="font-tech text-sm uppercase tracking-[0.2em] text-ink dark:text-ink hover:text-terracotta dark:hover:text-terracotta transition-colors shrink-0"
+            className="font-tech text-sm uppercase tracking-[0.2em] text-ink dark:text-paper hover:text-terracotta dark:hover:text-terracotta transition-colors shrink-0"
           >
             KhaM
           </Link>
 
-          <div className="flex-1 border-t border-dashed border-ink/25 dark:border-ink/25" />
+          <div className="flex-1 border-t border-dashed border-ink/25 dark:border-paper/25" />
 
           <nav className="flex items-center gap-x-4 md:gap-x-5 flex-wrap justify-end">
             {navLinks.map(([label, href]) => (
               <Link
                 key={label}
                 to={href}
-                className="font-tech text-[11px] uppercase tracking-[0.12em] text-ink/65 dark:text-ink/65 hover:text-ink dark:hover:text-ink transition-colors whitespace-nowrap"
+                className="font-tech text-[11px] uppercase tracking-[0.12em] text-ink/65 dark:text-paper/65 hover:text-ink dark:hover:text-paper transition-colors whitespace-nowrap"
               >
                 {label}
               </Link>
@@ -53,7 +53,7 @@ const SystemHeaderNav = () => {
           <button
             aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
             onClick={toggleTheme}
-            className="ml-2 rounded-none border border-dashed border-ink/60 dark:border-ink/60 p-1.5 text-ink/80 dark:text-ink/80 hover:text-ink dark:hover:text-ink hover:bg-ink/5 dark:hover:bg-ink/10 transition-colors"
+            className="ml-2 rounded-none border border-dashed border-ink/60 dark:border-paper/60 p-1.5 text-ink/80 dark:text-paper/80 hover:text-ink dark:hover:text-paper hover:bg-ink/5 dark:hover:bg-paper/10 transition-colors"
           >
             {dark ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
           </button>
@@ -64,5 +64,3 @@ const SystemHeaderNav = () => {
 };
 
 export default SystemHeaderNav;
-
-
