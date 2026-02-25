@@ -134,8 +134,13 @@ export default function PilotCrisisPlanner() {
           badgeRight="CR • V1.1">
           <div className="space-y-5">
           <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
-          <CardHeader><CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Mission Briefing</CardTitle></CardHeader>
-          <CardContent className="space-y-3">
+          <CardHeader className="space-y-1">
+            <CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Mission Briefing</CardTitle>
+            <p className="font-display text-xs md:text-sm text-ink/75 dark:text-paper/75">
+              Define mission context, constraints, and local conditions. The planner converts these into a phased, auditable response structure.
+            </p>
+          </CardHeader>
+          <CardContent className="space-y-3 border-t border-dashed border-ink/20 dark:border-paper/20 pt-5">
             <div className="grid md:grid-cols-2 gap-3">
               <div>
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Mission Location</label>
