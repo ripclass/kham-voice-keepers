@@ -9,6 +9,14 @@ import { crisisConstraints, crisisTypes, missions } from "@/lib/pilotSeed";
 type ModeUsed = "ai" | "fallback";
 type RoleTask = { role: string; task: string };
 type TimelinePhase = { phase: string; actions: string[] };
+type EvacuationPlan = {
+  assembly_points: string[];
+  priority_categories: string[];
+  movement_windows: string[];
+  coordination_requirements: string[];
+};
+
+type QualityGate = { passed: boolean; reasons: string[] };
 
 type CrisisResponse = {
   reference_no: string;
@@ -27,9 +35,11 @@ type CrisisResponse = {
   role_assigned_tasks: RoleTask[];
   timeline: TimelinePhase[];
   communication_templates: string[];
+  evacuation_plan: EvacuationPlan;
   sitrep_template: string;
   assumptions_and_unknowns: string[];
   human_review_disclaimer: string;
+  quality_gate: QualityGate;
 };
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://kham-pilot-api.onrender.com";
@@ -190,10 +200,19 @@ export default function PilotCrisisPlanner() {
                   <span className="text-amber-600">reason: {data.fallback_reason}</span>
                 )}
                 {typeof data.relevance_score === "number" && (
-                  <span>relevance: {Math.round(data.relevance_score * 100)}% ({data.relevance_status})</span>
+                  <span title="Percentage of key scenario-planning fields sufficiently covered by the submitted brief.">Document Coverage: {Math.round(data.relevance_score * 100)}% ({data.relevance_status})</span>
                 )}
               </div>
               {data.relevance_warning && <p className="text-xs text-amber-600">{data.relevance_warning}</p>}
+
+              <div className={`border rounded p-2 text-xs ${data.quality_gate.passed ? "border-emerald-600/40 bg-emerald-50" : "border-red-600/40 bg-red-50"}`}>
+                <p><strong>Quality Gate:</strong> {data.quality_gate.passed ? "PASS" : "FAIL"}</p>
+                {!data.quality_gate.passed && (
+                  <ul className="list-disc pl-5 mt-1">
+                    {data.quality_gate.reasons.map((reason, i) => <li key={i}>{reason}</li>)}
+                  </ul>
+                )}
+              </div>
 
               <div className="grid md:grid-cols-3 gap-3">
                 <div><h3 className="font-semibold">Condition Yellow</h3><ul className="list-disc pl-5">{data.condition_yellow.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
@@ -219,6 +238,28 @@ export default function PilotCrisisPlanner() {
               <div>
                 <h3 className="font-semibold">Communication Templates</h3>
                 <ul className="list-disc pl-5">{data.communication_templates.map((c, i) => <li key={i}>{c}</li>)}</ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold">Evacuation Plan</h3>
+                <div className="grid md:grid-cols-2 gap-3 text-xs">
+                  <div>
+                    <p className="font-medium">Assembly Points</p>
+                    <ul className="list-disc pl-5">{data.evacuation_plan.assembly_points.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                  </div>
+                  <div>
+                    <p className="font-medium">Priority Categories (highest → lowest)</p>
+                    <ol className="list-decimal pl-5">{data.evacuation_plan.priority_categories.map((a, i) => <li key={i}>{a}</li>)}</ol>
+                  </div>
+                  <div>
+                    <p className="font-medium">Movement Windows</p>
+                    <ul className="list-disc pl-5">{data.evacuation_plan.movement_windows.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                  </div>
+                  <div>
+                    <p className="font-medium">Coordination Requirements</p>
+                    <ul className="list-disc pl-5">{data.evacuation_plan.coordination_requirements.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                  </div>
+                </div>
               </div>
 
               <div>

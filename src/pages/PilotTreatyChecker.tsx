@@ -21,6 +21,8 @@ type TreatyResult = {
   confidence_rationale?: string;
 };
 
+type QualityGate = { passed: boolean; reasons: string[] };
+
 type TreatyResponse = {
   treaty: string;
   law: string;
@@ -36,6 +38,7 @@ type TreatyResponse = {
   top_urgent_gaps: string[];
   action_list_30_60_90: string[];
   human_review_disclaimer: string;
+  quality_gate: QualityGate;
   results: TreatyResult[];
 };
 
@@ -201,10 +204,20 @@ export default function PilotTreatyChecker() {
                   <span className="text-amber-600">reason: {data.fallback_reason}</span>
                 )}
                 {typeof data.relevance_score === "number" && (
-                  <span>relevance: {Math.round(data.relevance_score * 100)}% ({data.relevance_status})</span>
+                  <span title="Percentage of key treaty obligations addressed by the submitted document.">Document Coverage: {Math.round(data.relevance_score * 100)}% ({data.relevance_status})</span>
                 )}
               </div>
               {data.relevance_warning && <p className="text-xs text-amber-600">{data.relevance_warning}</p>}
+
+              <div className={`border rounded p-2 text-xs ${data.quality_gate.passed ? "border-emerald-600/40 bg-emerald-50" : "border-red-600/40 bg-red-50"}`}>
+                <p><strong>Quality Gate:</strong> {data.quality_gate.passed ? "PASS" : "FAIL"}</p>
+                {!data.quality_gate.passed && (
+                  <ul className="list-disc pl-5 mt-1">
+                    {data.quality_gate.reasons.map((reason, i) => <li key={i}>{reason}</li>)}
+                  </ul>
+                )}
+              </div>
+
               <p><strong>Executive Summary:</strong> {data.executive_summary}</p>
               <div className="overflow-x-auto">
                 <table className="w-full border text-xs">
