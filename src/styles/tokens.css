@@ -11,8 +11,8 @@
 }
 
 .dark {
-  --kham-border-default: 1px solid hsl(var(--paper) / 0.26);
-  --kham-border-dashed: 1px dashed hsl(var(--paper) / 0.30);
+  --kham-border-default: 1px solid hsl(var(--foreground) / 0.28);
+  --kham-border-dashed: 1px dashed hsl(var(--foreground) / 0.34);
 }
 
 .kham-frame {
