@@ -48,7 +48,7 @@ const Index = () => {
             {/* ASCII-style module strip aligned to content frame */}
             <div className="kham-frame p-3 md:p-4">
               <div className="flex items-center gap-3 opacity-70">
-                <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-foreground/90">Cultural Memory Infrastructure</span>
+                <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-foreground/90">Cultural Operating System</span>
                 <div className="flex-1 border-t border-dashed border-ink/30 dark:border-border" />
                 <span className="font-tech text-[10px] uppercase tracking-[0.16em] text-ink/50 dark:text-foreground/75">System Active</span>
               </div>
@@ -61,35 +61,6 @@ const Index = () => {
 
             {/* Content sections wrapped in consistent frame */}
             <div className="space-y-5">
-
-            {/* What is KhaM */}
-            <SystemPageFrame
-              title="What is KhaM"
-              subtitle="Named after my parents - Khayer and Mamtaj. A vessel for memory, not metrics."
-            >
-              <div id="what-is-kham" className="space-y-5">
-                <SystemSection
-                  title="Origin"
-                  description="How KhaM came to be."
-                >
-                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/90 dark:text-foreground/90">
-                    I grew up in Chittagong. The language I spoke at home - Chatgayaan - wasn't considered real.
-                    No script. No prestige. So we were taught to hide it. To speak proper Bangla. To translate
-                    ourselves into acceptability.
-                  </p>
-                </SystemSection>
-
-                <SystemSection
-                  title="The Irreplaceable"
-                  description="What we're protecting."
-                >
-                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
-                    But Chatgayaan was how my mother loved me. It was how neighbors joked, how elders prayed,
-                    how loss and joy were carried in voice - not grammar.
-                  </p>
-                </SystemSection>
-              </div>
-            </SystemPageFrame>
 
             {/* The Argument */}
             <SystemPageFrame
@@ -291,6 +262,7 @@ const Index = () => {
 };
 
 export default Index;
+
 
 
 
