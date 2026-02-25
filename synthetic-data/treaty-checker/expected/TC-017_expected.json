@@ -1,0 +1,19 @@
+{
+  "id": "TC-017",
+  "treaty": "UN Convention on the Law of the Sea (UNCLOS)",
+  "nationalInstrument": "Foreign Exchange Regulation Act, 1947 [SYNTH]",
+  "expectedOutputContains": [
+    "Gap",
+    "Aligned",
+    "Recommendation",
+    "Section",
+    "Article"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "error",
+    "undefined"
+  ],
+  "minResponseLength": 500,
+  "fail_case": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "TC-FAIL-003",
+  "fail_case": true,
+  "description": "Both instruments empty — system should request clarification",
+  "expectedBehaviour": "System should not crash; should ask for clarification or flag the issue",
+  "expectedOutputContains": [],
+  "expectedOutputNotContains": [
+    "crash",
+    "fatal",
+    "undefined error"
+  ]
+}

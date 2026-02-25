@@ -1,0 +1,12 @@
+{
+  "id": "CP-FAIL-001",
+  "fail_case": true,
+  "description": "Unrecognised crisis type — system should ask for clarification",
+  "expectedBehaviour": "System should handle gracefully, ask for clarification if needed",
+  "expectedOutputContains": [],
+  "expectedOutputNotContains": [
+    "crash",
+    "fatal",
+    "undefined error"
+  ]
+}

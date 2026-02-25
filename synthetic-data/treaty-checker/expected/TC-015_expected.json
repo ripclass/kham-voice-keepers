@@ -1,0 +1,19 @@
+{
+  "id": "TC-015",
+  "treaty": "UN Convention on the Law of the Sea (UNCLOS)",
+  "nationalInstrument": "Anti-Corruption Commission Act, 2004 [SYNTH]",
+  "expectedOutputContains": [
+    "Gap",
+    "Aligned",
+    "Recommendation",
+    "Section",
+    "Article"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "error",
+    "undefined"
+  ],
+  "minResponseLength": 500,
+  "fail_case": false
+}

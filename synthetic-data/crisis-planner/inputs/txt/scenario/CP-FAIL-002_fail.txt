@@ -1,0 +1,6 @@
+SYNTHETIC FAIL CASE — CP-FAIL-002
+Description: Missing mission — system should request location
+Mission: [MISSING]
+Crisis Type: Natural-Disaster
+Constraint: Airport closure
+This is an intentional test of error handling.

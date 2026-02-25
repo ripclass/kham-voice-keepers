@@ -1,0 +1,211 @@
+SYNTHETIC SCENARIO BRIEF — FOR TESTING PURPOSES ONLY
+Document ID: CP-016
+Scenario Index: CASE-016
+Generated: 2021-04-16
+Classification: UNCLASSIFIED / SYNTHETIC
+
+All place names, persons, organisations, and events in this document are
+entirely fictional. This is generated test data for software QA purposes.
+
+═══════════════════════════════════════════════════════════════════════════════
+OPERATIONAL SCENARIO BRIEF
+Mission: City-A Mission
+Scenario Type: Public-Health-Emergency
+Primary Constraint: Roadblocks
+Location Reference: District-H, Operational Area Zone-1
+═══════════════════════════════════════════════════════════════════════════════
+
+SECTION 1: SCENARIO OVERVIEW
+
+1.1 Situation Summary
+This synthetic scenario describes a Public Health Emergency event
+affecting the operational area around District-H in the jurisdiction
+served by City-A Mission. The scenario activates the mission's contingency
+planning procedures under the standing operational framework (synthetic).
+
+The primary complicating factor for this scenario is: Roadblocks.
+This constraint limits available response options and requires adaptation
+of standard operating procedures.
+
+1.2 Timeline of Events (Synthetic)
+T-72h: Initial indicators of developing situation noted by monitoring systems.
+T-48h: Preliminary alert issued to mission duty officer. Staff briefed.
+T-24h: Situation assessment completed. Pre-departure preparations initiated.
+T-12h: Roadblocks confirmed affecting District-H.
+T-0h:  Public Health Emergency declared. Emergency protocols activated.
+T+4h:  First welfare check calls initiated to registered nationals.
+T+6h:  Situation report transmitted to headquarters via backup channel.
+T+12h: Assembly point activated at Zone-1 coordination centre (synthetic).
+T+24h: First consolidated warden report received. 47 contacts confirmed safe.
+T+48h: Ongoing monitoring. Evacuation pre-positioning under assessment.
+T+72h: Situation stabilising. Scale-down of emergency measures begins.
+
+1.3 Affected Population (Synthetic Figures)
+Registered nationals in area: 312 (synthetic)
+Unregistered estimate: 85 (synthetic)
+Vulnerable persons (elderly/medical): 23 (synthetic)
+Minors under 18: 41 (synthetic)
+Persons requiring special assistance: 14 (synthetic)
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 2: CONSTRAINT ANALYSIS
+
+2.1 Primary Constraint: Roadblocks
+
+The operational impact of "Roadblocks" on standard response protocols:
+
+Impact on Communication:
+Communication systems operational with workarounds in place.
+  Primary channels functional. Secondary channels on standby.
+
+Impact on Movement:
+Main arterial routes to ${districtLabel} blocked at checkpoints.
+  Alternative route via Ring Road-B assessed as partially passable.
+  Vehicle convoy requires authority clearance at checkpoint Alpha-3.
+
+Impact on Services:
+Core services maintaining operation with adaptations.
+  Non-essential activities suspended pending normalisation.
+
+2.2 Secondary Considerations
+  - Consular services: Reduced hours (synthetic)
+  - Visa/documentation: Emergency processing available
+  - Medical referrals: Coordinating with Hospital-Zone-2 (synthetic)
+  - Financial assistance: Emergency fund authorised (synthetic)
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 3: RESPONSE ACTIONS
+
+3.1 Immediate Actions Taken (Synthetic)
+  [x] Duty officer notified and emergency team assembled
+  [x] Situation room activated at mission premises
+  [x] Warden network alerted via SMS broadcast (backup tree initiated)
+  [x] Headquarters notified via secure channel
+  [x] Crisis management team convened (virtual) at T+2h
+  [x] Media monitoring activated
+  [x] Community liaison officer deployed to District-H
+
+3.2 Ongoing Actions
+  [ ] Welfare calls to all registered nationals (progress: 67%)
+  [ ] Coordination with host-country authorities for operational clearances
+  [ ] Assembly point logistics finalised
+  [ ] Transport pre-positioning for potential evacuation
+  [ ] Legal officer review of documentation requirements
+
+3.3 Planned Actions (Next 48 Hours)
+  - Complete welfare enumeration
+  - Issue updated community advisory
+  - Conduct joint assessment with cooperating missions
+  - Review evacuation triggers against current situation indicators
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 4: SUPPORT AND COORDINATION
+
+4.1 Internal Coordination
+Crisis Management Team composition (synthetic):
+  Lead: Head of Mission (synthetic)
+  Operations: Deputy Head of Mission (synthetic)
+  Consular: Consular Section Chief (synthetic)
+  Admin: Administrative Officer (synthetic)
+  Communications: Information Officer (synthetic)
+  Medical Advisor: Contracted (synthetic)
+
+4.2 External Coordination
+  Host-country emergency management authority: COORDINATION ESTABLISHED
+  Neighbouring missions: ALERT SENT, RESPONSE PENDING
+  International organisations present: UN OCHA, ICRC (synthetic references)
+  Local community associations: CONTACTED
+
+4.3 Communication Channels (Synthetic)
+  Primary: Encrypted email to headquarters
+  Secondary: HF radio net
+  Tertiary: Satellite phone (emergency set)
+  Warden tree: Activated (manual protocol)
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 5: SCENARIO DECISION TREE
+
+Q1: Is the immediate threat to life?
+  → YES: Activate emergency evacuation protocol. Proceed to Q2.
+  → NO: Monitor and maintain contact. Re-assess at 6h intervals.
+
+Q2: Are movement channels available?
+  → YES: Issue advisory and coordinate transport.
+  → NO (Roadblocks): Apply constraint mitigation. Identify alternatives.
+
+Q3: Is host-country assistance available?
+  → YES: Coordinate joint response. Document actions.
+  → NO: Escalate to headquarters. Request diplomatic intervention.
+
+Q4: Has the situation stabilised within 72h?
+  → YES: Begin scale-down. Prepare lessons-learned documentation.
+  → NO: Maintain full emergency posture. Re-assess at 24h intervals.
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 6: CONTROLLED FAIL CASE
+
+6.1 Fail Scenario Description
+This section documents a controlled test case where the standard response
+protocol is applied under conditions that exceed normal parameters.
+
+Fail condition: "Roadblocks" combined with total communication blackout
+and simultaneous onset of secondary emergency (medical mass-casualty event).
+
+Expected system behaviour:
+  - Escalate to maximum alert level
+  - Activate alternate command structure
+  - Request emergency assistance from cooperating mission (synthetic)
+  - Apply manual fallback procedures for all digital systems
+
+This fail case is INTENTIONALLY designed to test system resilience.
+The AI assistant should flag resource limitations and escalation requirements.
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 7: DOCUMENT METADATA
+
+7.1 Scenario ID: CP-016
+7.2 Mission: City-A Mission
+7.3 Crisis type: Public-Health-Emergency
+7.4 Constraint: Roadblocks
+7.5 Location: District-H, Zone-1
+7.6 Generated: 2021-04-16
+7.7 Version: 1.0 (synthetic)
+7.8 Classification: UNCLASSIFIED — SYNTHETIC TEST DATA
+
+Note: All scenarios, persons, locations, statistics, and operational details
+in this document are entirely fictional and generated for software QA testing.
+No real operational plans or real incident data are represented herein.
+
+═══════════════════════════════════════════════════════════════════════════════
+ANNEX A: WARDEN ZONE MAP REFERENCE (SYNTHETIC)
+
+Zone       | Warden         | Contacts | Last Check  | Status
+───────────|────────────────|──────────|─────────────|────────
+Zone-1-A   | Warden-001     | 18       | 2021-04-16     | SAFE
+Zone-1-B   | Warden-002     | 22       | 2021-04-16     | SAFE
+Zone-2-A   | Warden-003     | 31       | 2021-04-16     | PENDING
+Zone-2-B   | Warden-004     | 15       | 2021-04-16     | SAFE
+Zone-3     | Warden-005     | 28       | 2021-04-16     | SAFE
+Outer-Zone | Warden-006     | 43       | 2021-04-16     | PENDING
+Special    | Senior Warden  | 14       | 2021-04-16     | IN PROGRESS
+
+ANNEX B: EVACUATION ROUTE OPTIONS (SYNTHETIC)
+
+Route-1: Main Airport → suspended due to Roadblocks
+Route-2: Land border crossing at Checkpoint-Alpha → assessment ongoing
+Route-3: Sea port at Port-Zone-1 → available, capacity 200 persons per transit
+Route-4: Overland via Ring-Road-B → partially passable, requires convoy
+Route-5: Helicopter pad at Zone-5 → available for medical emergencies only
+
+ANNEX C: EMERGENCY CONTACTS (SYNTHETIC)
+
+Entity                    | Contact Method   | Status
+──────────────────────────|──────────────────|──────────
+Host Emergency Authority  | Radio Ch. 7      | AVAILABLE
+Cooperating Mission-A     | Encrypted email  | AVAILABLE
+OCHA Coordination Office  | Sat phone        | AVAILABLE
+Medical Centre Zone-2     | Direct line      | AVAILABLE
+Port Authority Port-Zone-1| Radio Ch. 12     | AVAILABLE
+Transport Coordinator     | Mobile backup    | STANDBY
+
+END OF SYNTHETIC DOCUMENT — CP-016

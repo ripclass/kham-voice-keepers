@@ -1,0 +1,12 @@
+{
+  "id": "TC-FAIL-001",
+  "fail_case": true,
+  "description": "Non-existent international instrument — system should flag gracefully",
+  "expectedBehaviour": "System should not crash; should ask for clarification or flag the issue",
+  "expectedOutputContains": [],
+  "expectedOutputNotContains": [
+    "crash",
+    "fatal",
+    "undefined error"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "TC-006",
+  "treaty": "Paris Agreement (2015)",
+  "nationalInstrument": "Women and Children Protection Act, 2000 [SYNTH]",
+  "expectedOutputContains": [
+    "Gap",
+    "Aligned",
+    "Recommendation",
+    "Section",
+    "Article"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "error",
+    "undefined"
+  ],
+  "minResponseLength": 500,
+  "fail_case": false
+}

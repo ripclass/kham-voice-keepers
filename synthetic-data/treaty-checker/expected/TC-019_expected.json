@@ -1,0 +1,19 @@
+{
+  "id": "TC-019",
+  "treaty": "UN Convention on the Law of the Sea (UNCLOS)",
+  "nationalInstrument": "Diplomatic Privileges Act, 1965 [SYNTH]",
+  "expectedOutputContains": [
+    "Gap",
+    "Aligned",
+    "Recommendation",
+    "Section",
+    "Article"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "error",
+    "undefined"
+  ],
+  "minResponseLength": 500,
+  "fail_case": false
+}

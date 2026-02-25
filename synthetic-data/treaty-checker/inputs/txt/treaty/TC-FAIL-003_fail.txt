@@ -1,0 +1,5 @@
+SYNTHETIC FAIL CASE — TC-FAIL-003
+Description: Both instruments empty — system should request clarification
+Treaty: [EMPTY]
+National Instrument: [EMPTY]
+This is an intentional test of error handling.

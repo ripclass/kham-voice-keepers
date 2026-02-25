@@ -1,0 +1,12 @@
+{
+  "id": "CP-FAIL-002",
+  "fail_case": true,
+  "description": "Missing mission — system should request location",
+  "expectedBehaviour": "System should handle gracefully, ask for clarification if needed",
+  "expectedOutputContains": [],
+  "expectedOutputNotContains": [
+    "crash",
+    "fatal",
+    "undefined error"
+  ]
+}

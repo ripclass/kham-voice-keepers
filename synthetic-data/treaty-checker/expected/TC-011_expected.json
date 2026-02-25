@@ -1,0 +1,19 @@
+{
+  "id": "TC-011",
+  "treaty": "UN Convention on the Law of the Sea (UNCLOS)",
+  "nationalInstrument": "National Environment Conservation Act, 1995 [SYNTH]",
+  "expectedOutputContains": [
+    "Gap",
+    "Aligned",
+    "Recommendation",
+    "Section",
+    "Article"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "error",
+    "undefined"
+  ],
+  "minResponseLength": 500,
+  "fail_case": false
+}

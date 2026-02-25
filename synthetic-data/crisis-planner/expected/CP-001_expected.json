@@ -1,0 +1,20 @@
+{
+  "id": "CP-001",
+  "mission": "City-A Mission",
+  "crisisType": "Civil-Disturbance",
+  "constraint": "Telecom outage",
+  "expectedOutputContains": [
+    "action",
+    "contact",
+    "coordinate",
+    "priority",
+    "timeline"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "undefined",
+    "error"
+  ],
+  "minResponseLength": 400,
+  "fail_case": false
+}

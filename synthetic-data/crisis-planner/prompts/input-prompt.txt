@@ -1,0 +1,21 @@
+CRISIS PLANNER — SYNTHETIC TEST PROMPT
+════════════════════════════════════════════════════
+[PASTE THIS PROMPT INTO THE TOOL — REPLACE PLACEHOLDERS]
+
+You are an operational planning assistant for a diplomatic mission.
+A [CRISIS_TYPE] event has occurred in the area of [MISSION].
+The primary operational constraint is: [CONSTRAINT]
+
+Please provide an operational response plan that includes:
+1. Immediate priority actions (first 6 hours)
+2. Welfare and communication procedures
+3. How to work around the constraint: [CONSTRAINT]
+4. Coordination with host-country and other missions
+5. Escalation triggers and decision points
+6. Resource and logistics considerations
+
+Format clearly with prioritised action items and timelines.
+
+[The scenario brief document will be pasted or uploaded separately]
+════════════════════════════════════════════════════
+SYNTHETIC TEST DATA — NOT REAL OPERATIONAL GUIDANCE

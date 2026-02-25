@@ -1,0 +1,5 @@
+SYNTHETIC FAIL CASE — TC-FAIL-001
+Description: Non-existent international instrument — system should flag gracefully
+Treaty: INVALID-INSTRUMENT-XYZ
+National Instrument: National Environment Conservation Act, 1995 [SYNTH]
+This is an intentional test of error handling.

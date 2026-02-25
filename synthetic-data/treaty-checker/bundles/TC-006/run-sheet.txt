@@ -1,0 +1,38 @@
+SYNTHETIC RUN SHEET — TC-006
+════════════════════════════════════════════════════
+Pilot: Treaty Checker
+Case ID: TC-006
+Treaty: Paris Agreement (2015)
+National Instrument: Women and Children Protection Act, 2000 [SYNTH]
+Generated: 2026-02-25T02:32:53.056Z
+Classification: UNCLASSIFIED / SYNTHETIC
+════════════════════════════════════════════════════
+
+STEP 1: UPLOAD DOCUMENTS
+  File 1: inputs/txt/treaty/TC-006_*.txt (paste as treaty text)
+  File 2: inputs/txt/law/TC-006_*_law.txt (paste as national law text)
+  OR upload the corresponding PDF versions from inputs/pdf/
+
+STEP 2: PASTE PROMPT
+  Copy prompt from: prompts/input-prompt.txt
+  Replace [TREATY_TITLE] with: Paris Agreement (2015)
+  Replace [LAW_TITLE] with: Women and Children Protection Act, 2000 [SYNTH]
+
+STEP 3: SUBMIT AND OBSERVE
+  Expected response time: 10–30 seconds
+  Expected output: Analysis with gaps/alignment/recommendations
+
+STEP 4: VALIDATE AGAINST EXPECTED
+  Expected file: expected/TC-006_expected.json
+  Check for all items in "expectedOutputContains"
+  Verify none of "expectedOutputNotContains" appear
+  Verify response length ≥ 500 characters
+
+STEP 5: LOG RESULT
+  Pass / Fail / Partial
+  Notes: _______________________________________________
+  Timestamp: ___________________________________________
+  Tester: _____________________________________________
+
+════════════════════════════════════════════════════
+SYNTHETIC DATA — FOR TESTING ONLY

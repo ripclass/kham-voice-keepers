@@ -1,0 +1,6 @@
+SYNTHETIC FAIL CASE — CP-FAIL-003
+Description: Overloaded constraint scenario — system should prioritise
+Mission: City-B Mission
+Crisis Type: Civil-Disturbance
+Constraint: ALL CONSTRAINTS SIMULTANEOUSLY
+This is an intentional test of error handling.

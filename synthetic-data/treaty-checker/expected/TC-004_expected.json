@@ -1,0 +1,19 @@
+{
+  "id": "TC-004",
+  "treaty": "Paris Agreement (2015)",
+  "nationalInstrument": "National Labour Act, 2006 [SYNTH]",
+  "expectedOutputContains": [
+    "Gap",
+    "Aligned",
+    "Recommendation",
+    "Section",
+    "Article"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "error",
+    "undefined"
+  ],
+  "minResponseLength": 500,
+  "fail_case": false
+}

@@ -1,0 +1,19 @@
+{
+  "id": "TC-014",
+  "treaty": "UN Convention on the Law of the Sea (UNCLOS)",
+  "nationalInstrument": "National Labour Act, 2006 [SYNTH]",
+  "expectedOutputContains": [
+    "Gap",
+    "Aligned",
+    "Recommendation",
+    "Section",
+    "Article"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "error",
+    "undefined"
+  ],
+  "minResponseLength": 500,
+  "fail_case": false
+}

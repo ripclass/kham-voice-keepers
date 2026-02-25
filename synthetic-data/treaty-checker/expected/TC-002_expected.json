@@ -1,0 +1,19 @@
+{
+  "id": "TC-002",
+  "treaty": "Paris Agreement (2015)",
+  "nationalInstrument": "National Climate Change Strategy and Action Plan, 2009 [SYNTH]",
+  "expectedOutputContains": [
+    "Gap",
+    "Aligned",
+    "Recommendation",
+    "Section",
+    "Article"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "error",
+    "undefined"
+  ],
+  "minResponseLength": 500,
+  "fail_case": false
+}

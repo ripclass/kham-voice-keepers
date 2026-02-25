@@ -1,0 +1,24 @@
+id,mission,crisis_type,constraint,txt_file,expected_file,fail_case
+"CP-001","City-A Mission","Civil-Disturbance","Telecom outage","crisis-planner/inputs/txt/scenario/CP-001_city-a-mission-civil-disturbance-telecom-outage.txt","crisis-planner/expected/CP-001_expected.json",false
+"CP-002","City-A Mission","Civil-Disturbance","Airport closure","crisis-planner/inputs/txt/scenario/CP-002_city-a-mission-civil-disturbance-airport-closure.txt","crisis-planner/expected/CP-002_expected.json",false
+"CP-003","City-A Mission","Civil-Disturbance","Curfew in effect","crisis-planner/inputs/txt/scenario/CP-003_city-a-mission-civil-disturbance-curfew-in-effect.txt","crisis-planner/expected/CP-003_expected.json",false
+"CP-004","City-A Mission","Civil-Disturbance","Roadblocks","crisis-planner/inputs/txt/scenario/CP-004_city-a-mission-civil-disturbance-roadblocks.txt","crisis-planner/expected/CP-004_expected.json",false
+"CP-005","City-A Mission","Civil-Disturbance","Border crossing restriction","crisis-planner/inputs/txt/scenario/CP-005_city-a-mission-civil-disturbance-border-crossing-r.txt","crisis-planner/expected/CP-005_expected.json",false
+"CP-006","City-A Mission","Civil-Disturbance","Fuel shortage","crisis-planner/inputs/txt/scenario/CP-006_city-a-mission-civil-disturbance-fuel-shortage.txt","crisis-planner/expected/CP-006_expected.json",false
+"CP-007","City-A Mission","Natural-Disaster","Telecom outage","crisis-planner/inputs/txt/scenario/CP-007_city-a-mission-natural-disaster-telecom-outage.txt","crisis-planner/expected/CP-007_expected.json",false
+"CP-008","City-A Mission","Natural-Disaster","Airport closure","crisis-planner/inputs/txt/scenario/CP-008_city-a-mission-natural-disaster-airport-closure.txt","crisis-planner/expected/CP-008_expected.json",false
+"CP-009","City-A Mission","Natural-Disaster","Curfew in effect","crisis-planner/inputs/txt/scenario/CP-009_city-a-mission-natural-disaster-curfew-in-effect.txt","crisis-planner/expected/CP-009_expected.json",false
+"CP-010","City-A Mission","Natural-Disaster","Roadblocks","crisis-planner/inputs/txt/scenario/CP-010_city-a-mission-natural-disaster-roadblocks.txt","crisis-planner/expected/CP-010_expected.json",false
+"CP-011","City-A Mission","Natural-Disaster","Border crossing restriction","crisis-planner/inputs/txt/scenario/CP-011_city-a-mission-natural-disaster-border-crossing-re.txt","crisis-planner/expected/CP-011_expected.json",false
+"CP-012","City-A Mission","Natural-Disaster","Fuel shortage","crisis-planner/inputs/txt/scenario/CP-012_city-a-mission-natural-disaster-fuel-shortage.txt","crisis-planner/expected/CP-012_expected.json",false
+"CP-013","City-A Mission","Public-Health-Emergency","Telecom outage","crisis-planner/inputs/txt/scenario/CP-013_city-a-mission-public-health-emergency-telecom-out.txt","crisis-planner/expected/CP-013_expected.json",false
+"CP-014","City-A Mission","Public-Health-Emergency","Airport closure","crisis-planner/inputs/txt/scenario/CP-014_city-a-mission-public-health-emergency-airport-clo.txt","crisis-planner/expected/CP-014_expected.json",false
+"CP-015","City-A Mission","Public-Health-Emergency","Curfew in effect","crisis-planner/inputs/txt/scenario/CP-015_city-a-mission-public-health-emergency-curfew-in-e.txt","crisis-planner/expected/CP-015_expected.json",false
+"CP-016","City-A Mission","Public-Health-Emergency","Roadblocks","crisis-planner/inputs/txt/scenario/CP-016_city-a-mission-public-health-emergency-roadblocks.txt","crisis-planner/expected/CP-016_expected.json",false
+"CP-017","City-A Mission","Public-Health-Emergency","Border crossing restriction","crisis-planner/inputs/txt/scenario/CP-017_city-a-mission-public-health-emergency-border-cros.txt","crisis-planner/expected/CP-017_expected.json",false
+"CP-018","City-A Mission","Public-Health-Emergency","Fuel shortage","crisis-planner/inputs/txt/scenario/CP-018_city-a-mission-public-health-emergency-fuel-shorta.txt","crisis-planner/expected/CP-018_expected.json",false
+"CP-019","City-A Mission","Mass-Detention-Legal","Telecom outage","crisis-planner/inputs/txt/scenario/CP-019_city-a-mission-mass-detention-legal-telecom-outage.txt","crisis-planner/expected/CP-019_expected.json",false
+"CP-020","City-A Mission","Mass-Detention-Legal","Airport closure","crisis-planner/inputs/txt/scenario/CP-020_city-a-mission-mass-detention-legal-airport-closur.txt","crisis-planner/expected/CP-020_expected.json",false
+"CP-FAIL-001","City-A Mission","UNKNOWN-TYPE","No constraints","CP-FAIL-001_fail.txt","CP-FAIL-001_expected.json",true
+"CP-FAIL-002","","Natural-Disaster","Airport closure","CP-FAIL-002_fail.txt","CP-FAIL-002_expected.json",true
+"CP-FAIL-003","City-B Mission","Civil-Disturbance","ALL CONSTRAINTS SIMULTANEOUSLY","CP-FAIL-003_fail.txt","CP-FAIL-003_expected.json",true

@@ -1,0 +1,26 @@
+TREATY COMPATIBILITY CHECKER — SYNTHETIC TEST PROMPT
+════════════════════════════════════════════════════
+[PASTE THIS PROMPT INTO THE TOOL — REPLACE PLACEHOLDERS]
+
+You are a legal analysis assistant. I am providing you with:
+1. An international treaty or convention: [TREATY_TITLE]
+2. A national implementing law: [LAW_TITLE]
+
+Please analyse whether the national law adequately implements the
+obligations of the international treaty. Your analysis should:
+
+a) Identify areas of alignment between the two instruments
+b) Identify gaps where the national law does not fully implement the treaty
+c) Highlight any definitional inconsistencies
+d) Note any enforcement or penalty discrepancies
+e) Provide concrete recommendations for closing identified gaps
+
+Format your response with clear headings:
+- ALIGNMENT AREAS
+- GAPS IDENTIFIED
+- RECOMMENDATIONS
+- RISK ASSESSMENT
+
+[The document text will be pasted or uploaded separately]
+════════════════════════════════════════════════════
+SYNTHETIC TEST DATA — NOT REAL LEGAL ADVICE

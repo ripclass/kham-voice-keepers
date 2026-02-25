@@ -1,0 +1,36 @@
+{
+  "generated": "2026-02-25T02:32:53.018Z",
+  "synthetic": true,
+  "note": "All content is fictional and for QA testing only",
+  "pilots": {
+    "treaty-checker": {
+      "description": "Synthetic treaty vs national instrument compatibility documents",
+      "treatyCount": 10,
+      "nationalInstrumentCount": 10,
+      "totalCombinations": 100,
+      "targetGenerated": 20
+    },
+    "crisis-planner": {
+      "description": "Synthetic operational scenario briefs for consular mission planning",
+      "missionCount": 15,
+      "crisisTypeCount": 6,
+      "constraintCount": 6,
+      "totalCombinations": 540,
+      "targetGenerated": 20
+    }
+  },
+  "directories": {
+    "treaty_txt": "treaty-checker/inputs/txt/treaty/",
+    "treaty_law": "treaty-checker/inputs/txt/law/",
+    "treaty_pdf": "treaty-checker/inputs/pdf/",
+    "treaty_payloads": "treaty-checker/payloads/",
+    "treaty_expected": "treaty-checker/expected/",
+    "treaty_bundles": "treaty-checker/bundles/",
+    "crisis_txt": "crisis-planner/inputs/txt/",
+    "crisis_pdf": "crisis-planner/inputs/pdf/",
+    "crisis_payloads": "crisis-planner/payloads/",
+    "crisis_expected": "crisis-planner/expected/",
+    "crisis_bundles": "crisis-planner/bundles/",
+    "packs": "packs/"
+  }
+}

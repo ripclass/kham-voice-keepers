@@ -1,0 +1,20 @@
+{
+  "id": "CP-017",
+  "mission": "City-A Mission",
+  "crisisType": "Public-Health-Emergency",
+  "constraint": "Border crossing restriction",
+  "expectedOutputContains": [
+    "action",
+    "contact",
+    "coordinate",
+    "priority",
+    "timeline"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "undefined",
+    "error"
+  ],
+  "minResponseLength": 400,
+  "fail_case": false
+}

@@ -1,0 +1,3246 @@
+{
+  "generated": "2026-02-25T02:32:53.018Z",
+  "count": 540,
+  "combinations": [
+    {
+      "id": "CP-001",
+      "mission": "City-A Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-002",
+      "mission": "City-A Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-003",
+      "mission": "City-A Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-004",
+      "mission": "City-A Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-005",
+      "mission": "City-A Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-006",
+      "mission": "City-A Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-007",
+      "mission": "City-A Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-008",
+      "mission": "City-A Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-009",
+      "mission": "City-A Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-010",
+      "mission": "City-A Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-011",
+      "mission": "City-A Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-012",
+      "mission": "City-A Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-013",
+      "mission": "City-A Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-014",
+      "mission": "City-A Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-015",
+      "mission": "City-A Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-016",
+      "mission": "City-A Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-017",
+      "mission": "City-A Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-018",
+      "mission": "City-A Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-019",
+      "mission": "City-A Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-020",
+      "mission": "City-A Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-021",
+      "mission": "City-A Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-022",
+      "mission": "City-A Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-023",
+      "mission": "City-A Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-024",
+      "mission": "City-A Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-025",
+      "mission": "City-A Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-026",
+      "mission": "City-A Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-027",
+      "mission": "City-A Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-028",
+      "mission": "City-A Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-029",
+      "mission": "City-A Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-030",
+      "mission": "City-A Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-031",
+      "mission": "City-A Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-032",
+      "mission": "City-A Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-033",
+      "mission": "City-A Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-034",
+      "mission": "City-A Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-035",
+      "mission": "City-A Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-036",
+      "mission": "City-A Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-037",
+      "mission": "City-B Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-038",
+      "mission": "City-B Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-039",
+      "mission": "City-B Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-040",
+      "mission": "City-B Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-041",
+      "mission": "City-B Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-042",
+      "mission": "City-B Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-043",
+      "mission": "City-B Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-044",
+      "mission": "City-B Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-045",
+      "mission": "City-B Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-046",
+      "mission": "City-B Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-047",
+      "mission": "City-B Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-048",
+      "mission": "City-B Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-049",
+      "mission": "City-B Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-050",
+      "mission": "City-B Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-051",
+      "mission": "City-B Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-052",
+      "mission": "City-B Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-053",
+      "mission": "City-B Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-054",
+      "mission": "City-B Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-055",
+      "mission": "City-B Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-056",
+      "mission": "City-B Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-057",
+      "mission": "City-B Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-058",
+      "mission": "City-B Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-059",
+      "mission": "City-B Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-060",
+      "mission": "City-B Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-061",
+      "mission": "City-B Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-062",
+      "mission": "City-B Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-063",
+      "mission": "City-B Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-064",
+      "mission": "City-B Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-065",
+      "mission": "City-B Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-066",
+      "mission": "City-B Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-067",
+      "mission": "City-B Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-068",
+      "mission": "City-B Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-069",
+      "mission": "City-B Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-070",
+      "mission": "City-B Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-071",
+      "mission": "City-B Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-072",
+      "mission": "City-B Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-073",
+      "mission": "City-C Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-074",
+      "mission": "City-C Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-075",
+      "mission": "City-C Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-076",
+      "mission": "City-C Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-077",
+      "mission": "City-C Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-078",
+      "mission": "City-C Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-079",
+      "mission": "City-C Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-080",
+      "mission": "City-C Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-081",
+      "mission": "City-C Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-082",
+      "mission": "City-C Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-083",
+      "mission": "City-C Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-084",
+      "mission": "City-C Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-085",
+      "mission": "City-C Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-086",
+      "mission": "City-C Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-087",
+      "mission": "City-C Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-088",
+      "mission": "City-C Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-089",
+      "mission": "City-C Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-090",
+      "mission": "City-C Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-091",
+      "mission": "City-C Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-092",
+      "mission": "City-C Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-093",
+      "mission": "City-C Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-094",
+      "mission": "City-C Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-095",
+      "mission": "City-C Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-096",
+      "mission": "City-C Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-097",
+      "mission": "City-C Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-098",
+      "mission": "City-C Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-099",
+      "mission": "City-C Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-100",
+      "mission": "City-C Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-101",
+      "mission": "City-C Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-102",
+      "mission": "City-C Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-103",
+      "mission": "City-C Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-104",
+      "mission": "City-C Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-105",
+      "mission": "City-C Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-106",
+      "mission": "City-C Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-107",
+      "mission": "City-C Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-108",
+      "mission": "City-C Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-109",
+      "mission": "City-D Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-110",
+      "mission": "City-D Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-111",
+      "mission": "City-D Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-112",
+      "mission": "City-D Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-113",
+      "mission": "City-D Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-114",
+      "mission": "City-D Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-115",
+      "mission": "City-D Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-116",
+      "mission": "City-D Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-117",
+      "mission": "City-D Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-118",
+      "mission": "City-D Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-119",
+      "mission": "City-D Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-120",
+      "mission": "City-D Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-121",
+      "mission": "City-D Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-122",
+      "mission": "City-D Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-123",
+      "mission": "City-D Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-124",
+      "mission": "City-D Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-125",
+      "mission": "City-D Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-126",
+      "mission": "City-D Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-127",
+      "mission": "City-D Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-128",
+      "mission": "City-D Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-129",
+      "mission": "City-D Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-130",
+      "mission": "City-D Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-131",
+      "mission": "City-D Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-132",
+      "mission": "City-D Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-133",
+      "mission": "City-D Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-134",
+      "mission": "City-D Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-135",
+      "mission": "City-D Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-136",
+      "mission": "City-D Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-137",
+      "mission": "City-D Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-138",
+      "mission": "City-D Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-139",
+      "mission": "City-D Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-140",
+      "mission": "City-D Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-141",
+      "mission": "City-D Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-142",
+      "mission": "City-D Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-143",
+      "mission": "City-D Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-144",
+      "mission": "City-D Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-145",
+      "mission": "City-E Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-146",
+      "mission": "City-E Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-147",
+      "mission": "City-E Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-148",
+      "mission": "City-E Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-149",
+      "mission": "City-E Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-150",
+      "mission": "City-E Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-151",
+      "mission": "City-E Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-152",
+      "mission": "City-E Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-153",
+      "mission": "City-E Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-154",
+      "mission": "City-E Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-155",
+      "mission": "City-E Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-156",
+      "mission": "City-E Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-157",
+      "mission": "City-E Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-158",
+      "mission": "City-E Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-159",
+      "mission": "City-E Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-160",
+      "mission": "City-E Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-161",
+      "mission": "City-E Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-162",
+      "mission": "City-E Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-163",
+      "mission": "City-E Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-164",
+      "mission": "City-E Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-165",
+      "mission": "City-E Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-166",
+      "mission": "City-E Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-167",
+      "mission": "City-E Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-168",
+      "mission": "City-E Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-169",
+      "mission": "City-E Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-170",
+      "mission": "City-E Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-171",
+      "mission": "City-E Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-172",
+      "mission": "City-E Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-173",
+      "mission": "City-E Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-174",
+      "mission": "City-E Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-175",
+      "mission": "City-E Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-176",
+      "mission": "City-E Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-177",
+      "mission": "City-E Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-178",
+      "mission": "City-E Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-179",
+      "mission": "City-E Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-180",
+      "mission": "City-E Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-181",
+      "mission": "City-F Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-182",
+      "mission": "City-F Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-183",
+      "mission": "City-F Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-184",
+      "mission": "City-F Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-185",
+      "mission": "City-F Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-186",
+      "mission": "City-F Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-187",
+      "mission": "City-F Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-188",
+      "mission": "City-F Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-189",
+      "mission": "City-F Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-190",
+      "mission": "City-F Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-191",
+      "mission": "City-F Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-192",
+      "mission": "City-F Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-193",
+      "mission": "City-F Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-194",
+      "mission": "City-F Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-195",
+      "mission": "City-F Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-196",
+      "mission": "City-F Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-197",
+      "mission": "City-F Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-198",
+      "mission": "City-F Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-199",
+      "mission": "City-F Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-200",
+      "mission": "City-F Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-201",
+      "mission": "City-F Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-202",
+      "mission": "City-F Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-203",
+      "mission": "City-F Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-204",
+      "mission": "City-F Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-205",
+      "mission": "City-F Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-206",
+      "mission": "City-F Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-207",
+      "mission": "City-F Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-208",
+      "mission": "City-F Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-209",
+      "mission": "City-F Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-210",
+      "mission": "City-F Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-211",
+      "mission": "City-F Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-212",
+      "mission": "City-F Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-213",
+      "mission": "City-F Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-214",
+      "mission": "City-F Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-215",
+      "mission": "City-F Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-216",
+      "mission": "City-F Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-217",
+      "mission": "City-G Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-218",
+      "mission": "City-G Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-219",
+      "mission": "City-G Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-220",
+      "mission": "City-G Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-221",
+      "mission": "City-G Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-222",
+      "mission": "City-G Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-223",
+      "mission": "City-G Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-224",
+      "mission": "City-G Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-225",
+      "mission": "City-G Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-226",
+      "mission": "City-G Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-227",
+      "mission": "City-G Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-228",
+      "mission": "City-G Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-229",
+      "mission": "City-G Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-230",
+      "mission": "City-G Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-231",
+      "mission": "City-G Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-232",
+      "mission": "City-G Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-233",
+      "mission": "City-G Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-234",
+      "mission": "City-G Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-235",
+      "mission": "City-G Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-236",
+      "mission": "City-G Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-237",
+      "mission": "City-G Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-238",
+      "mission": "City-G Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-239",
+      "mission": "City-G Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-240",
+      "mission": "City-G Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-241",
+      "mission": "City-G Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-242",
+      "mission": "City-G Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-243",
+      "mission": "City-G Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-244",
+      "mission": "City-G Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-245",
+      "mission": "City-G Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-246",
+      "mission": "City-G Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-247",
+      "mission": "City-G Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-248",
+      "mission": "City-G Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-249",
+      "mission": "City-G Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-250",
+      "mission": "City-G Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-251",
+      "mission": "City-G Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-252",
+      "mission": "City-G Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-253",
+      "mission": "City-H Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-254",
+      "mission": "City-H Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-255",
+      "mission": "City-H Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-256",
+      "mission": "City-H Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-257",
+      "mission": "City-H Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-258",
+      "mission": "City-H Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-259",
+      "mission": "City-H Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-260",
+      "mission": "City-H Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-261",
+      "mission": "City-H Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-262",
+      "mission": "City-H Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-263",
+      "mission": "City-H Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-264",
+      "mission": "City-H Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-265",
+      "mission": "City-H Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-266",
+      "mission": "City-H Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-267",
+      "mission": "City-H Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-268",
+      "mission": "City-H Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-269",
+      "mission": "City-H Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-270",
+      "mission": "City-H Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-271",
+      "mission": "City-H Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-272",
+      "mission": "City-H Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-273",
+      "mission": "City-H Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-274",
+      "mission": "City-H Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-275",
+      "mission": "City-H Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-276",
+      "mission": "City-H Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-277",
+      "mission": "City-H Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-278",
+      "mission": "City-H Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-279",
+      "mission": "City-H Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-280",
+      "mission": "City-H Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-281",
+      "mission": "City-H Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-282",
+      "mission": "City-H Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-283",
+      "mission": "City-H Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-284",
+      "mission": "City-H Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-285",
+      "mission": "City-H Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-286",
+      "mission": "City-H Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-287",
+      "mission": "City-H Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-288",
+      "mission": "City-H Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-289",
+      "mission": "City-I Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-290",
+      "mission": "City-I Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-291",
+      "mission": "City-I Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-292",
+      "mission": "City-I Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-293",
+      "mission": "City-I Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-294",
+      "mission": "City-I Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-295",
+      "mission": "City-I Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-296",
+      "mission": "City-I Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-297",
+      "mission": "City-I Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-298",
+      "mission": "City-I Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-299",
+      "mission": "City-I Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-300",
+      "mission": "City-I Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-301",
+      "mission": "City-I Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-302",
+      "mission": "City-I Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-303",
+      "mission": "City-I Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-304",
+      "mission": "City-I Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-305",
+      "mission": "City-I Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-306",
+      "mission": "City-I Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-307",
+      "mission": "City-I Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-308",
+      "mission": "City-I Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-309",
+      "mission": "City-I Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-310",
+      "mission": "City-I Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-311",
+      "mission": "City-I Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-312",
+      "mission": "City-I Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-313",
+      "mission": "City-I Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-314",
+      "mission": "City-I Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-315",
+      "mission": "City-I Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-316",
+      "mission": "City-I Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-317",
+      "mission": "City-I Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-318",
+      "mission": "City-I Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-319",
+      "mission": "City-I Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-320",
+      "mission": "City-I Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-321",
+      "mission": "City-I Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-322",
+      "mission": "City-I Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-323",
+      "mission": "City-I Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-324",
+      "mission": "City-I Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-325",
+      "mission": "City-J Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-326",
+      "mission": "City-J Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-327",
+      "mission": "City-J Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-328",
+      "mission": "City-J Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-329",
+      "mission": "City-J Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-330",
+      "mission": "City-J Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-331",
+      "mission": "City-J Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-332",
+      "mission": "City-J Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-333",
+      "mission": "City-J Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-334",
+      "mission": "City-J Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-335",
+      "mission": "City-J Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-336",
+      "mission": "City-J Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-337",
+      "mission": "City-J Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-338",
+      "mission": "City-J Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-339",
+      "mission": "City-J Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-340",
+      "mission": "City-J Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-341",
+      "mission": "City-J Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-342",
+      "mission": "City-J Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-343",
+      "mission": "City-J Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-344",
+      "mission": "City-J Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-345",
+      "mission": "City-J Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-346",
+      "mission": "City-J Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-347",
+      "mission": "City-J Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-348",
+      "mission": "City-J Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-349",
+      "mission": "City-J Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-350",
+      "mission": "City-J Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-351",
+      "mission": "City-J Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-352",
+      "mission": "City-J Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-353",
+      "mission": "City-J Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-354",
+      "mission": "City-J Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-355",
+      "mission": "City-J Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-356",
+      "mission": "City-J Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-357",
+      "mission": "City-J Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-358",
+      "mission": "City-J Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-359",
+      "mission": "City-J Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-360",
+      "mission": "City-J Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-361",
+      "mission": "City-K Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-362",
+      "mission": "City-K Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-363",
+      "mission": "City-K Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-364",
+      "mission": "City-K Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-365",
+      "mission": "City-K Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-366",
+      "mission": "City-K Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-367",
+      "mission": "City-K Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-368",
+      "mission": "City-K Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-369",
+      "mission": "City-K Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-370",
+      "mission": "City-K Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-371",
+      "mission": "City-K Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-372",
+      "mission": "City-K Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-373",
+      "mission": "City-K Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-374",
+      "mission": "City-K Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-375",
+      "mission": "City-K Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-376",
+      "mission": "City-K Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-377",
+      "mission": "City-K Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-378",
+      "mission": "City-K Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-379",
+      "mission": "City-K Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-380",
+      "mission": "City-K Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-381",
+      "mission": "City-K Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-382",
+      "mission": "City-K Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-383",
+      "mission": "City-K Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-384",
+      "mission": "City-K Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-385",
+      "mission": "City-K Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-386",
+      "mission": "City-K Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-387",
+      "mission": "City-K Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-388",
+      "mission": "City-K Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-389",
+      "mission": "City-K Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-390",
+      "mission": "City-K Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-391",
+      "mission": "City-K Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-392",
+      "mission": "City-K Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-393",
+      "mission": "City-K Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-394",
+      "mission": "City-K Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-395",
+      "mission": "City-K Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-396",
+      "mission": "City-K Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-397",
+      "mission": "City-L Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-398",
+      "mission": "City-L Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-399",
+      "mission": "City-L Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-400",
+      "mission": "City-L Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-401",
+      "mission": "City-L Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-402",
+      "mission": "City-L Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-403",
+      "mission": "City-L Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-404",
+      "mission": "City-L Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-405",
+      "mission": "City-L Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-406",
+      "mission": "City-L Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-407",
+      "mission": "City-L Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-408",
+      "mission": "City-L Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-409",
+      "mission": "City-L Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-410",
+      "mission": "City-L Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-411",
+      "mission": "City-L Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-412",
+      "mission": "City-L Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-413",
+      "mission": "City-L Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-414",
+      "mission": "City-L Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-415",
+      "mission": "City-L Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-416",
+      "mission": "City-L Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-417",
+      "mission": "City-L Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-418",
+      "mission": "City-L Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-419",
+      "mission": "City-L Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-420",
+      "mission": "City-L Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-421",
+      "mission": "City-L Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-422",
+      "mission": "City-L Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-423",
+      "mission": "City-L Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-424",
+      "mission": "City-L Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-425",
+      "mission": "City-L Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-426",
+      "mission": "City-L Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-427",
+      "mission": "City-L Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-428",
+      "mission": "City-L Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-429",
+      "mission": "City-L Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-430",
+      "mission": "City-L Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-431",
+      "mission": "City-L Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-432",
+      "mission": "City-L Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-433",
+      "mission": "City-M Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-434",
+      "mission": "City-M Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-435",
+      "mission": "City-M Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-436",
+      "mission": "City-M Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-437",
+      "mission": "City-M Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-438",
+      "mission": "City-M Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-439",
+      "mission": "City-M Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-440",
+      "mission": "City-M Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-441",
+      "mission": "City-M Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-442",
+      "mission": "City-M Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-443",
+      "mission": "City-M Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-444",
+      "mission": "City-M Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-445",
+      "mission": "City-M Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-446",
+      "mission": "City-M Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-447",
+      "mission": "City-M Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-448",
+      "mission": "City-M Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-449",
+      "mission": "City-M Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-450",
+      "mission": "City-M Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-451",
+      "mission": "City-M Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-452",
+      "mission": "City-M Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-453",
+      "mission": "City-M Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-454",
+      "mission": "City-M Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-455",
+      "mission": "City-M Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-456",
+      "mission": "City-M Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-457",
+      "mission": "City-M Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-458",
+      "mission": "City-M Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-459",
+      "mission": "City-M Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-460",
+      "mission": "City-M Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-461",
+      "mission": "City-M Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-462",
+      "mission": "City-M Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-463",
+      "mission": "City-M Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-464",
+      "mission": "City-M Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-465",
+      "mission": "City-M Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-466",
+      "mission": "City-M Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-467",
+      "mission": "City-M Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-468",
+      "mission": "City-M Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-469",
+      "mission": "City-N Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-470",
+      "mission": "City-N Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-471",
+      "mission": "City-N Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-472",
+      "mission": "City-N Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-473",
+      "mission": "City-N Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-474",
+      "mission": "City-N Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-475",
+      "mission": "City-N Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-476",
+      "mission": "City-N Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-477",
+      "mission": "City-N Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-478",
+      "mission": "City-N Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-479",
+      "mission": "City-N Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-480",
+      "mission": "City-N Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-481",
+      "mission": "City-N Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-482",
+      "mission": "City-N Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-483",
+      "mission": "City-N Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-484",
+      "mission": "City-N Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-485",
+      "mission": "City-N Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-486",
+      "mission": "City-N Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-487",
+      "mission": "City-N Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-488",
+      "mission": "City-N Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-489",
+      "mission": "City-N Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-490",
+      "mission": "City-N Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-491",
+      "mission": "City-N Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-492",
+      "mission": "City-N Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-493",
+      "mission": "City-N Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-494",
+      "mission": "City-N Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-495",
+      "mission": "City-N Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-496",
+      "mission": "City-N Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-497",
+      "mission": "City-N Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-498",
+      "mission": "City-N Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-499",
+      "mission": "City-N Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-500",
+      "mission": "City-N Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-501",
+      "mission": "City-N Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-502",
+      "mission": "City-N Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-503",
+      "mission": "City-N Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-504",
+      "mission": "City-N Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-505",
+      "mission": "City-O Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-506",
+      "mission": "City-O Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-507",
+      "mission": "City-O Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-508",
+      "mission": "City-O Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-509",
+      "mission": "City-O Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-510",
+      "mission": "City-O Mission",
+      "crisisType": "Civil-Disturbance",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-511",
+      "mission": "City-O Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-512",
+      "mission": "City-O Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-513",
+      "mission": "City-O Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-514",
+      "mission": "City-O Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-515",
+      "mission": "City-O Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-516",
+      "mission": "City-O Mission",
+      "crisisType": "Natural-Disaster",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-517",
+      "mission": "City-O Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-518",
+      "mission": "City-O Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-519",
+      "mission": "City-O Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-520",
+      "mission": "City-O Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-521",
+      "mission": "City-O Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-522",
+      "mission": "City-O Mission",
+      "crisisType": "Public-Health-Emergency",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-523",
+      "mission": "City-O Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-524",
+      "mission": "City-O Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-525",
+      "mission": "City-O Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-526",
+      "mission": "City-O Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-527",
+      "mission": "City-O Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-528",
+      "mission": "City-O Mission",
+      "crisisType": "Mass-Detention-Legal",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-529",
+      "mission": "City-O Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-530",
+      "mission": "City-O Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-531",
+      "mission": "City-O Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-532",
+      "mission": "City-O Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-533",
+      "mission": "City-O Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-534",
+      "mission": "City-O Mission",
+      "crisisType": "Infrastructure-Failure",
+      "constraint": "Fuel shortage"
+    },
+    {
+      "id": "CP-535",
+      "mission": "City-O Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Telecom outage"
+    },
+    {
+      "id": "CP-536",
+      "mission": "City-O Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Airport closure"
+    },
+    {
+      "id": "CP-537",
+      "mission": "City-O Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Curfew in effect"
+    },
+    {
+      "id": "CP-538",
+      "mission": "City-O Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Roadblocks"
+    },
+    {
+      "id": "CP-539",
+      "mission": "City-O Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Border crossing restriction"
+    },
+    {
+      "id": "CP-540",
+      "mission": "City-O Mission",
+      "crisisType": "Evacuation-Scenario",
+      "constraint": "Fuel shortage"
+    }
+  ]
+}

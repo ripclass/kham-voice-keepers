@@ -1,0 +1,17 @@
+%PDF-1.4 SYNTHETIC STUB
+%% This is a SYNTHETIC PDF STUB for QA testing.
+%% Actual PDF rendering requires a PDF library.
+%% Content summary:
+%% Type: scenario
+%% ID: CP-001
+%% Title: City-A Mission / Civil-Disturbance
+%% Generated: 2026-02-25T02:32:53.074Z
+%% Classification: UNCLASSIFIED / SYNTHETIC
+%%
+%% To generate actual PDFs, use a tool like:
+%%   - LibreOffice --convert-to pdf <txt-file>
+%%   - node -e "require('pdfkit')..." <txt-file>
+%%   - puppeteer headless browser conversion
+%%
+%% This stub file is upload-ready as a reference placeholder.
+%PDF-STUB-END

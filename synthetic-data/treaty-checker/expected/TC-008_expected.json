@@ -1,0 +1,19 @@
+{
+  "id": "TC-008",
+  "treaty": "Paris Agreement (2015)",
+  "nationalInstrument": "Central Bank Order, 1972 [SYNTH]",
+  "expectedOutputContains": [
+    "Gap",
+    "Aligned",
+    "Recommendation",
+    "Section",
+    "Article"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "error",
+    "undefined"
+  ],
+  "minResponseLength": 500,
+  "fail_case": false
+}

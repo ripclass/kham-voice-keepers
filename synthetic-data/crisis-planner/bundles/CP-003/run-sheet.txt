@@ -1,0 +1,38 @@
+SYNTHETIC RUN SHEET — CP-003
+════════════════════════════════════════════════════
+Pilot: Crisis Planner
+Case ID: CP-003
+Mission: City-A Mission
+Crisis Type: Civil-Disturbance
+Constraint: Curfew in effect
+Generated: 2026-02-25T02:32:53.061Z
+Classification: UNCLASSIFIED / SYNTHETIC
+════════════════════════════════════════════════════
+
+STEP 1: UPLOAD SCENARIO
+  File: inputs/txt/scenario/CP-003_*.txt (paste as scenario brief)
+  OR upload the corresponding PDF version from inputs/pdf/
+
+STEP 2: PASTE PROMPT
+  Copy prompt from: prompts/input-prompt.txt
+  Replace [MISSION] with: City-A Mission
+  Replace [CRISIS_TYPE] with: Civil-Disturbance
+  Replace [CONSTRAINT] with: Curfew in effect
+
+STEP 3: SUBMIT AND OBSERVE
+  Expected response time: 10–30 seconds
+  Expected output: Operational response plan with prioritised actions
+
+STEP 4: VALIDATE AGAINST EXPECTED
+  Expected file: expected/CP-003_expected.json
+  Check for all items in "expectedOutputContains"
+  Verify response length ≥ 400 characters
+
+STEP 5: LOG RESULT
+  Pass / Fail / Partial
+  Notes: _______________________________________________
+  Timestamp: ___________________________________________
+  Tester: _____________________________________________
+
+════════════════════════════════════════════════════
+SYNTHETIC DATA — FOR TESTING ONLY

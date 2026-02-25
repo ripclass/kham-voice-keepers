@@ -1,0 +1,12 @@
+{
+  "id": "CP-FAIL-003",
+  "fail_case": true,
+  "description": "Overloaded constraint scenario — system should prioritise",
+  "expectedBehaviour": "System should handle gracefully, ask for clarification if needed",
+  "expectedOutputContains": [],
+  "expectedOutputNotContains": [
+    "crash",
+    "fatal",
+    "undefined error"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "CP-011",
+  "mission": "City-A Mission",
+  "crisisType": "Natural-Disaster",
+  "constraint": "Border crossing restriction",
+  "expectedOutputContains": [
+    "action",
+    "contact",
+    "coordinate",
+    "priority",
+    "timeline"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "undefined",
+    "error"
+  ],
+  "minResponseLength": 400,
+  "fail_case": false
+}

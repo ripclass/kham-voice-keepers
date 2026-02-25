@@ -1,0 +1,19 @@
+{
+  "id": "TC-010",
+  "treaty": "Paris Agreement (2015)",
+  "nationalInstrument": "Emergency Powers Rules, 2007 [SYNTH]",
+  "expectedOutputContains": [
+    "Gap",
+    "Aligned",
+    "Recommendation",
+    "Section",
+    "Article"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "error",
+    "undefined"
+  ],
+  "minResponseLength": 500,
+  "fail_case": false
+}

@@ -1,0 +1,19 @@
+{
+  "id": "TC-001",
+  "treaty": "Paris Agreement (2015)",
+  "nationalInstrument": "National Environment Conservation Act, 1995 [SYNTH]",
+  "expectedOutputContains": [
+    "Gap",
+    "Aligned",
+    "Recommendation",
+    "Section",
+    "Article"
+  ],
+  "expectedOutputNotContains": [
+    "I cannot",
+    "error",
+    "undefined"
+  ],
+  "minResponseLength": 500,
+  "fail_case": false
+}

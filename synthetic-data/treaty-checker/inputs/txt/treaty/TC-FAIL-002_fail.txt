@@ -1,0 +1,5 @@
+SYNTHETIC FAIL CASE — TC-FAIL-002
+Description: Empty national instrument — system should handle gracefully
+Treaty: Paris Agreement (2015)
+National Instrument: BLANK-LAW-TEXT
+This is an intentional test of error handling.

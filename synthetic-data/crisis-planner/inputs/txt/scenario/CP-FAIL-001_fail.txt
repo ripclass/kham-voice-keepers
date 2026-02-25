@@ -1,0 +1,6 @@
+SYNTHETIC FAIL CASE — CP-FAIL-001
+Description: Unrecognised crisis type — system should ask for clarification
+Mission: City-A Mission
+Crisis Type: UNKNOWN-TYPE
+Constraint: No constraints
+This is an intentional test of error handling.
