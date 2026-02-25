@@ -8,33 +8,41 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>KhaM - Sovereign AI for South Asia</title>
-        <meta name="description" content="The languages of South Asia are not just multilingual - they are emotionally polyphonic. KhaM is building the cultural infrastructure to preserve them in AI before they disappear from both memory and machine." />
-        <meta property="og:title" content="KhaM - Sovereign AI for South Asia" />
-        <meta property="og:description" content="Protecting endangered voices and emotional nuance in South Asian languages through open-source tools and care." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://khamlabs.org" />
-        <meta property="og:image" content="https://khamlabs.org/og/kham-main.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="KhaM - Preserving Disappearing Voices in AI from South Asia" />
-        <meta name="twitter:description" content="KhaM is an open-source project preserving endangered South Asian dialects, voices, and emotional language in AI." />
-        <meta name="twitter:image" content="https://khamlabs.org/og/kham-main.jpg" />
+        <title>KhaM — Sovereign AI for South Asia</title>
+        <meta name="description" content="The languages of South Asia are not just multilingual — they are emotionally polyphonic. KhaM is building cultural infrastructure to preserve them in AI before they disappear from both memory and machine." />
+        <meta name="robots" content="index,follow" />
         <link rel="canonical" href="https://khamlabs.org/" />
+
+        <meta property="og:title" content="KhaM — Sovereign AI for South Asia" />
+        <meta property="og:description" content="KhaM is building cultural infrastructure to preserve South Asian dialects, tone, and emotional nuance in AI." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://khamlabs.org/" />
+        <meta property="og:image" content="https://khamlabs.org/og/kham-main.png" />
+        <meta property="og:image:alt" content="KhaM — Sovereign AI for South Asia" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="KhaM — Sovereign AI for South Asia" />
+        <meta name="twitter:description" content="KhaM is building cultural infrastructure to preserve South Asian dialects, voices, and emotional nuance in AI." />
+        <meta name="twitter:image" content="https://khamlabs.org/og/kham-main.png" />
 
         <script type="application/ld+json">
           {`{
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "KhaM",
-            "url": "https://khamlabs.org",
-            "logo": "https://khamlabs.org/logo.png",
-            "description": "KhaM is an open-source cultural infrastructure project preserving endangered South Asian dialects and voices in AI.",
-            "founder": {
-              "@type": "Person",
-              "name": "Ripon"
-            },
-            "sameAs": [
-              "https://khamlabs.org"
+            "@context":"https://schema.org",
+            "@graph":[
+              {
+                "@type":"Organization",
+                "name":"KhaM",
+                "url":"https://khamlabs.org/",
+                "logo":"https://khamlabs.org/kham-favicon.svg",
+                "description":"KhaM is building cultural infrastructure to preserve South Asian dialects, voices, and emotional nuance in AI.",
+                "founder":{"@type":"Person","name":"Ripon Chowdhury"},
+                "contactPoint":[{"@type":"ContactPoint","email":"ripon@khamlabs.org","contactType":"founder"}]
+              },
+              {
+                "@type":"WebSite",
+                "name":"KhaM",
+                "url":"https://khamlabs.org/"
+              }
             ]
           }`}
         </script>
