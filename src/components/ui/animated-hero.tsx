@@ -3,9 +3,11 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
+  const navigate = useNavigate();
   const titles = useMemo(
     () => ["Disappearing", "Forgotten", "Lost", "Endangered", "Precious"],
     []
@@ -21,10 +23,6 @@ function Hero() {
     }, 2000);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
-
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <div className="w-full flex items-center justify-center px-4 md:px-6 py-10 md:py-12">
@@ -65,11 +63,11 @@ function Hero() {
           </div>
           <div className="pt-4 md:pt-5">
             <Button
-              onClick={() => scrollToSection('what-is-kham')}
+              onClick={() => navigate('/team')}
               className="rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink/80 dark:border-paper/80 !bg-ink/5 dark:!bg-paper/10 !text-ink dark:!text-paper hover:!bg-ink hover:!text-paper dark:hover:!bg-paper dark:hover:!text-ink font-semibold shadow-[inset_0_0_0_1px_rgba(0,0,0,0.45)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] gap-3"
-              aria-label="Learn more about KhaM's mission"
+              aria-label="Read the origin story"
             >
-              Learn More <MoveRight className="w-4 h-4" />
+              Read the Origin Story <MoveRight className="w-4 h-4" />
             </Button>
           </div>
         </div>
@@ -79,3 +77,4 @@ function Hero() {
 }
 
 export { Hero };
+

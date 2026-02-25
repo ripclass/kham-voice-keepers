@@ -48,8 +48,6 @@ const Index = () => {
             {/* ASCII-style module strip aligned to content frame */}
             <div className="kham-frame p-3 md:p-4">
               <div className="flex items-center gap-3 opacity-70">
-                <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/80 dark:text-paper/80">KhaM</span>
-                <span className="font-tech text-[10px] text-ink/40 dark:text-paper/40">•</span>
                 <span className="font-tech text-[10px] uppercase tracking-[0.2em] text-ink/70 dark:text-paper/70">Cultural Memory Infrastructure</span>
                 <div className="flex-1 border-t border-dashed border-ink/30 dark:border-paper/30" />
                 <span className="font-tech text-[10px] uppercase tracking-[0.16em] text-ink/50 dark:text-paper/50">System Active</span>

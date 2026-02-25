@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Moon, Sun } from "lucide-react";
 
 const navLinks: [string, string][] = [
   ["Voices", "/voices"],
@@ -10,16 +12,23 @@ const navLinks: [string, string][] = [
   ["Contact", "/contact"],
 ];
 
-/**
- * SystemHeaderNav — unified KhaM ASCII-style site header.
- * Replaces the legacy Navigation component across all top-level pages.
- */
 const SystemHeaderNav = () => {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    setDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+  };
+
   return (
     <header className="w-full border-b border-dashed border-ink/20 dark:border-paper/25 bg-paper/95 dark:bg-background/95 backdrop-blur-sm sticky top-0 z-50">
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-3">
         <div className="flex items-center gap-3">
-          {/* Brand / home link */}
           <Link
             to="/"
             className="font-tech text-sm uppercase tracking-[0.2em] text-ink dark:text-paper hover:text-terracotta dark:hover:text-terracotta transition-colors shrink-0"
@@ -27,10 +36,8 @@ const SystemHeaderNav = () => {
             KhaM
           </Link>
 
-          {/* Dashed separator line */}
           <div className="flex-1 border-t border-dashed border-ink/25 dark:border-paper/25" />
 
-          {/* Right-aligned nav links */}
           <nav className="flex items-center gap-x-4 md:gap-x-5 flex-wrap justify-end">
             {navLinks.map(([label, href]) => (
               <Link
@@ -42,6 +49,14 @@ const SystemHeaderNav = () => {
               </Link>
             ))}
           </nav>
+
+          <button
+            aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+            onClick={toggleTheme}
+            className="ml-2 rounded-none border border-dashed border-ink/60 dark:border-paper/60 p-1.5 text-ink/80 dark:text-paper/80 hover:text-ink dark:hover:text-paper hover:bg-ink/5 dark:hover:bg-paper/10 transition-colors"
+          >
+            {dark ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+          </button>
         </div>
       </div>
     </header>
