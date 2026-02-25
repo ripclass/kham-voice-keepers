@@ -518,7 +518,6 @@ def _build_treaty_ai_response(
     )
 
 
-@app.post("/api/treaty/analyze", response_model=TreatyAnalyzeResponse)
 def _build_treaty_quality_gate(response: TreatyAnalyzeResponse) -> QualityGate:
     reasons: List[str] = []
 
@@ -535,6 +534,7 @@ def _build_treaty_quality_gate(response: TreatyAnalyzeResponse) -> QualityGate:
     return QualityGate(passed=len(reasons) == 0, reasons=reasons)
 
 
+@app.post("/api/treaty/analyze", response_model=TreatyAnalyzeResponse)
 def treaty_analyze(payload: TreatyAnalyzeRequest) -> TreatyAnalyzeResponse:
     now = datetime.now(timezone.utc)
     ref = f"KHM-GOV-{now.strftime('%Y%m%d')}-TC-{now.strftime('%H%M%S')}"
