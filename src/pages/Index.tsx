@@ -126,21 +126,48 @@ const Index = () => {
               </div>
             </SystemPageFrame>
 
-            {/* Who It's For */}
+            {/* Founder / Origin */}
             <SystemPageFrame
-              title="Who It's For"
-              subtitle="Early-stage, open-source, and actively looking for people who feel the same urgency."
+              title="Founder"
+              subtitle="Ripon · Builder · Filmmaker · Native Speaker"
             >
-              <SystemSection
-                title="Audience"
-                description="Creators, linguists, builders, cultural workers."
-              >
-                <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
-                  KhaM is for people working at the edge of language and memory: linguistic experts in South Asian
-                  languages, AI researchers, voice contributors, diaspora organizers, and institutions that care about
-                  cultural continuity.
-                </p>
-              </SystemSection>
+              <div className="space-y-5">
+                <SystemSection
+                  title="Profile"
+                  description="Background"
+                >
+                  <ul className="space-y-2">
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Grew up in Chittagong, Bangladesh</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Native Chatgayaan and Bengali speaker</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Fluent in Hindi, Urdu, English</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Currently based in Dhaka</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Filmmaker and solo builder</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">Self-taught coder</li>
+                    <li className="font-display text-base md:text-lg leading-relaxed text-ink/85 dark:text-foreground/95">ripon@khamlabs.org</li>
+                  </ul>
+                </SystemSection>
+
+                <SystemSection
+                  title="Origin"
+                  description="Why KhaM exists"
+                >
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95">
+                    I grew up in Chittagong. The language I spoke at home — Chatgayaan — wasn't considered real. No script. No prestige. So we were taught to hide it. To speak proper Bangla. To translate ourselves into acceptability.
+                  </p>
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95 mt-4">
+                    But Chatgayaan was how my mother loved me. It was how neighbors joked, how elders prayed, how loss and joy were carried in voice — not grammar.
+                  </p>
+                  <blockquote className="mt-5 pl-4 border-l-2 border-terracotta/50 font-news text-lg md:text-xl text-ink/75 dark:text-foreground/90 italic">
+                    "If we don't preserve this — not the dictionary, but the tone — we'll lose more than language. We'll lose the way we were loved."
+                  </blockquote>
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95 mt-4">
+                    I am a filmmaker, a writer, and a builder. I've made many things. None of them felt like home until KhaM. This project started as something personal — a realization that the AI systems being built today will shape which languages, dialects, and emotional registers survive into the future. And right now, ours are not in that conversation.
+                  </p>
+                  <p className="font-display text-base md:text-lg leading-relaxed text-ink/80 dark:text-foreground/95 mt-4">
+                    KhaM is my attempt to change that. Open-source, community-led, built with care rather than speed. Named after my parents — Khayer and Mamtaj. A vessel for memory, not metrics.
+                  </p>
+                </SystemSection>
+              </div>
             </SystemPageFrame>
 
             {/* Why This Matters */}
