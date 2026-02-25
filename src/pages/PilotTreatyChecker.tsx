@@ -161,25 +161,25 @@ export default function PilotTreatyChecker() {
             <div className="grid md:grid-cols-2 gap-3">
               <div>
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Treaty</label>
-                <select className="w-full border rounded-md p-2 bg-background" value={treatyName} onChange={(e) => setTreatyName(e.target.value)}>{treaties.map((t) => <option key={t}>{t}</option>)}</select>
+                <select className="w-full border border-dashed rounded-none p-2 bg-background font-display text-sm" value={treatyName} onChange={(e) => setTreatyName(e.target.value)}>{treaties.map((t) => <option key={t}>{t}</option>)}</select>
               </div>
               <div>
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">National Instrument</label>
-                <select className="w-full border rounded-md p-2 bg-background" value={lawName} onChange={(e) => setLawName(e.target.value)}>{nationalInstruments.map((n) => <option key={n}>{n}</option>)}</select>
+                <select className="w-full border border-dashed rounded-none p-2 bg-background font-display text-sm" value={lawName} onChange={(e) => setLawName(e.target.value)}>{nationalInstruments.map((n) => <option key={n}>{n}</option>)}</select>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-3">
               <div className="space-y-2">
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Treaty text (50+ chars) or upload</label>
-                <Textarea value={treatyText} onChange={(e) => setTreatyText(e.target.value)} className="min-h-24" />
-                <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleUpload(e, setTreatyDocText, setTreatyDocName)} />
+                <Textarea value={treatyText} onChange={(e) => setTreatyText(e.target.value)} className="min-h-28 rounded-none border-dashed font-display" />
+                <Input className="rounded-none border-dashed font-tech text-xs" type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleUpload(e, setTreatyDocText, setTreatyDocName)} />
                 {treatyDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {treatyDocName}</p>}
               </div>
               <div className="space-y-2">
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Law text (50+ chars) or upload</label>
-                <Textarea value={lawText} onChange={(e) => setLawText(e.target.value)} className="min-h-24" />
-                <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleUpload(e, setLawDocText, setLawDocName)} />
+                <Textarea value={lawText} onChange={(e) => setLawText(e.target.value)} className="min-h-28 rounded-none border-dashed font-display" />
+                <Input className="rounded-none border-dashed font-tech text-xs" type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleUpload(e, setLawDocText, setLawDocName)} />
                 {lawDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {lawDocName}</p>}
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function PilotTreatyChecker() {
         {data && (
           <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
             <CardHeader>
-              <CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Policy Memo Output</CardTitle>
+              <CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Analysis Output</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-sm">
               <div className="flex flex-wrap gap-3 items-center text-xs text-ink/80 dark:text-paper/80">
@@ -220,7 +220,7 @@ export default function PilotTreatyChecker() {
                 )}
               </div>
 
-              <p><strong>Executive Summary:</strong> {data.executive_summary}</p>
+              <p className="font-display"><span className="font-tech uppercase tracking-[0.08em] text-xs mr-2">Summary</span>{data.executive_summary}</p>
               <div className="overflow-x-auto">
                 <table className="w-full border text-xs">
                   <thead className="bg-ink/10"><tr><th className="p-2 border">Article</th><th className="p-2 border">Status</th><th className="p-2 border">Severity</th><th className="p-2 border">Confidence</th><th className="p-2 border">Confidence Rationale</th></tr></thead>
@@ -233,7 +233,7 @@ export default function PilotTreatyChecker() {
               </div>
 
               <div>
-                <h3 className="font-semibold">Side-by-Side Citations</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Citation Map</h3>
                 <div className="space-y-2">
                   {data.results.map((r, i) => (
                     <div key={i} className="border rounded p-2 text-xs">
@@ -246,12 +246,12 @@ export default function PilotTreatyChecker() {
               </div>
 
               <div>
-                <h3 className="font-semibold">Top Urgent Gaps</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Priority Gaps</h3>
                 <ul className="list-disc pl-5">{data.top_urgent_gaps.map((g, i) => <li key={i}>{g}</li>)}</ul>
               </div>
 
               <div>
-                <h3 className="font-semibold">Action Plan (30/60/90)</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Action Queue 30/60/90</h3>
                 <ul className="list-disc pl-5">{data.action_list_30_60_90.map((a, i) => <li key={i}>{a}</li>)}</ul>
               </div>
 
@@ -265,6 +265,7 @@ export default function PilotTreatyChecker() {
     </div>
   );
 }
+
 
 
 

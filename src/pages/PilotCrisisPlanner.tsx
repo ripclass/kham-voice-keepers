@@ -144,22 +144,22 @@ export default function PilotCrisisPlanner() {
             <div className="grid md:grid-cols-2 gap-3">
               <div>
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Mission Location</label>
-                <select className="w-full border rounded-md p-2 bg-background" value={missionLocation} onChange={(e) => setMissionLocation(e.target.value)}>{missions.map((m) => <option key={m}>{m}</option>)}</select>
+                <select className="w-full border border-dashed rounded-none p-2 bg-background font-display text-sm" value={missionLocation} onChange={(e) => setMissionLocation(e.target.value)}>{missions.map((m) => <option key={m}>{m}</option>)}</select>
               </div>
               <div>
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Crisis Type</label>
-                <select className="w-full border rounded-md p-2 bg-background" value={crisisType} onChange={(e) => setCrisisType(e.target.value)}>{crisisTypes.map((c) => <option key={c}>{c}</option>)}</select>
+                <select className="w-full border border-dashed rounded-none p-2 bg-background font-display text-sm" value={crisisType} onChange={(e) => setCrisisType(e.target.value)}>{crisisTypes.map((c) => <option key={c}>{c}</option>)}</select>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-3">
               <div>
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Nationals Affected</label>
-                <Input type="number" value={nationalsAffected} onChange={(e) => setNationalsAffected(Number(e.target.value))} />
+                <Input className="rounded-none border-dashed font-display" type="number" value={nationalsAffected} onChange={(e) => setNationalsAffected(Number(e.target.value))} />
               </div>
               <div>
                 <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Resource Inventory (comma-separated)</label>
-                <Input value={resources} onChange={(e) => setResources(e.target.value)} />
+                <Input className="rounded-none border-dashed font-display" value={resources} onChange={(e) => setResources(e.target.value)} />
               </div>
             </div>
 
@@ -167,16 +167,18 @@ export default function PilotCrisisPlanner() {
               <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Constraints</label>
               <div className="grid grid-cols-2 gap-2 text-sm mt-1">
                 {crisisConstraints.map((c) => (
-                  <label key={c} className="flex items-center gap-2"><input type="checkbox" checked={selectedConstraints.includes(c)} onChange={() => toggleConstraint(c)} /> {c}</label>
+                  <label key={c} className="font-display flex items-center gap-2 text-ink/85 dark:text-paper/85">
+                    <input className="accent-ink dark:accent-paper" type="checkbox" checked={selectedConstraints.includes(c)} onChange={() => toggleConstraint(c)} /> {c}
+                  </label>
                 ))}
               </div>
             </div>
 
             <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Local Conditions (30+ chars)</label>
-            <Textarea value={localConditions} onChange={(e) => setLocalConditions(e.target.value)} className="min-h-24" />
+            <Textarea value={localConditions} onChange={(e) => setLocalConditions(e.target.value)} className="min-h-28 rounded-none border-dashed font-display" />
 
             <label className="font-tech text-xs text-ink/80 dark:text-paper/80">Situation Brief Upload (.txt/.pdf)</label>
-            <Input type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleScenarioDocUpload(e)} />
+            <Input className="rounded-none border-dashed font-tech text-xs" type="file" accept=".txt,.pdf,application/pdf,text/plain" onChange={(e) => void handleScenarioDocUpload(e)} />
             {scenarioDocName && <p className="text-xs text-ink/80 dark:text-paper/70">Attached: {scenarioDocName}</p>}
 
             <Button
@@ -192,7 +194,7 @@ export default function PilotCrisisPlanner() {
 
         {data && (
           <Card className="rounded-none border-ink/30 dark:border-paper/25 shadow-none">
-            <CardHeader><CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Operational Order Output</CardTitle></CardHeader>
+            <CardHeader><CardTitle className="font-tech uppercase tracking-[0.08em] text-xl">Response Output</CardTitle></CardHeader>
             <CardContent className="space-y-4 text-sm">
               <div className="flex flex-wrap gap-3 items-center text-xs text-ink/80 dark:text-paper/80">
                 <span>Ref: {data.reference_no}</span>
@@ -217,18 +219,18 @@ export default function PilotCrisisPlanner() {
               </div>
 
               <div className="grid md:grid-cols-3 gap-3">
-                <div><h3 className="font-semibold">Condition Yellow</h3><ul className="list-disc pl-5">{data.condition_yellow.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
-                <div><h3 className="font-semibold">Condition Orange</h3><ul className="list-disc pl-5">{data.condition_orange.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
-                <div><h3 className="font-semibold">Condition Red</h3><ul className="list-disc pl-5">{data.condition_red.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
+                <div><h3 className="font-tech uppercase tracking-[0.08em] text-xs">Condition Yellow</h3><ul className="list-disc pl-5">{data.condition_yellow.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
+                <div><h3 className="font-tech uppercase tracking-[0.08em] text-xs">Condition Orange</h3><ul className="list-disc pl-5">{data.condition_orange.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
+                <div><h3 className="font-tech uppercase tracking-[0.08em] text-xs">Condition Red</h3><ul className="list-disc pl-5">{data.condition_red.map((a, i) => <li key={i}>{a}</li>)}</ul></div>
               </div>
 
               <div>
-                <h3 className="font-semibold">Role Assigned Tasks</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Role Task Matrix</h3>
                 <ul className="list-disc pl-5">{data.role_assigned_tasks.map((r, i) => <li key={i}><strong>{r.role}:</strong> {r.task}</li>)}</ul>
               </div>
 
               <div>
-                <h3 className="font-semibold">Timeline</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Timeline</h3>
                 {data.timeline.map((t, i) => (
                   <div key={i} className="mt-2 border rounded p-2">
                     <p className="font-medium">{t.phase}</p>
@@ -238,12 +240,12 @@ export default function PilotCrisisPlanner() {
               </div>
 
               <div>
-                <h3 className="font-semibold">Communication Templates</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Communication Scripts</h3>
                 <ul className="list-disc pl-5">{data.communication_templates.map((c, i) => <li key={i}>{c}</li>)}</ul>
               </div>
 
               <div>
-                <h3 className="font-semibold">Evacuation Plan</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Evacuation Structure</h3>
                 <div className="grid md:grid-cols-2 gap-3 text-xs">
                   <div>
                     <p className="font-medium">Assembly Points</p>
@@ -265,12 +267,12 @@ export default function PilotCrisisPlanner() {
               </div>
 
               <div>
-                <h3 className="font-semibold">SITREP</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">SITREP Template</h3>
                 <pre className="whitespace-pre-wrap text-xs border rounded p-2 bg-background">{data.sitrep_template}</pre>
               </div>
 
               <div>
-                <h3 className="font-semibold">Assumptions & Unknowns</h3>
+                <h3 className="font-tech uppercase tracking-[0.08em] text-sm">Assumptions & Unknowns</h3>
                 <ul className="list-disc pl-5">{data.assumptions_and_unknowns.map((a, i) => <li key={i}>{a}</li>)}</ul>
               </div>
 
@@ -284,6 +286,8 @@ export default function PilotCrisisPlanner() {
     </div>
   );
 }
+
+
 
 
 
