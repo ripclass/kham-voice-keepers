@@ -27,18 +27,17 @@ function Hero() {
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center px-6 md:px-12 pt-20">
-      <div className="container mx-auto">
-        <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
-          <div className="flex gap-4 flex-col">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl max-w-4xl tracking-tighter text-center font-serif leading-tight">
-              <span className="text-ink">A Container for</span>
-              <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
-                &nbsp;
+    <div className="w-full flex items-center justify-center px-4 md:px-6 py-10 md:py-12">
+      <div className="w-full">
+        <div className="flex gap-6 md:gap-8 items-center justify-center flex-col">
+          <div className="flex gap-3 flex-col">
+            <h1 className="font-tech uppercase text-4xl md:text-6xl lg:text-7xl max-w-4xl tracking-[0.06em] text-center leading-tight text-ink dark:text-paper">
+              <span>A Container for</span>
+              <span className="relative flex w-full justify-center overflow-hidden text-center min-h-[1.25em] md:min-h-[1.2em]">
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className="absolute font-serif text-ink"
+                    className="absolute font-tech text-terracotta"
                     initial={{ opacity: 0, y: "-100" }}
                     transition={{ type: "spring", stiffness: 50 }}
                     animate={
@@ -57,18 +56,17 @@ function Hero() {
                   </motion.span>
                 ))}
               </span>
-              <span className="text-ink">Voices</span>
+              <span>Voices</span>
             </h1>
 
-            <p className="text-lg md:text-xl lg:text-2xl font-light max-w-3xl mx-auto leading-relaxed text-ink/80 text-center">
+            <p className="font-display text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-ink/80 dark:text-paper/80 text-center">
               KhaM is an open-source initiative preserving forgotten dialects, lost tone, and emotional language in AI—beginning with South Asia.
             </p>
           </div>
-          <div className="pt-8">
-            <Button 
+          <div className="pt-4 md:pt-5">
+            <Button
               onClick={() => scrollToSection('what-is-kham')}
-              className="bg-terracotta hover:bg-terracotta/90 text-paper px-8 py-3 text-lg rounded-none border-0 font-light gap-4"
-              size="lg"
+              className="rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink/80 dark:border-paper/80 !bg-ink/5 dark:!bg-paper/10 !text-ink dark:!text-paper hover:!bg-ink hover:!text-paper dark:hover:!bg-paper dark:hover:!text-ink font-semibold shadow-[inset_0_0_0_1px_rgba(0,0,0,0.45)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] gap-3"
               aria-label="Learn more about KhaM's mission"
             >
               Learn More <MoveRight className="w-4 h-4" />
