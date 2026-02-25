@@ -259,7 +259,7 @@ export default function PilotTreatyChecker() {
               variant="outline"
               onClick={analyze}
               disabled={loading || !canAnalyze}
-              className="relative w-full md:w-auto rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink transition-all duration-200 before:content-[''] before:absolute before:-top-1 before:-left-1 before:w-2 before:h-2 before:border-t before:border-l before:border-current before:opacity-0 hover:before:opacity-100 after:content-[''] after:absolute after:-bottom-1 after:-right-1 after:w-2 after:h-2 after:border-b after:border-r after:border-current after:opacity-0 hover:after:opacity-100"
+              className="relative w-full md:w-auto rounded-none font-tech text-[11px] uppercase tracking-[0.14em] border border-dashed border-ink/80 dark:border-paper/80 !bg-ink/5 dark:!bg-paper/10 !text-ink dark:!text-paper hover:!bg-ink hover:!text-paper dark:hover:!bg-paper dark:hover:!text-ink !opacity-100 font-semibold shadow-[inset_0_0_0_1px_rgba(0,0,0,0.45)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] transition-all duration-200 before:content-[''] before:absolute before:-top-1 before:-left-1 before:w-2 before:h-2 before:border-t before:border-l before:border-current before:opacity-0 hover:before:opacity-100 after:content-[''] after:absolute after:-bottom-1 after:-right-1 after:w-2 after:h-2 after:border-b after:border-r after:border-current after:opacity-0 hover:after:opacity-100"
             >
               {loading ? "Analyzing..." : "Analyze Compliance"}
             </Button>
@@ -287,10 +287,10 @@ export default function PilotTreatyChecker() {
                 )}
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => void downloadPdf(`treaty-report-${data.reference_no}.pdf`, `TC-${data.reference_no}`, buildTreatyReportTxt(data))}>Download PDF</Button>
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => downloadDoc(`TC-${data.reference_no}`, `treaty-report-${data.reference_no}.doc`, buildTreatyReportHtml(data))}>Download DOC</Button>
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => downloadTxt(`treaty-report-${data.reference_no}.txt`, buildTreatyReportTxt(data))}>Download TXT</Button>
-                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink dark:border-paper bg-background text-ink dark:text-paper hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink" onClick={() => openPrintPreview(`TC-${data.reference_no}`, buildTreatyReportHtml(data))}>Print View</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink/80 dark:border-paper/80 !bg-ink/5 dark:!bg-paper/10 !text-ink dark:!text-paper hover:!bg-ink hover:!text-paper dark:hover:!bg-paper dark:hover:!text-ink !opacity-100 font-semibold shadow-[inset_0_0_0_1px_rgba(0,0,0,0.45)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)]" onClick={() => void downloadPdf(`treaty-report-${data.reference_no}.pdf`, `TC-${data.reference_no}`, buildTreatyReportTxt(data))}>Download PDF</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink/80 dark:border-paper/80 !bg-ink/5 dark:!bg-paper/10 !text-ink dark:!text-paper hover:!bg-ink hover:!text-paper dark:hover:!bg-paper dark:hover:!text-ink !opacity-100 font-semibold shadow-[inset_0_0_0_1px_rgba(0,0,0,0.45)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)]" onClick={() => downloadDoc(`TC-${data.reference_no}`, `treaty-report-${data.reference_no}.doc`, buildTreatyReportHtml(data))}>Download DOC</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink/80 dark:border-paper/80 !bg-ink/5 dark:!bg-paper/10 !text-ink dark:!text-paper hover:!bg-ink hover:!text-paper dark:hover:!bg-paper dark:hover:!text-ink !opacity-100 font-semibold shadow-[inset_0_0_0_1px_rgba(0,0,0,0.45)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)]" onClick={() => downloadTxt(`treaty-report-${data.reference_no}.txt`, buildTreatyReportTxt(data))}>Download TXT</Button>
+                <Button variant="outline" className="rounded-none font-tech text-[11px] uppercase tracking-[0.12em] border border-dashed border-ink/80 dark:border-paper/80 !bg-ink/5 dark:!bg-paper/10 !text-ink dark:!text-paper hover:!bg-ink hover:!text-paper dark:hover:!bg-paper dark:hover:!text-ink !opacity-100 font-semibold shadow-[inset_0_0_0_1px_rgba(0,0,0,0.45)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)]" onClick={() => openPrintPreview(`TC-${data.reference_no}`, buildTreatyReportHtml(data))}>Print View</Button>
               </div>
 
               {data.relevance_warning && <p className="text-xs text-amber-600 dark:text-amber-400">{data.relevance_warning}</p>}
@@ -349,6 +349,8 @@ export default function PilotTreatyChecker() {
     </div>
   );
 }
+
+
 
 
 
