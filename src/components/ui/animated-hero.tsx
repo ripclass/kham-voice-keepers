@@ -58,7 +58,7 @@ function Hero() {
             </h1>
 
             <p className="font-display text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-ink/80 dark:text-foreground/95 text-center">
-              KhaM is an open-source initiative preserving forgotten dialects, lost tone, and emotional language in AI—beginning with South Asia.
+              KhaM is building cultural memory infrastructure for South Asian languages—preserving dialect, tone, and emotional nuance before they vanish from both memory and machine.
             </p>
           </div>
           <div className="pt-4 md:pt-5">
