@@ -14,7 +14,8 @@ from pydantic import BaseModel, Field, field_validator, model_validator
 
 app = FastAPI(title="KhaM Pilot API")
 
-OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+OPENROUTER_API_URL = f"{OPENROUTER_BASE_URL.rstrip('/')}/chat/completions"
 OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/openai/gpt-4.1-mini")
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
@@ -28,6 +29,19 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+def _require_openrouter_key() -> str:
+    if not OPENROUTER_API_KEY:
+        raise RuntimeError(
+            "OPENROUTER_API_KEY is required to start KhaM Pilot API in OpenRouter-only mode."
+        )
+    return OPENROUTER_API_KEY
+
+
+@app.on_event("startup")
+def _validate_openrouter_env() -> None:
+    _require_openrouter_key()
 
 
 @app.get("/api/health")
@@ -172,11 +186,10 @@ def _relevance_check(text: str, keywords: List[str]) -> Tuple[str, float]:
 
 
 def _openrouter_json_completion(system_prompt: str, user_prompt: str) -> Optional[Dict[str, Any]]:
-    if not OPENROUTER_API_KEY:
-        return None
+    api_key = _require_openrouter_key()
 
     headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     }
 
@@ -549,7 +562,7 @@ def treaty_analyze(payload: TreatyAnalyzeRequest) -> TreatyAnalyzeResponse:
     if relevance_status == "low":
         relevance_warning = "Uploaded or pasted text appears weakly related to treaty/law analysis. Results may be unreliable."
 
-    ai_response = _build_treaty_ai_response(payload, now, ref) if OPENROUTER_API_KEY else None
+    ai_response = _build_treaty_ai_response(payload, now, ref)
     response = ai_response if ai_response is not None else _build_treaty_fallback(payload, now, ref)
     response.relevance_status = relevance_status
     response.relevance_score = relevance_score
@@ -914,7 +927,7 @@ def crisis_generate(payload: CrisisGenerateRequest) -> CrisisGenerateResponse:
     if relevance_status == "low":
         relevance_warning = "Scenario inputs appear weakly related to consular crisis planning. Output may be unreliable."
 
-    ai_response = _build_crisis_ai_response(payload, now, ref) if OPENROUTER_API_KEY else None
+    ai_response = _build_crisis_ai_response(payload, now, ref)
     response = ai_response if ai_response is not None else _build_crisis_fallback(payload, now, ref)
     response.relevance_status = relevance_status
     response.relevance_score = round(relevance_score, 3)
