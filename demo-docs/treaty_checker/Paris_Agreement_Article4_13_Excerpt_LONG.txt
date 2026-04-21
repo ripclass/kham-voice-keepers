@@ -1,0 +1,100 @@
+INTERNAL WORKING DOCUMENT
+KhaM for GOV Pilot Dataset
+Document ID: KHM-DOC-TREATY-PA-001
+Source Type: Treaty Excerpt (curated for pilot testing)
+
+Title: Paris Agreement (Selected Operational Articles for Compliance Mapping)
+Adopted: 12 December 2015
+Entry into Force: 4 November 2016
+
+---
+
+ARTICLE 4 — MITIGATION
+
+1. In order to achieve the long-term temperature goal set out in Article 2, Parties aim to reach global peaking of greenhouse gas emissions as soon as possible, recognizing that peaking will take longer for developing country Parties, and to undertake rapid reductions thereafter.
+
+2. Each Party shall prepare, communicate and maintain successive nationally determined contributions (NDCs) that it intends to achieve. Parties shall pursue domestic mitigation measures with the aim of achieving the objectives of such contributions.
+
+3. Each Party’s successive nationally determined contribution will represent a progression beyond the Party’s then current NDC and reflect its highest possible ambition, reflecting common but differentiated responsibilities and respective capabilities, in the light of different national circumstances.
+
+4. Developed country Parties should continue taking the lead by undertaking economy-wide absolute emission reduction targets. Developing country Parties should continue enhancing their mitigation efforts and are encouraged to move over time towards economy-wide emission reduction or limitation targets.
+
+5. Support shall be provided to developing country Parties for the implementation of this Article, recognizing that enhanced support for developing country Parties will allow for higher ambition in their actions.
+
+6. The least developed countries and small island developing States may prepare and communicate strategies, plans and actions for low greenhouse gas emissions development reflecting their special circumstances.
+
+7. Mitigation co-benefits resulting from Parties’ adaptation actions and/or economic diversification plans can contribute to mitigation outcomes under this Article.
+
+8. In communicating their NDCs, all Parties shall provide information necessary for clarity, transparency and understanding in accordance with decision guidance adopted by the Conference of the Parties serving as the meeting of the Parties to this Agreement (CMA).
+
+9. Each Party shall communicate an NDC every five years in accordance with decision guidance.
+
+10. The CMA shall consider common time frames for NDCs.
+
+11. A Party may at any time adjust its existing NDC with a view to enhancing its level of ambition.
+
+12. NDCs communicated by Parties shall be recorded in a public registry maintained by the secretariat.
+
+13. Parties shall account for their NDCs. In accounting for anthropogenic emissions and removals corresponding to their NDCs, Parties shall promote environmental integrity, transparency, accuracy, completeness, comparability and consistency, and ensure the avoidance of double counting.
+
+14. In the context of their NDCs, when recognizing and implementing mitigation actions with respect to anthropogenic emissions and removals, Parties should take into consideration methods and guidance adopted under the Convention.
+
+15. Parties shall take into consideration, in the implementation of this Agreement, the concerns of Parties with economies most affected by response measures.
+
+16. Parties, including regional economic integration organizations and their member States, that have reached an agreement to act jointly under paragraph 2 shall notify the secretariat of the terms of that agreement, including the emissions level allocated to each Party.
+
+17. Each Party to such an agreement shall be responsible for its emissions level as set out in the agreement.
+
+18. If Parties act jointly in the context of a regional economic integration organization and together with it, each member State shall remain responsible for its own emissions level.
+
+19. All Parties should strive to formulate and communicate long-term low greenhouse gas emission development strategies, mindful of Article 2 and taking into account common but differentiated responsibilities and respective capabilities.
+
+---
+
+ARTICLE 13 — ENHANCED TRANSPARENCY FRAMEWORK FOR ACTION AND SUPPORT
+
+1. In order to build mutual trust and confidence and to promote effective implementation, an enhanced transparency framework for action and support is hereby established.
+
+2. The transparency framework shall provide flexibility in implementation to those developing country Parties that need it in the light of their capacities.
+
+3. The transparency framework shall build on and enhance the transparency arrangements under the Convention, recognizing special circumstances of least developed countries and small island developing States, and be implemented in a facilitative, non-intrusive, non-punitive manner.
+
+4. The transparency arrangements under the Convention, including national communications, biennial reports and international assessment and review, shall experience transition to this framework.
+
+5. The purpose of the framework for action is to provide a clear understanding of climate change action in light of the objective of the Convention.
+
+6. The purpose of the framework for support is to provide clarity on support provided and received by relevant Parties.
+
+7. Each Party shall regularly provide:
+   (a) A national inventory report of anthropogenic emissions by sources and removals by sinks;
+   (b) Information necessary to track progress made in implementing and achieving its NDC.
+
+8. Each Party should also provide information related to climate change impacts and adaptation.
+
+9. Developed country Parties shall provide information on financial, technology transfer and capacity-building support provided and mobilized.
+
+10. Developing country Parties should provide information on support needed and received.
+
+11. Information submitted shall undergo a technical expert review and facilitative, multilateral consideration of progress.
+
+12. The technical expert review shall consider support provided where relevant, and identify areas of improvement.
+
+13. The facilitative, multilateral consideration shall consider progress with respect to implementation and achievement of NDCs.
+
+14. Support shall be provided to developing country Parties for implementation of this Article.
+
+15. Support shall also be provided for building transparency-related capacity.
+
+---
+
+Operational Notes for Pilot Mapping
+- Core procedural obligations relevant to domestic legal mapping:
+  (1) Prepare and maintain NDCs
+  (2) Communicate NDCs every five years
+  (3) Ensure progression and highest possible ambition
+  (4) Track and report implementation progress
+  (5) Provide inventory and transparency-related information
+
+- These obligations are especially sensitive in compliance assessment because they are procedural and recurring; absence of domestic legal machinery can create risk during external review.
+
+End of curated treaty excerpt.

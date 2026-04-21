@@ -1,0 +1,121 @@
+INTERNAL WORKING DOCUMENT
+KhaM for GOV Pilot Dataset
+Document ID: KHM-DOC-CRISIS-BEIRUT-003
+Classification: INTERNAL PILOT USE ONLY
+
+Title: Consular Crisis Scenario Brief — Beirut Mission (High-Risk Civil Unrest)
+Prepared for: Consular Crisis Response Planner pilot simulation
+
+---
+
+1. Scenario Overview
+At 06:40 local time, protests in central and southern Beirut escalated into widespread civil unrest following contested political developments and fuel-price shock protests. Multiple arterial routes have intermittent blockades. Security incidents are concentrated in mixed commercial-residential corridors and near transportation nodes.
+
+The Bangladesh mission is receiving fragmented distress calls from migrant workers, students, and short-term visitors. Several callers report inability to move due to roadblocks, fear of opportunistic violence, and intermittent mobile network service.
+
+---
+
+2. Mission Context
+Mission location: Beirut
+Estimated Bangladeshi nationals potentially affected in-country: 50,000 (including registered and unregistered)
+Mission immediate response objective: Preserve life, establish accountability, maintain communication, and prepare for phased relocation/evacuation if conditions deteriorate.
+
+Mission staffing snapshot (active at crisis onset):
+- Head of Mission: 1
+- Deputy Head of Mission: 1
+- Consular officers: 3
+- Political desk officers: 2
+- Security liaison staff: 2
+- Admin/logistics staff: 4
+- Locally engaged support staff: 6 (availability uncertain by district)
+
+---
+
+3. Resource Inventory (Initial)
+Transport assets:
+- Mission vehicles: 2 operational, 1 under maintenance
+- Partner fleet access: conditional support from contracted logistics provider (subject to movement windows)
+
+Communication assets:
+- Hotline: active but congested
+- WhatsApp broadcast channel: active
+- Email channel: active, delayed delivery spikes
+- Backup communication: limited satellite phone access via partner mission (not guaranteed continuous)
+
+Shelter and welfare:
+- Temporary shelter partner capacity: nominal 200 persons for short-duration stay
+- Emergency relief kits in mission stock: limited (food, water, first aid)
+- Medical referral partners: 2 hospitals with uncertain admissions throughput
+
+---
+
+4. Confirmed Constraints
+- Telecom outage: intermittent mobile/data collapse across two high-risk districts
+- Roadblocks: dynamic barriers on key arterial roads
+- Curfew risk: host-country authorities considering nighttime curfew window
+- Fuel instability: uncertain refueling availability for continuous convoy movement
+- Border route uncertainty: cross-border movement policy may shift with little notice
+
+---
+
+5. Operational Risks
+R1. Communication blackout risk:
+Inability to reach unregistered nationals may cause undercounting, delayed rescue, and misinformation spread.
+
+R2. Mobility risk:
+Roadblocks and sporadic violence may isolate clusters of nationals from mission support corridors.
+
+R3. Capacity mismatch risk:
+Potential shelter demand may exceed available mission-partner capacity by a wide margin during peak displacement.
+
+R4. Escalation risk:
+Localized unrest could rapidly spread, converting controlled response posture into emergency execution posture.
+
+R5. Staff fatigue and continuity risk:
+Sustained 24-hour operations with limited team depth may impair decision quality unless shift controls are imposed.
+
+---
+
+6. Priority Population Segments
+P1. Nationals in immediate high-risk zones (injury/active threat exposure)
+P2. Women, children, elderly, and medically vulnerable nationals
+P3. Nationals with expired/irregular documents (higher movement and detention risk)
+P4. Remote workers without reliable communication access
+P5. Students in clustered accommodation with limited supplies
+
+---
+
+7. Command and Coordination Expectations
+- Mission must run a tiered posture model (Yellow/Orange/Red) with explicit trigger thresholds.
+- HQ expects scheduled SITREP cadence with exception reporting for mass-casualty, detention spikes, and route collapse.
+- Coordination required with host-country interior/security contacts and nearby partner missions for contingency channels.
+
+---
+
+8. Trigger Conditions (Draft)
+Yellow to Orange trigger indicators:
+- Verified multi-district disruption > 4 hours
+- Hotline distress volume exceeds processing threshold
+- Repeated inability to verify national clusters in two or more districts
+
+Orange to Red trigger indicators:
+- Confirmed casualty cluster among nationals
+- Mission convoy movement blocked across all primary routes
+- Telecom collapse persists beyond operational tolerance window
+
+---
+
+9. Required Planner Outputs (for pilot quality check)
+- Distinct condition actions (not repeated generic advice)
+- Role-specific task assignment using mission command titles
+- Four-phase timeline (0-2h, 2-6h, 6-24h, 24-72h)
+- Communication templates for nationals, families, employers, and HQ
+- Fillable SITREP format with clear placeholders
+- Explicit assumptions and unknowns tied to this Beirut scenario
+
+---
+
+10. Planning Notes for Evaluators
+This brief intentionally includes realistic operational friction (telecom instability, route uncertainty, constrained shelter capacity, high affected population). High-quality outputs should explicitly account for these constraints and avoid generic evacuation language detached from resource limits.
+
+End of crisis scenario brief.
